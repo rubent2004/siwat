@@ -1,4 +1,5 @@
 import { computed, reactive, readonly, ref, watch } from 'vue'
+import { resetLocale } from '../../i18n'
 import { classify } from '../diagnosis/domain/classify'
 import { emptyAnswers, type DiagnosisAnswers } from '../diagnosis/domain/types'
 import {
@@ -99,7 +100,7 @@ async function openLocalSpace(pseudonym: string, pin: string) {
   vaultActive.value = true
 }
 
-/** «Limpiar datos de este dispositivo»: erases session, local space and in-memory files. */
+/** «Limpiar datos de este dispositivo»: erases session, local space, in-memory files and the language choice. */
 function clearDevice() {
   clearTimeout(vaultSaveTimer)
   sessionRepository.clear()
@@ -108,6 +109,7 @@ function clearDevice() {
   vaultCredentials = null
   vaultActive.value = false
   Object.assign(state, freshState())
+  resetLocale()
 }
 
 export function useCase() {

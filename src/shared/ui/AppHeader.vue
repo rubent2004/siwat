@@ -1,21 +1,22 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import IconLogOut from '~icons/lucide/log-out'
 import { quickExit } from '../../features/camouflage/quick-exit'
 import BrandMark from './BrandMark.vue'
+
+const { t } = useI18n()
 </script>
 
 <template>
   <header class="topbar">
-    <RouterLink :to="{ name: 'welcome' }" class="topbar__home" aria-label="SIWAT, ir al inicio">
+    <RouterLink :to="{ name: 'welcome' }" class="topbar__home" :aria-label="t('header.home')">
       <BrandMark />
     </RouterLink>
     <button type="button" class="topbar__exit" aria-describedby="exit-hint" @click="quickExit">
       <IconLogOut aria-hidden="true" />
-      SALIR RÁPIDO
+      {{ t('header.exit') }}
     </button>
-    <span id="exit-hint" class="visually-hidden">
-      También puedes presionar Esc dos veces. Para volver, mantén presionado el sol durante 2 segundos.
-    </span>
+    <span id="exit-hint" class="visually-hidden">{{ t('header.exitHint') }}</span>
   </header>
 </template>
 

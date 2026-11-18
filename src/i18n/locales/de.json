@@ -1,0 +1,320 @@
+{
+  "app": {
+    "skipLink": "Zum Inhalt springen",
+    "defaultTitle": "SIWAT — Farbe für das, was andere unsichtbar machen",
+    "routes": {
+      "identify": "Schritt 1 von 2",
+      "risk": "Schritt 2 von 2",
+      "result": "Ergebnis",
+      "assistant": "Schnellhilfe"
+    }
+  },
+  "language": {
+    "label": "Sprache"
+  },
+  "common": {
+    "error": "Fehler",
+    "yes": "Ja",
+    "no": "Nein",
+    "chooseYesNo": "Wählen Sie Ja oder Nein.",
+    "newTab": "(öffnet sich in einem neuen Tab)"
+  },
+  "header": {
+    "home": "SIWAT, zur Startseite",
+    "exit": "SCHNELL VERLASSEN",
+    "exitHint": "Sie können auch zweimal Esc drücken. Um zurückzukehren, halten Sie die Sonne 2 Sekunden lang gedrückt."
+  },
+  "footer": {
+    "text": "SIWAT ist ein vorbeugendes Orientierungsangebot. Es erstattet keine Anzeige für Sie. Wenn Sie jetzt in körperlicher Gefahr sind, rufen Sie die {phone} an."
+  },
+  "folio": {
+    "label": "Blatt {folio}"
+  },
+  "emergency": {
+    "title": "Wenn Sie jetzt in Gefahr sind, rufen Sie an",
+    "body": "Beide Nummern sind kostenlos. Sie entscheiden, was Sie erzählen.",
+    "call911": "911 anrufen",
+    "call126": "126 anrufen",
+    "close": "Schließen"
+  },
+  "welcome": {
+    "title": "Ist das, was Sie im Netz erleben, politische Gewalt? Finden Sie es in 2 Minuten heraus.",
+    "lead": "Erkennen Sie, ob nach salvadorianischem Recht Gewalt vorliegt, sichern Sie Ihre Beweise geschützt und erfahren Sie, an wen Sie sich wenden können. Sie entscheiden, ob und wann Sie Anzeige erstatten.",
+    "noticeTitle": "Frei und vertraulich:",
+    "noticeBody": "Sie müssen Ihren echten Namen nicht angeben. SIWAT gibt Orientierung; es schickt keine Anzeigen an Behörden in Ihrem Namen.",
+    "consent": "Ich verstehe, dass dies ein Orientierungsangebot ist, und akzeptiere den Datenschutzhinweis.",
+    "start": "Ampel-Diagnose starten",
+    "danger": "Ich bin jetzt in körperlicher Gefahr",
+    "exitTip": "Wenn sich jemand nähert, tippen Sie auf {exit} oder drücken Sie zweimal Esc: Sie sehen dann das Wetter. Um zurückzukehren, {hold}.",
+    "exitTipHold": "halten Sie die Sonne 2 Sekunden lang gedrückt",
+    "linksLabel": "Weitere Optionen",
+    "assistantLink": "Schnellhilfe nutzen (Anleitung per Schaltflächen)",
+    "localSpaceActive": "Lokaler Bereich aktiv",
+    "localSpaceCreate": "Lokalen Bereich mit PIN anlegen (optional)",
+    "privacyTitle": "Datenschutzhinweis",
+    "privacyBody": "Ihre Antworten, Links und Screenshots bleiben nur im Speicher dieses Browsers und werden beim Schließen des Tabs gelöscht. Nichts wird auf Server hochgeladen. Wenn Sie einen lokalen Bereich anlegen, wird er mit Ihrer PIN verschlüsselt auf diesem Gerät gespeichert. Im Ergebnis können Sie alles mit „Daten von diesem Gerät löschen“ entfernen."
+  },
+  "localSpace": {
+    "titleOpen": "Meinen lokalen Bereich öffnen",
+    "titleCreate": "Lokalen Bereich mit PIN anlegen",
+    "done": "Fertig. Ihr Fortschritt wird verschlüsselt auf diesem Gerät gespeichert. Um ihn an einem anderen Tag fortzusetzen, melden Sie sich mit demselben Pseudonym und derselben PIN an.",
+    "continue": "Weiter",
+    "createIntro": "Das ist optional. Ihr Fortschritt wird nur auf diesem Gerät verschlüsselt gespeichert. Verwenden Sie nicht Ihren echten Namen.",
+    "openIntro": "Auf diesem Gerät ist ein Bereich gespeichert. Geben Sie Ihr Pseudonym und Ihre PIN ein, um ihn zu öffnen.",
+    "pseudonym": "Pseudonym",
+    "pin": "4-stellige PIN",
+    "busy": "Wird geschützt…",
+    "submitOpen": "Meinen Bereich öffnen",
+    "submitCreate": "Meinen Bereich anlegen",
+    "replace": "Neuen anlegen (ersetzt den bisherigen)",
+    "cancel": "Abbrechen",
+    "fallbackError": "Der lokale Bereich konnte nicht geöffnet werden."
+  },
+  "errors": {
+    "vault": {
+      "invalid-credentials": "Geben Sie ein Pseudonym und eine 4-stellige PIN ein.",
+      "not-found": "Auf diesem Gerät ist kein lokaler Bereich gespeichert.",
+      "wrong-credentials": "Pseudonym oder PIN ist falsch. Bitte prüfen Sie die Angaben und versuchen Sie es erneut."
+    },
+    "evidence": {
+      "too-many-files": "Sie können höchstens {max} Screenshots hochladen. Entfernen Sie einen, um einen weiteren hinzuzufügen.",
+      "unsupported-format": "„{name}“ ist kein JPG- oder PNG-Bild. Laden Sie den originalen Screenshot in einem dieser Formate hoch."
+    }
+  },
+  "identify": {
+    "stepLabel": "Schritt 1 von 2: Was ist passiert?",
+    "title": "Was ist passiert und wo?",
+    "role": "In welcher Rolle sind Sie aktiv? (optional)",
+    "preferNot": "Keine Angabe",
+    "department": "Departamento (optional)",
+    "hint": "Diese beiden Angaben dienen nur der anonymen Statistik. Sie identifizieren Sie nicht.",
+    "platforms": "Wo fand der Angriff statt?",
+    "required": "(Pflichtangabe)",
+    "electoral": "Geschieht es während eines Wahlkampfs oder bei der Ausübung eines öffentlichen Amtes?",
+    "conducts": "Markieren Sie alles, was Ihnen passiert ist:",
+    "errorPlatforms": "Markieren Sie mindestens ein Netzwerk oder einen Kanal, wo es passiert ist.",
+    "errorConducts": "Markieren Sie mindestens eine der Situationen.",
+    "next": "Weiter: Risiko und Beweise bewerten"
+  },
+  "risk": {
+    "stepLabel": "Schritt 2 von 2: Dringlichkeit und Beweise",
+    "title": "Risikobarometer und Beweissicherung",
+    "threat": "Wurde Ihnen mit körperlicher oder sexueller Gewalt gedroht oder mit Gewalt gegen Ihre Familie?",
+    "exposure": "Wurden Ihre genaue Adresse, Ihr Arbeitsort, Ihre private Telefonnummer oder intime Bilder ohne Ihre Erlaubnis veröffentlicht?",
+    "importantTitle": "Wichtig!",
+    "importantBody": "Bevor Sie die angreifende Person blockieren, sichern Sie den originalen Screenshot und den Link. Wenn Sie zuerst blockieren, verlieren Sie den Zugriff auf den Beweis.",
+    "url": "Link (URL) zum Beitrag oder zum Profil der angreifenden Person (optional)",
+    "urlHint": "Kopieren Sie den Link über die 3 Punkte am Beitrag.",
+    "narrative": "Beschreiben Sie kurz, was passiert ist (optional)",
+    "counter": "{count}/{max} Zeichen",
+    "submit": "Mein Ampel-Ergebnis anzeigen",
+    "back": "Zurück"
+  },
+  "uploader": {
+    "label": "Originalen Screenshot hochladen (optional, JPG oder PNG)",
+    "hint": "Höchstens {max} Bilder. Ihr Browser berechnet ihren digitalen Fingerabdruck (SHA-256) und die UTC-Uhrzeit, um zu belegen, dass sie unverändert bleiben. Die Bilder verlassen Ihr Gerät nicht.",
+    "proof": "Beweis {n}",
+    "sealUtc": "UTC-Zeitstempel",
+    "remove": "Beweis {n} entfernen, {name}",
+    "hashing": "Digitaler Fingerabdruck wird berechnet…",
+    "addAnother": "Weiteren Screenshot hinzufügen",
+    "choose": "Screenshots auswählen",
+    "fallbackError": "Das Bild konnte nicht verarbeitet werden."
+  },
+  "result": {
+    "lawTitle": "Was sagt das salvadorianische Recht zu Ihrem Fall?",
+    "lawOfficialNote": "Der amtliche Wortlaut dieser Gesetze ist auf Spanisch."
+  },
+  "bitacora": {
+    "title": "Beweisprotokoll",
+    "lead": "Ein PDF mit dem Fallcode {code}, Datum und Uhrzeit in UTC, dem SHA-256-Fingerabdruck jedes Screenshots, dem Link und dem rechtlichen Rahmen. Bewahren Sie es zusammen mit Ihren unbearbeiteten Originaldateien auf.",
+    "ack": "Dieses Dokument ist ein persönliches Sicherungsprotokoll. SIWAT erstattet keine Anzeige für Sie und ersetzt keine rechtlichen Verfahren vor der FGR oder dem TSE.",
+    "generating": "PDF wird erstellt…",
+    "download": "Beweisprotokoll herunterladen (PDF)",
+    "spanishNote": "Das Protokoll wird auf Spanisch erstellt, damit Sie es bei salvadorianischen Behörden vorlegen können.",
+    "downloaded": "Protokoll heruntergeladen. Sehen Sie in Ihrem Download-Ordner nach.",
+    "error": "Das PDF konnte nicht erstellt werden. Versuchen Sie es erneut; wenn es weiterhin nicht klappt, entfernen Sie die Screenshots und laden Sie sie neu hoch.",
+    "eraseHint": "Wenn Sie fertig sind, löschen Sie alles, was SIWAT auf diesem Gerät gespeichert hat: Antworten, Links, Screenshots und lokalen Bereich.",
+    "clear": "Daten von diesem Gerät löschen",
+    "confirmTitle": "Alles von diesem Gerät löschen?",
+    "confirmBody": "Ihre Antworten, Links, Screenshots und der lokale Bereich mit PIN werden gelöscht. Das lässt sich nicht rückgängig machen.",
+    "notDownloaded": "Sie haben Ihr Protokoll noch nicht heruntergeladen.",
+    "keep": "Meine Daten behalten",
+    "confirmClear": "Ja, alles löschen"
+  },
+  "route": {
+    "title": "Ihr Handlungsplan",
+    "step1": "1. Auf der Plattform melden (nicht nur blockieren)",
+    "seeSteps": "So melden Sie es auf {platform}",
+    "howtoSave": "Sichern Sie zuerst den Beweis: ein Screenshot, auf dem Datum, Kontoname und Link zu sehen sind.",
+    "howtoConfirm": "Machen Sie einen Screenshot der Meldebestätigung. Danach können Sie das Konto blockieren oder einschränken, wenn Sie möchten.",
+    "step2": "2. An wen Sie sich wenden können",
+    "note": "Sie entscheiden, ob Sie Anzeige erstatten. SIWAT sendet Ihre Daten nicht weiter und erstattet keine Anzeige für Sie.",
+    "step3": "3. Konten absichern",
+    "shieldSummary": "Schützen Sie Ihre Konten noch heute (3 wichtige Maßnahmen)"
+  },
+  "reportLocation": {
+    "facebook": "Tippen Sie auf die drei Punkte (…) am Beitrag oder Profil und wählen Sie „Melden“. Wählen Sie den Grund: Belästigung, Identitätsmissbrauch oder Nacktheit.",
+    "whatsapp": "Öffnen Sie den Chat, tippen Sie auf den Namen des Kontakts oder der Gruppe und wählen Sie „Melden“.",
+    "tiktok": "Halten Sie das Video gedrückt oder tippen Sie auf „Teilen“ und wählen Sie „Melden“. Nutzen Sie auf einem Profil die drei Punkte.",
+    "x": "Tippen Sie auf die drei Punkte (…) am Beitrag oder Profil und wählen Sie „Melden“.",
+    "instagram": "Tippen Sie auf die drei Punkte (…) am Beitrag, an der Story oder am Profil und wählen Sie „Melden“.",
+    "youtube": "Tippen Sie auf die drei Punkte (⋮) am Video oder Kommentar und wählen Sie „Melden“.",
+    "telegram": "Öffnen Sie das Profil, den Kanal oder die Nachricht, tippen Sie auf die drei Punkte und wählen Sie „Melden“.",
+    "email": "Löschen Sie die E-Mail nicht: Speichern Sie sie vollständig („Nachricht herunterladen“ oder „Original anzeigen“) und markieren Sie sie als Spam oder Phishing.",
+    "other": "Suchen Sie die Option „Melden“ neben dem Beitrag oder im Profil der angreifenden Person."
+  },
+  "shield": {
+    "two-step": {
+      "label": "Bestätigung in zwei Schritten aktivieren",
+      "detail": "In den Sicherheitseinstellungen jedes Netzwerks. So kommt niemand hinein, selbst mit Ihrem Passwort."
+    },
+    "hide-contact": {
+      "label": "Telefonnummer und E-Mail verbergen",
+      "detail": "Sodass nur Sie sie in Ihrem öffentlichen Profil sehen."
+    },
+    "sessions": {
+      "label": "Offene Sitzungen prüfen",
+      "detail": "Beenden Sie Sitzungen, die Sie nicht kennen, und ändern Sie Ihr Passwort, wenn Ihnen eine verdächtig vorkommt."
+    }
+  },
+  "stats": {
+    "title": "Anonyme Statistik (optional)",
+    "optIn": "Ich möchte anonyme Daten an die Beobachtungsstelle für politische Gewalt von ANDRYSAS beitragen.",
+    "preview": "Das ist alles, was geteilt würde: ohne Namen, Links, Schilderung oder Screenshots. In dieser Demo wird noch nichts gesendet."
+  },
+  "assistant": {
+    "title": "Schnellhilfe",
+    "intro": "Wählen Sie, was Sie jetzt brauchen. Funktioniert ohne Internet und ohne künstliche Intelligenz.",
+    "capture": {
+      "question": "Wie mache ich einen Screenshot, der als Beweis taugt?",
+      "s1": "Nehmen Sie den ganzen Bildschirm auf, ohne zuzuschneiden: Datum, Uhrzeit und Kontoname oder Benutzername müssen zu sehen sein.",
+      "s2": "Kopieren Sie den Link zum Beitrag oder Profil (über die 3 Punkte, „Link kopieren“).",
+      "s3": "Nehmen Sie auch das Profil der angreifenden Person auf und, falls vorhanden, die Kommentare.",
+      "s4": "Bearbeiten, beschneiden oder verschicken Sie ihn nicht per Chat: Bewahren Sie die Originaldatei auf.",
+      "s5": "Laden Sie ihn in Schritt 2 der Ampel-Diagnose hoch, um seinen SHA-256-Fingerabdruck und die UTC-Uhrzeit zu berechnen.",
+      "s6": "Tun Sie all das, bevor Sie blockieren."
+    },
+    "hide": {
+      "question": "Wie verberge ich SIWAT, wenn sich jemand nähert?",
+      "s1": "Tippen Sie oben rechts auf „SCHNELL VERLASSEN“ oder drücken Sie am Computer zweimal Esc.",
+      "s2": "Es erscheint eine Wetteranzeige für San Salvador, ohne Hinweis auf SIWAT.",
+      "s3": "Um dorthin zurückzukehren, wo Sie waren, halten Sie die Sonne 2 Sekunden lang gedrückt."
+    },
+    "shield": {
+      "question": "Ich möchte mein WhatsApp und Facebook jetzt absichern",
+      "whatsapp1": "Einstellungen › Account › Verifizierung in zwei Schritten › Aktivieren. Legen Sie eine 6-stellige PIN fest.",
+      "whatsapp2": "Einstellungen › Datenschutz: „Profilbild“, „Info“ und „Gruppen“ auf „Meine Kontakte“ stellen.",
+      "whatsapp3": "Einstellungen › Verknüpfte Geräte: Melden Sie alle ab, die Sie nicht kennen.",
+      "facebook1": "Kontenübersicht › Passwort und Sicherheit › Zweistufige Authentifizierung.",
+      "facebook2": "Im selben Bereich, „Wo du angemeldet bist“: Beenden Sie verdächtige Sitzungen.",
+      "facebook3": "Profil › Kontaktinformationen: Telefonnummer und E-Mail auf „Nur ich“ stellen."
+    },
+    "goDiagnosis": "Zur Ampel-Diagnose"
+  },
+  "catalog": {
+    "roles": {
+      "alcaldesa-sindica-regidora": "Bürgermeisterin/Síndica/Gemeinderätin",
+      "diputada": "Abgeordnete",
+      "candidata": "Kandidatin",
+      "militante": "Parteimitglied",
+      "lideresa-comunitaria": "Gemeindevertreterin",
+      "activista-defensora": "Aktivistin/Menschenrechtsverteidigerin",
+      "otro": "Andere"
+    },
+    "platforms": {
+      "facebook": "Facebook",
+      "whatsapp": "WhatsApp",
+      "tiktok": "TikTok",
+      "x": "X (Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "telegram": "Telegram",
+      "email": "E-Mail",
+      "other": "Andere"
+    },
+    "conducts": {
+      "threats": {
+        "label": "Drohungen",
+        "description": "Man droht, Ihnen oder Ihrer Familie Schaden zuzufügen."
+      },
+      "sexist-insults": {
+        "label": "Sexistische Beleidigungen oder Spott",
+        "description": "Man demütigt Sie, weil Sie eine Frau sind, wegen Ihres Körpers oder Ihres Privatlebens."
+      },
+      "doxing": {
+        "label": "Verbreitung privater Daten (Doxing)",
+        "description": "Ihre Telefonnummer, Adresse oder private Fotos wurden ohne Erlaubnis veröffentlicht."
+      },
+      "deepfake": {
+        "label": "Manipulierte oder gefälschte Inhalte (Deepfake)",
+        "description": "Veränderte Fotos, Videos oder Audios."
+      },
+      "impersonation": {
+        "label": "Identitätsmissbrauch",
+        "description": "Jemand hat ein gefälschtes Konto erstellt und gibt sich als Sie aus."
+      },
+      "disinformation": {
+        "label": "Desinformation oder koordinierter Angriff",
+        "description": "Massenhafte Lügen oder viele Konten, die Sie angreifen, um Ihre politische Arbeit zu diskreditieren."
+      }
+    },
+    "light": {
+      "red": {
+        "label": "Rot",
+        "title": "Rote Ampel — Hohes Risiko",
+        "body": "Es gibt ernste Anzeichen für eine Gefahr für Ihre körperliche Unversehrtheit, Ihre Privatsphäre oder für eine Computerstraftat. Sofortiges Handeln und Schutz sind nötig."
+      },
+      "yellow": {
+        "label": "Gelb",
+        "title": "Gelbe Ampel — Digitale politische Gewalt",
+        "body": "Was Sie erleben, soll Sie diskreditieren oder Ihre politische Teilhabe einschränken. Dokumentieren Sie es systematisch und melden Sie es."
+      },
+      "green": {
+        "label": "Grün",
+        "title": "Grüne Ampel — Vorbeugende Warnung",
+        "body": "Erste Anzeichen von Belästigung oder symbolischer Gewalt. Nehmen Sie es nicht als normal hin; sichern Sie Ihre Konten und dokumentieren Sie alles."
+      }
+    }
+  },
+  "legal": {
+    "leiv-49-51": "Freiheitsstrafe von 3 bis 10 Jahren für das Verbreiten oder Erstellen intimer/sexueller Inhalte ohne Einwilligung über elektronische Medien.",
+    "leiv-50": "Freiheitsstrafe von 1 bis 3 Jahren für das Veröffentlichen personenbezogener Daten, die die Ehre oder die Privatsphäre verletzen.",
+    "leiv-55-e": "Bestraft es, eine Frau einer unmittelbaren Gefahr für ihre körperliche oder seelische Unversehrtheit auszusetzen.",
+    "ledic-22-32": "Bestraft Identitätsmissbrauch und die betrügerische Verwendung von Computerdaten.",
+    "leiv-55-c": "Bestraft es, Frauen in Bereichen politischer Teilhabe zu diskreditieren oder herabzuwürdigen.",
+    "leiv-55-c-d": "Bestraft es, die politische Teilhabe von Frauen zu verspotten, zu diskreditieren oder zu behindern.",
+    "electoral-code-173-249": "Verbietet schmutzige oder verleumderische Wahlpropaganda.",
+    "lie-20-23": "Garantiert Gleichstellung bei der Ausübung politischer Rechte.",
+    "leiv-9": "Erkennt psychische, emotionale und symbolische Gewalt gegen Frauen an.",
+    "leiv-55-a": "Bestraft das Verbreiten von Botschaften, die Hass oder Verachtung gegenüber Frauen fördern.",
+    "belem-do-para-3-7": "Recht auf ein Leben frei von Gewalt im öffentlichen und politischen Bereich."
+  },
+  "institutions": {
+    "pnc": "Notfälle und Gefahr für Ihre körperliche Unversehrtheit oder die Ihrer Familie.",
+    "fgr": "Ermittelt bei Drohungen, Doxing und Identitätsmissbrauch.",
+    "isdemu": "Kostenlose Beratung für Frauen, die Gewalt erleben.",
+    "tse": "Politische Gewalt während eines Wahlkampfs oder bei der Ausübung eines Amtes.",
+    "actions": {
+      "pnc-911": "Notruf wählen (PNC 911)",
+      "fgr-web": "Kontaktwege der FGR ansehen",
+      "isdemu-126": "Kostenlose Beratung anrufen (ISDEMU 126)",
+      "isdemu-web": "126 Te Orienta öffnen",
+      "tse-web": "Politische Gewalt melden (TSE)"
+    }
+  },
+  "weather": {
+    "documentTitle": "Wetter — San Salvador",
+    "city": "San Salvador",
+    "subtitle": "Wettervorhersage",
+    "sunLabel": "Details zum aktuellen Wetter",
+    "now": "Teilweise bewölkt",
+    "humidity": "Luftfeuchtigkeit {value} %",
+    "wind": "Wind {value} km/h",
+    "hourly": "Stündlich",
+    "daily": "Nächste Tage",
+    "tomorrow": "Morgen",
+    "friday": "Freitag",
+    "saturday": "Samstag"
+  }
+}

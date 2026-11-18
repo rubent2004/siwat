@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconCircleAlert from '~icons/lucide/circle-alert'
 import IconFileDown from '~icons/lucide/file-down'
@@ -8,6 +9,7 @@ import { useCase } from '../case/use-case'
 import { createBitacoraPdf, downloadBlob } from '../evidence/bitacora-pdf'
 
 const router = useRouter()
+const { t, locale } = useI18n()
 const { state, result, evidenceFile, clearDevice } = useCase()
 
 const acknowledged = ref(false)
@@ -30,7 +32,7 @@ async function download() {
     downloadBlob(blob, `${state.caseCode}.pdf`)
     downloaded.value = true
   } catch {
-    error.value = 'No se pudo crear el PDF. Intenta de nuevo; si persiste, quita las capturas y vuelve a subirlas.'
+    error.value = 'bitacora.error'
   } finally {
     generating.value = false
   }
@@ -47,50 +49,45 @@ function onConfirmClose() {
 
 <template>
   <section class="bitacora" aria-labelledby="bitacora-title">
-    <h2 id="bitacora-title">Bitácora de Evidencia</h2>
-    <p class="bitacora__lead">
-      Un PDF con código <span class="data">{{ state.caseCode }}</span>, fecha y hora UTC, huella SHA-256 de cada
-      captura, enlace y marco legal. Guárdalo junto a tus archivos originales sin editar.
-    </p>
+    <h2 id="bitacora-title">{{ t('bitacora.title') }}</h2>
+    <i18n-t keypath="bitacora.lead" tag="p" class="bitacora__lead" scope="global">
+      <template #code><span class="data">{{ state.caseCode }}</span></template>
+    </i18n-t>
 
     <label class="check-row bitacora__ack">
       <input v-model="acknowledged" type="checkbox" />
-      <span>
-        Este documento es una bitácora personal de respaldo. SIWAT no interpone denuncias por ti ni sustituye los
-        procesos legales ante la FGR o el TSE.
-      </span>
+      <span>{{ t('bitacora.ack') }}</span>
     </label>
 
     <button type="button" class="btn btn--primary btn--block" :disabled="!acknowledged || generating" @click="download">
       <IconFileDown aria-hidden="true" />
-      {{ generating ? 'Creando PDF…' : 'Descargar Bitácora de Evidencia (PDF)' }}
+      {{ generating ? t('bitacora.generating') : t('bitacora.download') }}
     </button>
-    <p v-if="downloaded" class="bitacora__done" role="status">
-      Bitácora descargada. Revisa tu carpeta de descargas.
+    <!-- The PDF stays in Spanish for Salvadoran institutions; say so in any other language. -->
+    <p v-if="locale !== 'es'" class="field__hint">{{ t('bitacora.spanishNote') }}</p>
+    <p v-if="downloaded" class="bitacora__done" role="status">{{ t('bitacora.downloaded') }}</p>
+    <p v-if="error" class="error-text" role="alert">
+      <IconCircleAlert role="img" :aria-label="t('common.error')" /> {{ t(error) }}
     </p>
-    <p v-if="error" class="error-text" role="alert"><IconCircleAlert role="img" aria-label="Error" /> {{ error }}</p>
 
     <!-- Destructive action kept apart from the download on purpose. -->
     <div class="bitacora__erase">
-      <p class="field__hint">
-        Cuando termines, borra todo lo que SIWAT guardó en este dispositivo: respuestas, enlaces, capturas y espacio
-        local.
-      </p>
+      <p class="field__hint">{{ t('bitacora.eraseHint') }}</p>
       <button type="button" class="btn btn--danger btn--block" @click="confirmClear?.showModal()">
         <IconTrash aria-hidden="true" />
-        Limpiar datos de este dispositivo
+        {{ t('bitacora.clear') }}
       </button>
     </div>
 
     <dialog ref="confirmClear" class="sheet-dialog" aria-labelledby="clear-title" @close="onConfirmClose">
-      <h2 id="clear-title">¿Borrar todo de este dispositivo?</h2>
+      <h2 id="clear-title">{{ t('bitacora.confirmTitle') }}</h2>
       <p>
-        Se borran tus respuestas, enlaces, capturas y el espacio local con PIN. No se puede deshacer.
-        <strong v-if="!downloaded">Aún no descargaste tu bitácora.</strong>
+        {{ t('bitacora.confirmBody') }}
+        <strong v-if="!downloaded">{{ t('bitacora.notDownloaded') }}</strong>
       </p>
       <form method="dialog" class="sheet-dialog__actions">
-        <button value="keep" class="btn btn--outline btn--block" autofocus>Conservar mis datos</button>
-        <button value="clear" class="btn btn--danger btn--block">Sí, borrar todo</button>
+        <button value="keep" class="btn btn--outline btn--block" autofocus>{{ t('bitacora.keep') }}</button>
+        <button value="clear" class="btn btn--danger btn--block">{{ t('bitacora.confirmClear') }}</button>
       </form>
     </dialog>
   </section>

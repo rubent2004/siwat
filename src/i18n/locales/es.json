@@ -1,0 +1,320 @@
+{
+  "app": {
+    "skipLink": "Saltar al contenido",
+    "defaultTitle": "SIWAT — Dale color a lo que otros invisibilizan",
+    "routes": {
+      "identify": "Paso 1 de 2",
+      "risk": "Paso 2 de 2",
+      "result": "Resultado",
+      "assistant": "Asistente rápido"
+    }
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "common": {
+    "error": "Error",
+    "yes": "Sí",
+    "no": "No",
+    "chooseYesNo": "Elige Sí o No.",
+    "newTab": "(se abre en otra pestaña)"
+  },
+  "header": {
+    "home": "SIWAT, ir al inicio",
+    "exit": "SALIR RÁPIDO",
+    "exitHint": "También puedes presionar Esc dos veces. Para volver, mantén presionado el sol durante 2 segundos."
+  },
+  "footer": {
+    "text": "SIWAT es una herramienta preventiva de orientación. No presenta denuncias por ti. Si estás en peligro físico ahora, llama al {phone}."
+  },
+  "folio": {
+    "label": "Folio {folio}"
+  },
+  "emergency": {
+    "title": "Si estás en peligro ahora, llama",
+    "body": "Ambas líneas son gratuitas. Tú decides qué contar.",
+    "call911": "Llamar al 911",
+    "call126": "Llamar al 126",
+    "close": "Cerrar"
+  },
+  "welcome": {
+    "title": "¿Lo que vives en redes es violencia política? Descúbrelo en 2 minutos.",
+    "lead": "Identifica si existe violencia según la ley salvadoreña, respalda tus pruebas de forma segura y conoce a dónde acudir. Tú decides si denuncias y cuándo.",
+    "noticeTitle": "Uso libre y privado:",
+    "noticeBody": "No necesitas dar tu nombre real. SIWAT te orienta; no envía denuncias a instituciones por ti.",
+    "consent": "Entiendo que esta es una herramienta de orientación y acepto el aviso de privacidad.",
+    "start": "Iniciar Semáforo Diagnóstico",
+    "danger": "Estoy en peligro físico ahora",
+    "exitTip": "Si alguien se acerca, toca {exit} o presiona Esc dos veces: verás el clima. Para volver, {hold}.",
+    "exitTipHold": "mantén presionado el sol durante 2 segundos",
+    "linksLabel": "Otras opciones",
+    "assistantLink": "Usar Asistente Rápido (Guía por botones)",
+    "localSpaceActive": "Espacio local activo",
+    "localSpaceCreate": "Crear espacio local con PIN (Opcional)",
+    "privacyTitle": "Aviso de privacidad",
+    "privacyBody": "Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la pestaña. Nada se sube a servidores. Si creas un espacio local, se guarda cifrado con tu PIN en este dispositivo. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo»."
+  },
+  "localSpace": {
+    "titleOpen": "Abrir mi espacio local",
+    "titleCreate": "Crear espacio local con PIN",
+    "done": "Listo. Tu avance se guarda cifrado en este dispositivo. Para retomarlo otro día, entra con el mismo seudónimo y PIN.",
+    "continue": "Continuar",
+    "createIntro": "Es opcional. Guarda tu avance cifrado solo en este dispositivo. No uses tu nombre real.",
+    "openIntro": "Hay un espacio guardado en este dispositivo. Escribe tu seudónimo y PIN para abrirlo.",
+    "pseudonym": "Seudónimo",
+    "pin": "PIN de 4 números",
+    "busy": "Protegiendo…",
+    "submitOpen": "Abrir mi espacio",
+    "submitCreate": "Crear mi espacio",
+    "replace": "Crear uno nuevo (reemplaza el anterior)",
+    "cancel": "Cancelar",
+    "fallbackError": "No se pudo abrir el espacio local."
+  },
+  "errors": {
+    "vault": {
+      "invalid-credentials": "Escribe un seudónimo y un PIN de 4 números.",
+      "not-found": "No hay un espacio local guardado en este dispositivo.",
+      "wrong-credentials": "Seudónimo o PIN incorrectos. Revisa e intenta de nuevo."
+    },
+    "evidence": {
+      "too-many-files": "Puedes subir un máximo {max} capturas. Quita una para agregar otra.",
+      "unsupported-format": "«{name}» no es una imagen JPG o PNG. Sube la captura original en uno de esos formatos."
+    }
+  },
+  "identify": {
+    "stepLabel": "Paso 1 de 2: Identifica lo que ocurrió",
+    "title": "¿Qué pasó y dónde?",
+    "role": "¿Desde qué espacio participas? (Opcional)",
+    "preferNot": "Prefiero no decir",
+    "department": "Departamento (Opcional)",
+    "hint": "Estos dos datos solo sirven para estadística anónima. No te identifican.",
+    "platforms": "¿Dónde ocurrió la agresión?",
+    "required": "(obligatorio)",
+    "electoral": "¿Ocurre durante una campaña electoral o en el ejercicio de un cargo público?",
+    "conducts": "Marca todo lo que te haya pasado:",
+    "errorPlatforms": "Marca al menos una red o canal donde ocurrió.",
+    "errorConducts": "Marca al menos una de las situaciones.",
+    "next": "Siguiente: Evaluar riesgo y prueba"
+  },
+  "risk": {
+    "stepLabel": "Paso 2 de 2: Nivel de urgencia y evidencia",
+    "title": "Termómetro de riesgo y respaldo de prueba",
+    "threat": "¿Recibiste amenazas de daño físico, sexual o contra tu familia?",
+    "exposure": "¿Expusieron tu dirección exacta, lugar de trabajo, teléfono personal o imágenes íntimas sin permiso?",
+    "importantTitle": "¡Importante!",
+    "importantBody": "Antes de bloquear a quien te agrede, guarda la captura original y el enlace. Si bloqueas primero, perderás el acceso a la prueba.",
+    "url": "Enlace (URL) de la publicación o perfil agresor (Opcional)",
+    "urlHint": "Copia el enlace desde los 3 puntos de la publicación.",
+    "narrative": "Describe brevemente qué pasó (Opcional)",
+    "counter": "{count}/{max} caracteres",
+    "submit": "Ver mi resultado del Semáforo",
+    "back": "Atrás"
+  },
+  "uploader": {
+    "label": "Sube captura de pantalla original (Opcional JPG o PNG)",
+    "hint": "Máximo {max} imágenes. Tu navegador calcula su huella digital (SHA-256) y la hora UTC para certificar que no cambian. Las imágenes no salen de tu dispositivo.",
+    "proof": "Prueba {n}",
+    "sealUtc": "Sello UTC",
+    "remove": "Quitar prueba {n}, {name}",
+    "hashing": "Calculando huella digital…",
+    "addAnother": "Agregar otra captura",
+    "choose": "Elegir capturas",
+    "fallbackError": "No se pudo procesar la imagen."
+  },
+  "result": {
+    "lawTitle": "¿Qué dice la ley salvadoreña sobre tu caso?",
+    "lawOfficialNote": "El texto oficial de estas leyes está en español."
+  },
+  "bitacora": {
+    "title": "Bitácora de Evidencia",
+    "lead": "Un PDF con código {code}, fecha y hora UTC, huella SHA-256 de cada captura, enlace y marco legal. Guárdalo junto a tus archivos originales sin editar.",
+    "ack": "Este documento es una bitácora personal de respaldo. SIWAT no interpone denuncias por ti ni sustituye los procesos legales ante la FGR o el TSE.",
+    "generating": "Creando PDF…",
+    "download": "Descargar Bitácora de Evidencia (PDF)",
+    "spanishNote": "La bitácora se genera en español para que puedas presentarla ante instituciones salvadoreñas.",
+    "downloaded": "Bitácora descargada. Revisa tu carpeta de descargas.",
+    "error": "No se pudo crear el PDF. Intenta de nuevo; si persiste, quita las capturas y vuelve a subirlas.",
+    "eraseHint": "Cuando termines, borra todo lo que SIWAT guardó en este dispositivo: respuestas, enlaces, capturas y espacio local.",
+    "clear": "Limpiar datos de este dispositivo",
+    "confirmTitle": "¿Borrar todo de este dispositivo?",
+    "confirmBody": "Se borran tus respuestas, enlaces, capturas y el espacio local con PIN. No se puede deshacer.",
+    "notDownloaded": "Aún no descargaste tu bitácora.",
+    "keep": "Conservar mis datos",
+    "confirmClear": "Sí, borrar todo"
+  },
+  "route": {
+    "title": "Tu ruta de acción",
+    "step1": "1. Reporta en la plataforma (no solo bloquees)",
+    "seeSteps": "Ver pasos para reportar en {platform}",
+    "howtoSave": "Guarda la prueba primero: captura con fecha, nombre de la cuenta y enlace visibles.",
+    "howtoConfirm": "Captura la confirmación del reporte. Después, si quieres, bloquea o restringe la cuenta.",
+    "step2": "2. A dónde acudir",
+    "note": "Tú decides si denuncias. SIWAT no envía tus datos ni interpone denuncias por ti.",
+    "step3": "3. Blindaje",
+    "shieldSummary": "Protege tus cuentas hoy (3 medidas clave)"
+  },
+  "reportLocation": {
+    "facebook": "Toca los tres puntos (…) de la publicación o del perfil y elige «Reportar». Selecciona el motivo: acoso, suplantación o desnudos.",
+    "whatsapp": "Abre el chat, toca el nombre del contacto o del grupo y elige «Reportar».",
+    "tiktok": "Mantén presionado el video o toca «Compartir» y elige «Reportar». En un perfil, usa los tres puntos.",
+    "x": "Toca los tres puntos (…) de la publicación o del perfil y elige «Reportar».",
+    "instagram": "Toca los tres puntos (…) de la publicación, historia o perfil y elige «Reportar».",
+    "youtube": "Toca los tres puntos (⋮) del video o comentario y elige «Denunciar».",
+    "telegram": "Abre el perfil, canal o mensaje, toca los tres puntos y elige «Reportar».",
+    "email": "No borres el correo: guárdalo completo («Descargar mensaje» o «Mostrar original») y márcalo como spam o phishing.",
+    "other": "Busca la opción «Reportar» o «Denunciar» junto a la publicación o en el perfil de quien te agrede."
+  },
+  "shield": {
+    "two-step": {
+      "label": "Activa la verificación en 2 pasos",
+      "detail": "En la configuración de seguridad de cada red. Así nadie entra aunque tenga tu contraseña."
+    },
+    "hide-contact": {
+      "label": "Oculta tu teléfono y correo",
+      "detail": "Que solo tú los veas en tu perfil público."
+    },
+    "sessions": {
+      "label": "Revisa las sesiones abiertas",
+      "detail": "Cierra las que no reconozcas y cambia tu contraseña si ves alguna extraña."
+    }
+  },
+  "stats": {
+    "title": "Estadística anónima (opcional)",
+    "optIn": "Quiero aportar datos anónimos al Observatorio de Violencia Política de ANDRYSAS.",
+    "preview": "Esto es todo lo que se compartiría: sin nombre, enlaces, relato ni capturas. En esta demo todavía no se envía a ningún lugar."
+  },
+  "assistant": {
+    "title": "Asistente rápido",
+    "intro": "Elige lo que necesitas ahora. Funciona sin internet y sin inteligencia artificial.",
+    "capture": {
+      "question": "¿Cómo tomo una captura válida como prueba?",
+      "s1": "Captura la pantalla completa, sin recortar: que se vean la fecha, la hora y el nombre o usuario de la cuenta.",
+      "s2": "Copia el enlace de la publicación o del perfil (en los 3 puntos, «Copiar enlace»).",
+      "s3": "Captura también el perfil de quien te agrede y, si hay, los comentarios.",
+      "s4": "No edites, no recortes y no la reenvíes por chat: guarda el archivo original.",
+      "s5": "Súbela en el Paso 2 del Semáforo para calcular su huella SHA-256 y la hora UTC.",
+      "s6": "Haz todo esto antes de bloquear."
+    },
+    "hide": {
+      "question": "¿Cómo oculto SIWAT si alguien se acerca?",
+      "s1": "Toca «SALIR RÁPIDO» arriba a la derecha, o presiona Esc dos veces en una computadora.",
+      "s2": "Aparece una pantalla del clima de San Salvador, sin mención de SIWAT.",
+      "s3": "Para volver a donde estabas, mantén presionado el sol durante 2 segundos."
+    },
+    "shield": {
+      "question": "Quiero blindar mi WhatsApp y Facebook ya",
+      "whatsapp1": "Ajustes › Cuenta › Verificación en dos pasos › Activar. Crea un PIN de 6 dígitos.",
+      "whatsapp2": "Ajustes › Privacidad: «Foto de perfil», «Info» y «Grupos» en «Mis contactos».",
+      "whatsapp3": "Ajustes › Dispositivos vinculados: cierra los que no reconozcas.",
+      "facebook1": "Centro de cuentas › Contraseña y seguridad › Autenticación en dos pasos.",
+      "facebook2": "En la misma sección, «Dónde iniciaste sesión»: cierra las sesiones extrañas.",
+      "facebook3": "Perfil › Información de contacto: deja tu teléfono y correo en «Solo yo»."
+    },
+    "goDiagnosis": "Ir al Semáforo Diagnóstico"
+  },
+  "catalog": {
+    "roles": {
+      "alcaldesa-sindica-regidora": "Alcaldesa/Síndica/Regidora",
+      "diputada": "Diputada",
+      "candidata": "Candidata",
+      "militante": "Militante",
+      "lideresa-comunitaria": "Lideresa comunitaria",
+      "activista-defensora": "Activista/Defensora",
+      "otro": "Otro"
+    },
+    "platforms": {
+      "facebook": "Facebook",
+      "whatsapp": "WhatsApp",
+      "tiktok": "TikTok",
+      "x": "X (Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "telegram": "Telegram",
+      "email": "Correo",
+      "other": "Otra"
+    },
+    "conducts": {
+      "threats": {
+        "label": "Amenazas",
+        "description": "Te dicen que te harán daño a ti o a tu familia."
+      },
+      "sexist-insults": {
+        "label": "Insultos o burlas sexistas",
+        "description": "Te humillan por ser mujer, tu cuerpo o vida privada."
+      },
+      "doxing": {
+        "label": "Difusión de datos privados (Doxing)",
+        "description": "Publicaron tu teléfono, dirección o fotos privadas sin permiso."
+      },
+      "deepfake": {
+        "label": "Montajes o contenido falso (Deepfake)",
+        "description": "Fotos, videos o audios alterados."
+      },
+      "impersonation": {
+        "label": "Suplantación de identidad",
+        "description": "Crearon una cuenta falsa haciéndose pasar por ti."
+      },
+      "disinformation": {
+        "label": "Desinformación o ataque coordinado",
+        "description": "Mentiras masivas o muchas cuentas atacándote para desacreditar tu labor política."
+      }
+    },
+    "light": {
+      "red": {
+        "label": "Rojo",
+        "title": "Semáforo rojo — Riesgo alto",
+        "body": "Existen indicios graves contra tu integridad física, privacidad o delito informático. Requiere acción y resguardo inmediato."
+      },
+      "yellow": {
+        "label": "Amarillo",
+        "title": "Semáforo amarillo — Violencia política digital",
+        "body": "Lo que vives busca desacreditar o limitar tu participación política. Documenta sistemáticamente y reporta."
+      },
+      "green": {
+        "label": "Verde",
+        "title": "Semáforo verde — Alerta preventiva",
+        "body": "Manifestaciones iniciales de hostigamiento o violencia simbólica. No lo normalices; blinda tus cuentas y guarda registro."
+      }
+    }
+  },
+  "legal": {
+    "leiv-49-51": "Prisión de 3 a 10 años por difundir o crear contenido íntimo/sexual sin consentimiento por medios electrónicos.",
+    "leiv-50": "Prisión de 1 a 3 años por publicar datos personales que dañen el honor o la intimidad.",
+    "leiv-55-e": "Sanciona exponer a una mujer a riesgo inminente para su integridad física o emocional.",
+    "ledic-22-32": "Sanciona la suplantación de identidad y el uso fraudulento de datos informáticos.",
+    "leiv-55-c": "Sanciona desacreditar o degradar a las mujeres en espacios de participación política.",
+    "leiv-55-c-d": "Sanciona burlarse, desacreditar u obstaculizar la participación política de las mujeres.",
+    "electoral-code-173-249": "Prohíbe la propaganda sucia o difamatoria.",
+    "lie-20-23": "Garantiza igualdad en el ejercicio de derechos políticos.",
+    "leiv-9": "Reconoce la violencia psicológica, emocional y simbólica contra las mujeres.",
+    "leiv-55-a": "Sanciona difundir mensajes que promuevan odio o menosprecio hacia las mujeres.",
+    "belem-do-para-3-7": "Derecho a una vida libre de violencia en lo público y político."
+  },
+  "institutions": {
+    "pnc": "Emergencias y riesgo para tu integridad física o la de tu familia.",
+    "fgr": "Investigación de amenazas, doxing y suplantación de identidad.",
+    "isdemu": "Orientación gratuita para mujeres que enfrentan violencia.",
+    "tse": "Violencia política durante una campaña electoral o en el ejercicio de un cargo.",
+    "actions": {
+      "pnc-911": "Llamar a emergencia (PNC 911)",
+      "fgr-web": "Consultar canales de atención FGR",
+      "isdemu-126": "Contactar orientación gratuita (ISDEMU 126)",
+      "isdemu-web": "Abrir 126 Te Orienta",
+      "tse-web": "Reportar violencia política (TSE)"
+    }
+  },
+  "weather": {
+    "documentTitle": "Clima — San Salvador",
+    "city": "San Salvador",
+    "subtitle": "Pronóstico del clima",
+    "sunLabel": "Detalle del clima actual",
+    "now": "Parcialmente nublado",
+    "humidity": "Humedad {value}%",
+    "wind": "Viento {value} km/h",
+    "hourly": "Por horas",
+    "daily": "Próximos días",
+    "tomorrow": "Mañana",
+    "friday": "Viernes",
+    "saturday": "Sábado"
+  }
+}

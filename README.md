@@ -33,10 +33,18 @@ Las figuras se generan desde LaTeX (`docs/figures/src/*.tex`) con `steamr figure
 - La versión publicada incluye una **Content-Security-Policy** (`connect-src 'self'`): el propio navegador bloquea cualquier envío de datos a otro dominio.
 - Historial en memoria: los pasos no quedan en el historial del navegador.
 - Sin fuentes, iconos ni scripts de terceros en tiempo de ejecución; funciona sin conexión (PWA).
+- El idioma elegido también vive solo en `sessionStorage`, y «Limpiar datos de este dispositivo» lo devuelve a español.
+
+## Idiomas
+
+Español (predeterminado, nunca se detecta del navegador), English, 简体中文 y Deutsch, con un selector en la portada y
+en el pie. Los textos están en `src/i18n/locales/*.json` (español incluido en el paquete; los demás se cargan al
+elegirlos). La Bitácora PDF se genera siempre en español para presentarla ante instituciones salvadoreñas, y los
+nombres oficiales de las leyes no se traducen: cada resumen legal tiene un id estable (`legal.<id>`) en cada idioma.
 
 ## Herramientas
 
-Vue 3 + TypeScript + Vite · vue-router · jsPDF (carga diferida) · Web Crypto (`SubtleCrypto`) · vite-plugin-pwa ·
+Vue 3 + TypeScript + Vite · vue-router · vue-i18n · jsPDF (carga diferida) · Web Crypto (`SubtleCrypto`) · vite-plugin-pwa ·
 iconos Lucide compilados con unplugin-icons · Atkinson Hyperlegible (autoalojada) · Vitest.
 
 ## Arquitectura (por funcionalidad, puertos y adaptadores)
@@ -44,6 +52,7 @@ iconos Lucide compilados con unplugin-icons · Atkinson Hyperlegible (autoalojad
 ```
 src/
   app/                 App.vue, router (memoria)
+  i18n/                vue-i18n, idioma en sessionStorage, mensajes por idioma
   features/
     diagnosis/domain/  motor de clasificación + base legal (sin dependencias de Vue)
     evidence/domain/   SHA-256, validación de capturas, código de caso

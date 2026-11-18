@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconArrowLeft from '~icons/lucide/arrow-left'
 import IconArrowRight from '~icons/lucide/arrow-right'
@@ -12,13 +13,14 @@ import EvidenceUploader from '../evidence/EvidenceUploader.vue'
 import { NARRATIVE_MAX_LENGTH } from './domain/types'
 
 const router = useRouter()
+const { t } = useI18n()
 const { state } = useCase()
 const answers = state.answers
 const submitted = ref(false)
 
 const errors = computed(() => ({
-  threat: answers.physicalThreat === null ? 'Elige Sí o No.' : '',
-  exposure: answers.privateDataExposed === null ? 'Elige Sí o No.' : '',
+  threat: answers.physicalThreat === null ? t('common.chooseYesNo') : '',
+  exposure: answers.privateDataExposed === null ? t('common.chooseYesNo') : '',
 }))
 
 async function showResult(event: Event) {
@@ -36,23 +38,23 @@ async function showResult(event: Event) {
 </script>
 
 <template>
-  <StepIndicator :step="2" label="Paso 2 de 2: Nivel de urgencia y evidencia" />
+  <StepIndicator :step="2" :label="t('risk.stepLabel')" />
 
   <form class="risk" novalidate @submit.prevent="showResult">
     <FolioSheet folio="03" :case-code="state.caseCode">
-      <h1 tabindex="-1" class="step-title">Termómetro de riesgo y respaldo de prueba</h1>
+      <h1 tabindex="-1" class="step-title">{{ t('risk.title') }}</h1>
 
       <div data-group="threat">
         <YesNoField
           v-model="answers.physicalThreat"
-          legend="¿Recibiste amenazas de daño físico, sexual o contra tu familia?"
+          :legend="t('risk.threat')"
           :error="submitted ? errors.threat : ''"
         />
       </div>
       <div data-group="exposure">
         <YesNoField
           v-model="answers.privateDataExposed"
-          legend="¿Expusieron tu dirección exacta, lugar de trabajo, teléfono personal o imágenes íntimas sin permiso?"
+          :legend="t('risk.exposure')"
           :error="submitted ? errors.exposure : ''"
         />
       </div>
@@ -60,14 +62,13 @@ async function showResult(event: Event) {
       <div class="notice notice--warning">
         <IconTriangleAlert aria-hidden="true" />
         <p>
-          <strong>¡Importante!</strong> Antes de bloquear a quien te agrede, guarda la captura original y el enlace. Si
-          bloqueas primero, perderás el acceso a la prueba.
+          <strong>{{ t('risk.importantTitle') }}</strong> {{ t('risk.importantBody') }}
         </p>
       </div>
 
       <div class="field">
-        <label class="field__label" for="evidence-url">Enlace (URL) de la publicación o perfil agresor (Opcional)</label>
-        <span id="evidence-url-hint" class="field__hint">Copia el enlace desde los 3 puntos de la publicación.</span>
+        <label class="field__label" for="evidence-url">{{ t('risk.url') }}</label>
+        <span id="evidence-url-hint" class="field__hint">{{ t('risk.urlHint') }}</span>
         <input
           id="evidence-url"
           v-model.trim="answers.evidenceUrl"
@@ -83,7 +84,7 @@ async function showResult(event: Event) {
       <EvidenceUploader />
 
       <div class="field">
-        <label class="field__label" for="narrative">Describe brevemente qué pasó (Opcional)</label>
+        <label class="field__label" for="narrative">{{ t('risk.narrative') }}</label>
         <textarea
           id="narrative"
           v-model="answers.narrative"
@@ -92,19 +93,19 @@ async function showResult(event: Event) {
           aria-describedby="narrative-count"
         />
         <span id="narrative-count" class="field__hint data counter">
-          {{ answers.narrative.length }}/{{ NARRATIVE_MAX_LENGTH }} caracteres
+          {{ t('risk.counter', { count: answers.narrative.length, max: NARRATIVE_MAX_LENGTH }) }}
         </span>
       </div>
     </FolioSheet>
 
     <div class="risk__actions">
       <button class="btn btn--primary btn--block">
-        Ver mi resultado del Semáforo
+        {{ t('risk.submit') }}
         <IconArrowRight aria-hidden="true" />
       </button>
       <button type="button" class="btn btn--outline btn--block" @click="router.push({ name: 'identify' })">
         <IconArrowLeft aria-hidden="true" />
-        Atrás
+        {{ t('risk.back') }}
       </button>
     </div>
   </form>

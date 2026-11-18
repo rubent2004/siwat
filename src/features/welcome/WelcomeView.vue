@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconArrowRight from '~icons/lucide/arrow-right'
 import IconLogOut from '~icons/lucide/log-out'
@@ -7,10 +8,12 @@ import IconShieldCheck from '~icons/lucide/shield-check'
 import IconSiren from '~icons/lucide/siren'
 import EmergencyDialog from '../../shared/ui/EmergencyDialog.vue'
 import FolioSheet from '../../shared/ui/FolioSheet.vue'
+import LocaleSelect from '../../shared/ui/LocaleSelect.vue'
 import { useCase } from '../case/use-case'
 import LocalSpaceDialog from './LocalSpaceDialog.vue'
 
 const router = useRouter()
+const { t } = useI18n()
 const { state, acceptConsent, vaultActive } = useCase()
 
 const consent = ref(state.consentAccepted)
@@ -24,61 +27,55 @@ function start() {
 </script>
 
 <template>
+  <div class="welcome__locale">
+    <LocaleSelect />
+  </div>
+
   <FolioSheet folio="01">
-    <h1 tabindex="-1" class="welcome__title">
-      ¿Lo que vives en redes es violencia política? Descúbrelo en 2 minutos.
-    </h1>
-    <p>
-      Identifica si existe violencia según la ley salvadoreña, respalda tus pruebas de forma segura y conoce a dónde
-      acudir. Tú decides si denuncias y cuándo.
-    </p>
+    <h1 tabindex="-1" class="welcome__title">{{ t('welcome.title') }}</h1>
+    <p>{{ t('welcome.lead') }}</p>
 
     <div class="notice">
       <IconShieldCheck aria-hidden="true" />
       <p>
-        <strong>Uso libre y privado:</strong> No necesitas dar tu nombre real. SIWAT te orienta; no envía denuncias a
-        instituciones por ti.
+        <strong>{{ t('welcome.noticeTitle') }}</strong> {{ t('welcome.noticeBody') }}
       </p>
     </div>
 
     <label class="check-row">
       <input v-model="consent" type="checkbox" />
-      <span>Entiendo que esta es una herramienta de orientación y acepto el aviso de privacidad.</span>
+      <span>{{ t('welcome.consent') }}</span>
     </label>
 
     <div class="welcome__actions">
       <button type="button" class="btn btn--primary btn--block" :disabled="!consent" @click="start">
-        Iniciar Semáforo Diagnóstico
+        {{ t('welcome.start') }}
         <IconArrowRight aria-hidden="true" />
       </button>
       <button type="button" class="btn btn--plum btn--block" @click="emergency?.open()">
         <IconSiren aria-hidden="true" />
-        Estoy en peligro físico ahora
+        {{ t('welcome.danger') }}
       </button>
     </div>
 
     <p class="welcome__exit-tip">
       <IconLogOut aria-hidden="true" />
-      <span>
-        Si alguien se acerca, toca <strong>SALIR RÁPIDO</strong> o presiona Esc dos veces: verás el clima. Para
-        volver, <strong>mantén presionado el sol durante 2 segundos</strong>.
-      </span>
+      <i18n-t keypath="welcome.exitTip" tag="span" scope="global">
+        <template #exit><strong>{{ t('header.exit') }}</strong></template>
+        <template #hold><strong>{{ t('welcome.exitTipHold') }}</strong></template>
+      </i18n-t>
     </p>
 
-    <nav class="welcome__links" aria-label="Otras opciones">
-      <RouterLink :to="{ name: 'assistant' }">Usar Asistente Rápido (Guía por botones)</RouterLink>
+    <nav class="welcome__links" :aria-label="t('welcome.linksLabel')">
+      <RouterLink :to="{ name: 'assistant' }">{{ t('welcome.assistantLink') }}</RouterLink>
       <button type="button" class="welcome__link-button" @click="localSpace?.open()">
-        {{ vaultActive ? 'Espacio local activo' : 'Crear espacio local con PIN (Opcional)' }}
+        {{ vaultActive ? t('welcome.localSpaceActive') : t('welcome.localSpaceCreate') }}
       </button>
     </nav>
 
     <details class="privacy">
-      <summary>Aviso de privacidad</summary>
-      <p>
-        Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la
-        pestaña. Nada se sube a servidores. Si creas un espacio local, se guarda cifrado con tu PIN en este
-        dispositivo. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo».
-      </p>
+      <summary>{{ t('welcome.privacyTitle') }}</summary>
+      <p>{{ t('welcome.privacyBody') }}</p>
     </details>
   </FolioSheet>
 
@@ -87,6 +84,13 @@ function start() {
 </template>
 
 <style scoped>
+/* Above the folio, so someone who cannot read Spanish finds it before anything else. */
+.welcome__locale {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-4);
+}
+
 .welcome__title {
   font-size: var(--text-2xl);
   letter-spacing: -0.02em;

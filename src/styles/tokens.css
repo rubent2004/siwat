@@ -29,7 +29,10 @@
   --green-text: #1b6b61;
   --green-tint: #e8f5f3;
 
-  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  /* Atkinson Hyperlegible has no CJK glyphs: Chinese falls back to the system's CJK face. */
+  --font-body:
+    'Atkinson Hyperlegible', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Noto Sans SC', 'Microsoft YaHei',
+    system-ui, sans-serif;
   --font-data: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Roboto Mono', monospace;
 
   /* Type scale (1.2 minor third, 17px base for reading under stress) */

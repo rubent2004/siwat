@@ -37,15 +37,29 @@ describe('validateEvidenceFiles', () => {
     ).not.toThrow()
   })
 
+  const errorOf = (run: () => void) => {
+    try {
+      run()
+    } catch (error) {
+      return error
+    }
+    throw new Error('expected validateEvidenceFiles to throw')
+  }
+
   it('rejects more than 3 images in total', () => {
-    expect(() => validateEvidenceFiles([png('a.png'), png('b.png')], 2)).toThrow(EvidenceError)
-    expect(() => validateEvidenceFiles([png('a.png'), png('b.png')], 2)).toThrow(/máximo 3/)
+    const error = errorOf(() => validateEvidenceFiles([png('a.png'), png('b.png')], 2))
+
+    expect(error).toBeInstanceOf(EvidenceError)
+    expect(error).toMatchObject({ code: 'too-many-files', params: { max: 3 } })
   })
 
   it('rejects formats other than JPG or PNG', () => {
     const gif = new File(['x'], 'a.gif', { type: 'image/gif' })
 
-    expect(() => validateEvidenceFiles([gif], 0)).toThrow(/JPG o PNG/)
+    const error = errorOf(() => validateEvidenceFiles([gif], 0))
+
+    expect(error).toBeInstanceOf(EvidenceError)
+    expect(error).toMatchObject({ code: 'unsupported-format', params: { name: 'a.gif' } })
   })
 })
 

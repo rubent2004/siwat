@@ -1,39 +1,47 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconExternalLink from '~icons/lucide/external-link'
 import IconPhone from '~icons/lucide/phone'
 import { useCase } from '../case/use-case'
-import { labelOf, PLATFORMS } from '../diagnosis/catalog'
-import { INSTITUTIONS, REPORT_LOCATION, SHIELD_MEASURES } from './route-catalog'
+import { platformKey } from '../diagnosis/catalog'
+import {
+  actionLabelKey,
+  institutionPurposeKey,
+  INSTITUTIONS,
+  reportLocationKey,
+  SHIELD_MEASURES,
+} from './route-catalog'
 
+const { t } = useI18n()
 const { state, result } = useCase()
 const shieldDone = reactive<Record<string, boolean>>({})
 </script>
 
 <template>
   <section class="route" aria-labelledby="route-title">
-    <h2 id="route-title">Tu ruta de acción</h2>
+    <h2 id="route-title">{{ t('route.title') }}</h2>
 
     <ol class="route__steps">
       <li class="route__step">
-        <h3>1. Reporta en la plataforma (no solo bloquees)</h3>
+        <h3>{{ t('route.step1') }}</h3>
         <details v-for="platform in state.answers.platforms" :key="platform" class="disclosure">
-          <summary>Ver pasos para reportar en {{ labelOf(PLATFORMS, platform) }}</summary>
+          <summary>{{ t('route.seeSteps', { platform: t(platformKey(platform)) }) }}</summary>
           <ol class="howto">
-            <li>Guarda la prueba primero: captura con fecha, nombre de la cuenta y enlace visibles.</li>
-            <li>{{ REPORT_LOCATION[platform] }}</li>
-            <li>Captura la confirmación del reporte. Después, si quieres, bloquea o restringe la cuenta.</li>
+            <li>{{ t('route.howtoSave') }}</li>
+            <li>{{ t(reportLocationKey(platform)) }}</li>
+            <li>{{ t('route.howtoConfirm') }}</li>
           </ol>
         </details>
       </li>
 
       <li class="route__step">
-        <h3>2. A dónde acudir</h3>
-        <p class="route__note">Tú decides si denuncias. SIWAT no envía tus datos ni interpone denuncias por ti.</p>
+        <h3>{{ t('route.step2') }}</h3>
+        <p class="route__note">{{ t('route.note') }}</p>
         <ul class="institutions">
           <li v-for="id in result.institutions" :key="id" class="institution">
-            <p class="institution__name">{{ INSTITUTIONS[id].name }}</p>
-            <p class="institution__purpose">{{ INSTITUTIONS[id].purpose }}</p>
+            <p class="institution__name" lang="es-SV">{{ INSTITUTIONS[id].name }}</p>
+            <p class="institution__purpose">{{ t(institutionPurposeKey(id)) }}</p>
             <div class="institution__actions">
               <a
                 v-for="(action, index) in INSTITUTIONS[id].actions"
@@ -44,9 +52,9 @@ const shieldDone = reactive<Record<string, boolean>>({})
                 v-bind="action.kind === 'web' ? { target: '_blank', rel: 'noopener noreferrer' } : {}"
               >
                 <IconPhone v-if="action.kind === 'call'" aria-hidden="true" />
-                {{ action.label }}
+                {{ t(actionLabelKey(action.id)) }}
                 <IconExternalLink v-if="action.kind === 'web'" aria-hidden="true" />
-                <span v-if="action.kind === 'web'" class="visually-hidden">(se abre en otra pestaña)</span>
+                <span v-if="action.kind === 'web'" class="visually-hidden">{{ t('common.newTab') }}</span>
               </a>
             </div>
           </li>
@@ -54,16 +62,16 @@ const shieldDone = reactive<Record<string, boolean>>({})
       </li>
 
       <li class="route__step">
-        <h3>3. Blindaje</h3>
+        <h3>{{ t('route.step3') }}</h3>
         <details class="disclosure" open>
-          <summary>Protege tus cuentas hoy (3 medidas clave)</summary>
+          <summary>{{ t('route.shieldSummary') }}</summary>
           <ul class="shield">
-            <li v-for="measure in SHIELD_MEASURES" :key="measure.id">
+            <li v-for="measure in SHIELD_MEASURES" :key="measure">
               <label class="check-row">
-                <input v-model="shieldDone[measure.id]" type="checkbox" />
+                <input v-model="shieldDone[measure]" type="checkbox" />
                 <span>
-                  <strong>{{ measure.label }}</strong>
-                  <span class="shield__detail">{{ measure.detail }}</span>
+                  <strong>{{ t(`shield.${measure}.label`) }}</strong>
+                  <span class="shield__detail">{{ t(`shield.${measure}.detail`) }}</span>
                 </span>
               </label>
             </li>

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useId } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconCircleAlert from '~icons/lucide/circle-alert'
 
 defineProps<{ legend: string; error?: string }>()
 const model = defineModel<boolean | null>({ required: true })
 const id = useId()
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,15 +15,15 @@ const id = useId()
     <div class="yesno__options">
       <label class="yesno__option">
         <input v-model="model" type="radio" :name="id" :value="true" />
-        Sí
+        {{ t('common.yes') }}
       </label>
       <label class="yesno__option">
         <input v-model="model" type="radio" :name="id" :value="false" />
-        No
+        {{ t('common.no') }}
       </label>
     </div>
     <p v-if="error" :id="`${id}-error`" class="error-text">
-      <IconCircleAlert role="img" aria-label="Error" />
+      <IconCircleAlert role="img" :aria-label="t('common.error')" />
       {{ error }}
     </p>
   </fieldset>

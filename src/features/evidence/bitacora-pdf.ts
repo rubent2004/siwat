@@ -1,7 +1,8 @@
 import type { jsPDF as JsPdf } from 'jspdf'
-import { CONDUCTS, labelOf, LIGHT_COPY, PLATFORMS, ROLES } from '../diagnosis/catalog'
+import { spanish } from '../../i18n'
+import { conductKey, isRole, lightKey, platformKey, roleKey } from '../diagnosis/catalog'
 import type { DiagnosisAnswers, DiagnosisResult } from '../diagnosis/domain/types'
-import { INSTITUTIONS } from '../result/route-catalog'
+import { actionLabelKey, INSTITUTIONS } from '../result/route-catalog'
 import type { EvidenceRecord } from './domain/evidence'
 
 export interface BitacoraInput {
@@ -21,12 +22,12 @@ const LIGHT_RGB: Record<DiagnosisResult['light'], [number, number, number]> = {
   green: [42, 157, 143],
 }
 
-const DISCLAIMER =
-  'Este documento es una bitácora personal de respaldo. SIWAT no interpone denuncias por ti ni sustituye los procesos legales ante la FGR o el TSE.'
-
 const yesNo = (value: boolean | null) => (value === null ? 'Sin responder' : value ? 'Sí' : 'No')
 
-/** Writes the evidence log as a PDF entirely in the browser. */
+/**
+ * Writes the evidence log as a PDF entirely in the browser.
+ * Always in Spanish, whatever the interface language: it is presented to Salvadoran institutions.
+ */
 export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
   const { jsPDF } = await import('jspdf')
   const doc = new jsPDF({ unit: 'mm', format: 'a4' })
@@ -64,7 +65,7 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
   const field = (label: string, value: string) => text(`${label}: ${value}`)
 
   const { answers, result } = input
-  const copy = LIGHT_COPY[result.light]
+  const copy = { title: spanish(lightKey(result.light, 'title')), body: spanish(lightKey(result.light, 'body')) }
 
   // Header band
   doc.setFillColor(...PLUM)
@@ -97,15 +98,15 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
   doc.rect(PAGE.margin, boxTop, CONTENT_WIDTH, y - boxTop)
   y += 7
 
-  text(DISCLAIMER, { size: 9 })
+  text(spanish('bitacora.ack'), { size: 9 })
 
   heading('1. Lo ocurrido')
-  field('Plataformas', answers.platforms.map((platform) => labelOf(PLATFORMS, platform)).join(', '))
+  field('Plataformas', answers.platforms.map((platform) => spanish(platformKey(platform))).join(', '))
   field('Durante campaña o ejercicio de cargo público', yesNo(answers.electoralContext))
-  field('Conductas', answers.conducts.map((conduct) => labelOf(CONDUCTS, conduct)).join('; '))
+  field('Conductas', answers.conducts.map((conduct) => spanish(conductKey(conduct, 'label'))).join('; '))
   field('Amenazas de daño físico, sexual o contra la familia', yesNo(answers.physicalThreat))
   field('Exposición de dirección, trabajo, teléfono o imágenes íntimas', yesNo(answers.privateDataExposed))
-  if (answers.role) field('Espacio de participación', labelOf(ROLES, answers.role))
+  if (answers.role) field('Espacio de participación', isRole(answers.role) ? spanish(roleKey(answers.role)) : answers.role)
   if (answers.department) field('Departamento', answers.department)
   field('Relato', answers.narrative.trim() || 'No registrado')
 
@@ -130,14 +131,14 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
   heading('4. Marco legal aplicable')
   for (const reference of result.legalBasis) {
     text(reference.law, { bold: true, gap: 0.5 })
-    text(reference.summary)
+    text(spanish(`legal.${reference.id}`))
   }
 
   heading('5. A dónde acudir')
   for (const id of result.institutions) {
     const institution = INSTITUTIONS[id]
     text(institution.name, { bold: true, gap: 0.5 })
-    text(institution.actions.map((action) => `${action.label}: ${action.href.replace('tel:', 'Tel. ')}`).join(' · '))
+    text(institution.actions.map((action) => `${spanish(actionLabelKey(action.id))}: ${action.href.replace('tel:', 'Tel. ')}`).join(' · '))
   }
 
   heading('6. Cómo conservar tu prueba')

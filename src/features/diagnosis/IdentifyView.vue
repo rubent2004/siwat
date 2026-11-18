@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconArrowRight from '~icons/lucide/arrow-right'
 import IconCheck from '~icons/lucide/check'
@@ -8,17 +9,18 @@ import FolioSheet from '../../shared/ui/FolioSheet.vue'
 import StepIndicator from '../../shared/ui/StepIndicator.vue'
 import YesNoField from '../../shared/ui/YesNoField.vue'
 import { useCase } from '../case/use-case'
-import { CONDUCTS, DEPARTMENTS, PLATFORMS, ROLES } from './catalog'
+import { CONDUCTS, conductKey, DEPARTMENTS, PLATFORMS, platformKey, roleKey, ROLES } from './catalog'
 
 const router = useRouter()
+const { t } = useI18n()
 const { state } = useCase()
 const answers = state.answers
 const submitted = ref(false)
 
 const errors = computed(() => ({
-  platforms: answers.platforms.length === 0 ? 'Marca al menos una red o canal donde ocurrió.' : '',
-  electoral: answers.electoralContext === null ? 'Elige Sí o No.' : '',
-  conducts: answers.conducts.length === 0 ? 'Marca al menos una de las situaciones.' : '',
+  platforms: answers.platforms.length === 0 ? t('identify.errorPlatforms') : '',
+  electoral: answers.electoralContext === null ? t('common.chooseYesNo') : '',
+  conducts: answers.conducts.length === 0 ? t('identify.errorConducts') : '',
 }))
 
 const visibleErrors = computed(() =>
@@ -38,52 +40,54 @@ async function next() {
 </script>
 
 <template>
-  <StepIndicator :step="1" label="Paso 1 de 2: Identifica lo que ocurrió" />
+  <StepIndicator :step="1" :label="t('identify.stepLabel')" />
 
   <form class="identify" novalidate @submit.prevent="next">
     <FolioSheet folio="02" :case-code="state.caseCode">
-      <h1 tabindex="-1" class="step-title">¿Qué pasó y dónde?</h1>
+      <h1 tabindex="-1" class="step-title">{{ t('identify.title') }}</h1>
 
       <div class="identify__pair">
         <div class="field">
-          <label class="field__label" for="role">¿Desde qué espacio participas? (Opcional)</label>
+          <label class="field__label" for="role">{{ t('identify.role') }}</label>
           <select id="role" v-model="answers.role" class="input">
-            <option value="">Prefiero no decir</option>
-            <option v-for="role in ROLES" :key="role.value" :value="role.value">{{ role.label }}</option>
+            <option value="">{{ t('identify.preferNot') }}</option>
+            <option v-for="role in ROLES" :key="role" :value="role">{{ t(roleKey(role)) }}</option>
           </select>
         </div>
         <div class="field">
-          <label class="field__label" for="department">Departamento (Opcional)</label>
+          <label class="field__label" for="department">{{ t('identify.department') }}</label>
           <select id="department" v-model="answers.department" class="input">
-            <option value="">Prefiero no decir</option>
+            <option value="">{{ t('identify.preferNot') }}</option>
             <option v-for="department in DEPARTMENTS" :key="department" :value="department">{{ department }}</option>
           </select>
         </div>
       </div>
-      <p class="field__hint">Estos dos datos solo sirven para estadística anónima. No te identifican.</p>
+      <p class="field__hint">{{ t('identify.hint') }}</p>
 
       <fieldset
         class="group"
         data-group="platforms"
         :aria-describedby="visibleErrors.platforms ? 'platforms-error' : undefined"
       >
-        <legend class="field__label">¿Dónde ocurrió la agresión? <span class="req">(obligatorio)</span></legend>
+        <legend class="field__label">
+          {{ t('identify.platforms') }} <span class="req">{{ t('identify.required') }}</span>
+        </legend>
         <div class="chips">
-          <label v-for="platform in PLATFORMS" :key="platform.value" class="chip">
-            <input v-model="answers.platforms" type="checkbox" :value="platform.value" />
+          <label v-for="platform in PLATFORMS" :key="platform" class="chip">
+            <input v-model="answers.platforms" type="checkbox" :value="platform" />
             <IconCheck class="chip__check" aria-hidden="true" />
-            {{ platform.label }}
+            {{ t(platformKey(platform)) }}
           </label>
         </div>
         <p v-if="visibleErrors.platforms" id="platforms-error" class="error-text">
-          <IconCircleAlert role="img" aria-label="Error" /> {{ visibleErrors.platforms }}
+          <IconCircleAlert role="img" :aria-label="t('common.error')" /> {{ visibleErrors.platforms }}
         </p>
       </fieldset>
 
       <div data-group="electoral">
         <YesNoField
           v-model="answers.electoralContext"
-          legend="¿Ocurre durante una campaña electoral o en el ejercicio de un cargo público?"
+          :legend="t('identify.electoral')"
           :error="visibleErrors.electoral"
         />
       </div>
@@ -93,24 +97,24 @@ async function next() {
         data-group="conducts"
         :aria-describedby="visibleErrors.conducts ? 'conducts-error' : undefined"
       >
-        <legend class="field__label">Marca todo lo que te haya pasado:</legend>
+        <legend class="field__label">{{ t('identify.conducts') }}</legend>
         <div class="conducts">
-          <label v-for="conduct in CONDUCTS" :key="conduct.value" class="conduct">
-            <input v-model="answers.conducts" type="checkbox" :value="conduct.value" />
+          <label v-for="conduct in CONDUCTS" :key="conduct" class="conduct">
+            <input v-model="answers.conducts" type="checkbox" :value="conduct" />
             <span>
-              <strong>{{ conduct.label }}</strong>
-              <span class="conduct__desc">{{ conduct.description }}</span>
+              <strong>{{ t(conductKey(conduct, 'label')) }}</strong>
+              <span class="conduct__desc">{{ t(conductKey(conduct, 'description')) }}</span>
             </span>
           </label>
         </div>
         <p v-if="visibleErrors.conducts" id="conducts-error" class="error-text">
-          <IconCircleAlert role="img" aria-label="Error" /> {{ visibleErrors.conducts }}
+          <IconCircleAlert role="img" :aria-label="t('common.error')" /> {{ visibleErrors.conducts }}
         </p>
       </fieldset>
     </FolioSheet>
 
     <button class="btn btn--plum btn--block">
-      Siguiente: Evaluar riesgo y prueba
+      {{ t('identify.next') }}
       <IconArrowRight aria-hidden="true" />
     </button>
   </form>
@@ -174,6 +178,7 @@ async function next() {
   background: var(--sheet);
   font-weight: 700;
   font-size: var(--text-sm);
+  overflow-wrap: anywhere;
   cursor: pointer;
 
   & input {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconCloud from '~icons/lucide/cloud'
 import IconCloudRain from '~icons/lucide/cloud-rain'
 import IconCloudSun from '~icons/lucide/cloud-sun'
@@ -9,9 +10,10 @@ import IconWind from '~icons/lucide/wind'
 import { returnFromCamouflage } from './quick-exit'
 
 /**
- * P06: a neutral weather screen with no trace of SIWAT.
+ * P06: a neutral weather screen with no trace of SIWAT, in any language.
  * Holding the sun for 2 seconds returns to the hidden session.
  */
+const { t } = useI18n()
 const HOLD_MS = 2000
 let holdTimer: ReturnType<typeof setTimeout> | undefined
 const holding = ref(false)
@@ -42,17 +44,17 @@ const hours = [
   { time: '18:00', temp: 25, icon: IconCloudRain },
 ]
 const days = [
-  { day: 'Mañana', min: 21, max: 29, icon: IconCloudSun },
-  { day: 'Viernes', min: 22, max: 30, icon: IconSun },
-  { day: 'Sábado', min: 21, max: 27, icon: IconCloudRain },
+  { day: 'weather.tomorrow', min: 21, max: 29, icon: IconCloudSun },
+  { day: 'weather.friday', min: 22, max: 30, icon: IconSun },
+  { day: 'weather.saturday', min: 21, max: 27, icon: IconCloudRain },
 ]
 </script>
 
 <template>
   <div class="weather">
     <header class="weather__head">
-      <p class="weather__city">San Salvador</p>
-      <p class="weather__sub">Pronóstico del clima</p>
+      <p class="weather__city">{{ t('weather.city') }}</p>
+      <p class="weather__sub">{{ t('weather.subtitle') }}</p>
     </header>
 
     <section class="weather__now">
@@ -60,7 +62,7 @@ const days = [
         type="button"
         class="weather__sun"
         :class="{ 'is-holding': holding }"
-        aria-label="Detalle del clima actual"
+        :aria-label="t('weather.sunLabel')"
         @pointerdown="startHold"
         @pointerup="cancelHold"
         @pointercancel="cancelHold"
@@ -71,14 +73,14 @@ const days = [
         <IconSun aria-hidden="true" />
       </button>
       <p class="weather__temp">28°C</p>
-      <p class="weather__desc">Parcialmente nublado</p>
+      <p class="weather__desc">{{ t('weather.now') }}</p>
       <ul class="weather__facts">
-        <li><IconDroplets aria-hidden="true" /> Humedad 68%</li>
-        <li><IconWind aria-hidden="true" /> Viento 9 km/h</li>
+        <li><IconDroplets aria-hidden="true" /> {{ t('weather.humidity', { value: 68 }) }}</li>
+        <li><IconWind aria-hidden="true" /> {{ t('weather.wind', { value: 9 }) }}</li>
       </ul>
     </section>
 
-    <section class="weather__card" aria-label="Por horas">
+    <section class="weather__card" :aria-label="t('weather.hourly')">
       <ul class="weather__hours">
         <li v-for="hour in hours" :key="hour.time">
           <span>{{ hour.time }}</span>
@@ -88,10 +90,10 @@ const days = [
       </ul>
     </section>
 
-    <section class="weather__card" aria-label="Próximos días">
+    <section class="weather__card" :aria-label="t('weather.daily')">
       <ul class="weather__days">
         <li v-for="day in days" :key="day.day">
-          <span>{{ day.day }}</span>
+          <span>{{ t(day.day) }}</span>
           <component :is="day.icon" aria-hidden="true" />
           <span>{{ day.min }}° / {{ day.max }}°</span>
         </li>

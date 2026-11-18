@@ -1,11 +1,13 @@
-import { nextTick } from 'vue'
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { nextTick, watch } from 'vue'
+import { createMemoryHistory, createRouter, type RouteLocationNormalizedLoaded } from 'vue-router'
 import { useCase } from '../features/case/use-case'
+import { i18n } from '../i18n'
 
 declare module 'vue-router' {
   interface RouteMeta {
     camouflage?: boolean
-    title?: string
+    /** Message key of the document title, e.g. `app.routes.result`. */
+    titleKey?: string
   }
 }
 
@@ -21,28 +23,28 @@ export const router = createRouter({
       path: '/paso-1',
       name: 'identify',
       component: () => import('../features/diagnosis/IdentifyView.vue'),
-      meta: { title: 'Paso 1 de 2' },
+      meta: { titleKey: 'app.routes.identify' },
       beforeEnter: () => useCase().state.consentAccepted || { name: 'welcome' },
     },
     {
       path: '/paso-2',
       name: 'risk',
       component: () => import('../features/diagnosis/RiskEvidenceView.vue'),
-      meta: { title: 'Paso 2 de 2' },
+      meta: { titleKey: 'app.routes.risk' },
       beforeEnter: () => useCase().step1Complete.value || { name: 'identify' },
     },
     {
       path: '/resultado',
       name: 'result',
       component: () => import('../features/result/ResultView.vue'),
-      meta: { title: 'Resultado' },
+      meta: { titleKey: 'app.routes.result' },
       beforeEnter: () => useCase().step2Complete.value || { name: 'risk' },
     },
     {
       path: '/asistente',
       name: 'assistant',
       component: () => import('../features/assistant/AssistantView.vue'),
-      meta: { title: 'Asistente rápido' },
+      meta: { titleKey: 'app.routes.assistant' },
     },
     {
       path: '/clima',
@@ -53,9 +55,18 @@ export const router = createRouter({
   ],
 })
 
+function applyDocumentTitle(route: RouteLocationNormalizedLoaded) {
+  if (route.meta.camouflage) return
+  const { t } = i18n.global
+  document.title = route.meta.titleKey ? `${t(route.meta.titleKey)} · SIWAT` : t('app.defaultTitle')
+}
+
+// The title follows a language change without leaving the screen.
+watch(i18n.global.locale, () => applyDocumentTitle(router.currentRoute.value))
+
 router.afterEach((to) => {
   if (to.meta.camouflage) return
-  document.title = to.meta.title ? `${to.meta.title} · SIWAT` : 'SIWAT — Dale color a lo que otros invisibilizan'
+  applyDocumentTitle(to)
   window.scrollTo({ top: 0 })
   // Move focus to the new screen's heading so screen readers announce the step change.
   void nextTick(() => document.querySelector<HTMLElement>('main h1')?.focus({ preventScroll: true }))

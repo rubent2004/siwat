@@ -10,8 +10,20 @@ export interface EvidenceRecord {
   hashedAtUtc: string
 }
 
+export type EvidenceErrorCode = 'too-many-files' | 'unsupported-format'
+
+/** Carries a stable code (plus its values) so the UI can show the message in the active language. */
 export class EvidenceError extends Error {
   override name = 'EvidenceError'
+
+  readonly code: EvidenceErrorCode
+  readonly params: Record<string, string | number>
+
+  constructor(code: EvidenceErrorCode, params: Record<string, string | number> = {}) {
+    super(code)
+    this.code = code
+    this.params = params
+  }
 }
 
 export async function sha256Hex(data: ArrayBuffer): Promise<string> {
@@ -31,11 +43,11 @@ export async function createEvidenceRecord(file: File, now = new Date()): Promis
 
 export function validateEvidenceFiles(files: File[], alreadyStored: number): void {
   if (alreadyStored + files.length > MAX_EVIDENCE_FILES) {
-    throw new EvidenceError(`Puedes subir un máximo ${MAX_EVIDENCE_FILES} capturas. Quita una para agregar otra.`)
+    throw new EvidenceError('too-many-files', { max: MAX_EVIDENCE_FILES })
   }
   const invalid = files.find((file) => !(ACCEPTED_EVIDENCE_TYPES as readonly string[]).includes(file.type))
   if (invalid) {
-    throw new EvidenceError(`«${invalid.name}» no es una imagen JPG o PNG. Sube la captura original en uno de esos formatos.`)
+    throw new EvidenceError('unsupported-format', { name: invalid.name })
   }
 }
 

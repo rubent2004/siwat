@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  overflow-wrap: break-word;
   margin: 0;
   min-height: 100dvh;
   background: var(--paper);
@@ -103,4 +104,9 @@ dialog::backdrop {
   overflow: hidden;
   overscroll-behavior: contain;
   background: rgb(36 17 42 / 0.55);
+}
+
+/* German compounds are long: let the browser hyphenate them where it can. */
+:lang(de) {
+  hyphens: auto;
 }

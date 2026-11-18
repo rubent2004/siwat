@@ -1,15 +1,19 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
 defineProps<{
   /** Folio number in the case file, e.g. "01". Omitted on sheets outside the case. */
   folio?: string
   caseCode?: string
 }>()
+
+const { t } = useI18n()
 </script>
 
 <template>
   <section class="folio">
     <div v-if="folio" class="folio__head">
-      <span class="data">Folio {{ folio }}</span>
+      <span class="data">{{ t('folio.label', { folio }) }}</span>
       <span class="data">{{ caseCode ?? 'SIWAT' }}</span>
     </div>
     <slot />

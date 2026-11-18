@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconArrowRight from '~icons/lucide/arrow-right'
 import IconExternalLink from '~icons/lucide/external-link'
 import IconPhone from '~icons/lucide/phone'
 import FolioSheet from '../../shared/ui/FolioSheet.vue'
 import { useCase } from '../case/use-case'
+import { actionLabelKey } from '../result/route-catalog'
 
 const router = useRouter()
+const { t } = useI18n()
 const { state } = useCase()
 
 /** «Ir al Semáforo Diagnóstico»: the consent on P01 is still required before step 1. */
@@ -17,52 +20,41 @@ function goToDiagnosis() {
 
 <template>
   <FolioSheet>
-    <h1 tabindex="-1" class="assistant__title">Asistente rápido</h1>
-    <p>Elige lo que necesitas ahora. Funciona sin internet y sin inteligencia artificial.</p>
+    <h1 tabindex="-1" class="assistant__title">{{ t('assistant.title') }}</h1>
+    <p>{{ t('assistant.intro') }}</p>
 
     <div class="assistant">
       <details class="assistant__item" name="assistant">
-        <summary class="assistant__button">¿Cómo tomo una captura válida como prueba?</summary>
+        <summary class="assistant__button">{{ t('assistant.capture.question') }}</summary>
         <ol class="assistant__body">
-          <li>Captura la pantalla completa, sin recortar: que se vean la fecha, la hora y el nombre o usuario de la cuenta.</li>
-          <li>Copia el enlace de la publicación o del perfil (en los 3 puntos, «Copiar enlace»).</li>
-          <li>Captura también el perfil de quien te agrede y, si hay, los comentarios.</li>
-          <li>No edites, no recortes y no la reenvíes por chat: guarda el archivo original.</li>
-          <li>Súbela en el Paso 2 del Semáforo para calcular su huella SHA-256 y la hora UTC.</li>
-          <li>Haz todo esto antes de bloquear.</li>
+          <li v-for="n in 6" :key="n">{{ t(`assistant.capture.s${n}`) }}</li>
         </ol>
       </details>
 
       <details class="assistant__item" name="assistant">
-        <summary class="assistant__button">¿Cómo oculto SIWAT si alguien se acerca?</summary>
+        <summary class="assistant__button">{{ t('assistant.hide.question') }}</summary>
         <ol class="assistant__body">
-          <li>Toca «SALIR RÁPIDO» arriba a la derecha, o presiona Esc dos veces en una computadora.</li>
-          <li>Aparece una pantalla del clima de San Salvador, sin mención de SIWAT.</li>
-          <li>Para volver a donde estabas, mantén presionado el sol durante 2 segundos.</li>
+          <li v-for="n in 3" :key="n">{{ t(`assistant.hide.s${n}`) }}</li>
         </ol>
       </details>
 
       <details class="assistant__item" name="assistant">
-        <summary class="assistant__button">Quiero blindar mi WhatsApp y Facebook ya</summary>
+        <summary class="assistant__button">{{ t('assistant.shield.question') }}</summary>
         <div class="assistant__body">
           <p><strong>WhatsApp</strong></p>
           <ol>
-            <li>Ajustes › Cuenta › Verificación en dos pasos › Activar. Crea un PIN de 6 dígitos.</li>
-            <li>Ajustes › Privacidad: «Foto de perfil», «Info» y «Grupos» en «Mis contactos».</li>
-            <li>Ajustes › Dispositivos vinculados: cierra los que no reconozcas.</li>
+            <li v-for="n in 3" :key="n">{{ t(`assistant.shield.whatsapp${n}`) }}</li>
           </ol>
           <p><strong>Facebook</strong></p>
           <ol>
-            <li>Centro de cuentas › Contraseña y seguridad › Autenticación en dos pasos.</li>
-            <li>En la misma sección, «Dónde iniciaste sesión»: cierra las sesiones extrañas.</li>
-            <li>Perfil › Información de contacto: deja tu teléfono y correo en «Solo yo».</li>
+            <li v-for="n in 3" :key="n">{{ t(`assistant.shield.facebook${n}`) }}</li>
           </ol>
         </div>
       </details>
 
       <a class="assistant__button assistant__link" href="tel:126">
         <IconPhone aria-hidden="true" />
-        Contactar orientación gratuita (ISDEMU 126)
+        {{ t(actionLabelKey('isdemu-126')) }}
       </a>
       <a
         class="assistant__secondary"
@@ -70,12 +62,12 @@ function goToDiagnosis() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Abrir 126 Te Orienta <IconExternalLink aria-hidden="true" />
-        <span class="visually-hidden">(se abre en otra pestaña)</span>
+        {{ t(actionLabelKey('isdemu-web')) }} <IconExternalLink aria-hidden="true" />
+        <span class="visually-hidden">{{ t('common.newTab') }}</span>
       </a>
 
       <button type="button" class="btn btn--primary btn--block" @click="goToDiagnosis">
-        Ir al Semáforo Diagnóstico
+        {{ t('assistant.goDiagnosis') }}
         <IconArrowRight aria-hidden="true" />
       </button>
     </div>

@@ -1,15 +1,17 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import AppFooter from '../shared/ui/AppFooter.vue'
 import AppHeader from '../shared/ui/AppHeader.vue'
 
 const route = useRoute()
+const { t } = useI18n()
 </script>
 
 <template>
   <RouterView v-if="route.meta.camouflage" />
   <template v-else>
-    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <a class="skip-link" href="#main">{{ t('app.skipLink') }}</a>
     <AppHeader />
     <main id="main" class="app-main">
       <RouterView />

@@ -1,21 +1,25 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconCircleAlert from '~icons/lucide/circle-alert'
 import IconLock from '~icons/lucide/lock'
 import { useCase } from '../case/use-case'
+import { PinVaultError } from '../case/infrastructure/pin-vault'
 
 const emit = defineEmits<{ opened: [] }>()
+const { t } = useI18n()
 const { createLocalSpace, openLocalSpace, hasLocalSpace } = useCase()
 
 const dialog = ref<HTMLDialogElement>()
 const mode = ref<'create' | 'open'>('create')
 const pseudonym = ref('')
 const pin = ref('')
+/** Message key of the current error, translated when shown. */
 const error = ref('')
 const busy = ref(false)
 const done = ref(false)
 
-const title = computed(() => (mode.value === 'open' ? 'Abrir mi espacio local' : 'Crear espacio local con PIN'))
+const title = computed(() => t(mode.value === 'open' ? 'localSpace.titleOpen' : 'localSpace.titleCreate'))
 
 defineExpose({
   open() {
@@ -41,7 +45,7 @@ async function submit() {
       done.value = true
     }
   } catch (cause) {
-    error.value = cause instanceof Error ? cause.message : 'No se pudo abrir el espacio local.'
+    error.value = cause instanceof PinVaultError ? `errors.vault.${cause.code}` : 'localSpace.fallbackError'
   } finally {
     busy.value = false
   }
@@ -53,23 +57,18 @@ async function submit() {
     <h2 id="space-title">{{ title }}</h2>
 
     <template v-if="done">
-      <p>
-        Listo. Tu avance se guarda cifrado en este dispositivo. Para retomarlo otro día, entra con el mismo seudónimo y
-        PIN.
-      </p>
+      <p>{{ t('localSpace.done') }}</p>
       <form method="dialog">
-        <button class="btn btn--primary btn--block" autofocus>Continuar</button>
+        <button class="btn btn--primary btn--block" autofocus>{{ t('localSpace.continue') }}</button>
       </form>
     </template>
 
     <form v-else class="space-form" @submit.prevent="submit">
-      <p v-if="mode === 'create'">
-        Es opcional. Guarda tu avance cifrado solo en este dispositivo. No uses tu nombre real.
-      </p>
-      <p v-else>Hay un espacio guardado en este dispositivo. Escribe tu seudónimo y PIN para abrirlo.</p>
+      <p v-if="mode === 'create'">{{ t('localSpace.createIntro') }}</p>
+      <p v-else>{{ t('localSpace.openIntro') }}</p>
 
       <div class="field">
-        <label class="field__label" for="space-pseudonym">Seudónimo</label>
+        <label class="field__label" for="space-pseudonym">{{ t('localSpace.pseudonym') }}</label>
         <input
           id="space-pseudonym"
           v-model="pseudonym"
@@ -82,7 +81,7 @@ async function submit() {
         />
       </div>
       <div class="field">
-        <label class="field__label" for="space-pin">PIN de 4 números</label>
+        <label class="field__label" for="space-pin">{{ t('localSpace.pin') }}</label>
         <input
           id="space-pin"
           v-model="pin"
@@ -96,17 +95,17 @@ async function submit() {
         />
       </div>
       <p v-if="error" class="error-text" role="alert">
-        <IconCircleAlert role="img" aria-label="Error" />
-        {{ error }}
+        <IconCircleAlert role="img" :aria-label="t('common.error')" />
+        {{ t(error) }}
       </p>
       <button class="btn btn--plum btn--block" :disabled="busy">
         <IconLock aria-hidden="true" />
-        {{ busy ? 'Protegiendo…' : mode === 'open' ? 'Abrir mi espacio' : 'Crear mi espacio' }}
+        {{ busy ? t('localSpace.busy') : mode === 'open' ? t('localSpace.submitOpen') : t('localSpace.submitCreate') }}
       </button>
       <button v-if="mode === 'open'" type="button" class="btn btn--ghost" @click="mode = 'create'">
-        Crear uno nuevo (reemplaza el anterior)
+        {{ t('localSpace.replace') }}
       </button>
-      <button type="button" class="btn btn--ghost" @click="dialog?.close()">Cancelar</button>
+      <button type="button" class="btn btn--ghost" @click="dialog?.close()">{{ t('localSpace.cancel') }}</button>
     </form>
   </dialog>
 </template>

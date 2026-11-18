@@ -70,7 +70,21 @@ describe('pin vault', () => {
     await vault.save('Luna', '0420', snapshot)
 
     await expect(vault.open('Luna', '9999')).rejects.toThrow(PinVaultError)
-    await expect(vault.open('Luna', '9999')).rejects.toThrow(/Seudónimo o PIN incorrectos/)
+    await expect(vault.open('Luna', '9999')).rejects.toMatchObject({ code: 'wrong-credentials' })
+  })
+
+  it('rejects an empty pseudonym or a PIN that is not 4 digits', async () => {
+    const vault = createPinVault(new MemoryStorage(), { iterations: 1000 })
+
+    await expect(vault.save(' ', '0420', snapshot)).rejects.toMatchObject({ code: 'invalid-credentials' })
+    await expect(vault.save('Luna', '42', snapshot)).rejects.toMatchObject({ code: 'invalid-credentials' })
+  })
+
+  it('reports when there is no local space to open', async () => {
+    const vault = createPinVault(new MemoryStorage(), { iterations: 1000 })
+
+    await expect(vault.open('Luna', '0420')).rejects.toThrow(PinVaultError)
+    await expect(vault.open('Luna', '0420')).rejects.toMatchObject({ code: 'not-found' })
   })
 
   it('removes every trace when cleared', async () => {

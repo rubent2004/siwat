@@ -1,7 +1,8 @@
 import type { RouteLocationRaw, Router } from 'vue-router'
+import { i18n } from '../../i18n'
 
 const DOUBLE_ESC_WINDOW_MS = 800
-const CAMOUFLAGE = { title: 'Clima — San Salvador', icon: './weather.svg' }
+const CAMOUFLAGE_ICON = './weather.svg'
 
 let router: Router | undefined
 let returnTo: RouteLocationRaw = { name: 'welcome' }
@@ -21,8 +22,8 @@ export function quickExit() {
   returnTo = router.currentRoute.value.fullPath
   appIdentity = { title: document.title, icon: iconLink()?.href ?? '' }
   closeOpenDialogs()
-  document.title = CAMOUFLAGE.title
-  iconLink()?.setAttribute('href', CAMOUFLAGE.icon)
+  document.title = i18n.global.t('weather.documentTitle')
+  iconLink()?.setAttribute('href', CAMOUFLAGE_ICON)
   void router.replace({ name: 'weather' })
 }
 

@@ -1,21 +1,23 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconPhone from '~icons/lucide/phone'
 
+const { t } = useI18n()
 const dialog = ref<HTMLDialogElement>()
 defineExpose({ open: () => dialog.value?.showModal() })
 </script>
 
 <template>
   <dialog ref="dialog" class="sheet-dialog" aria-labelledby="emergency-title" closedby="any">
-    <h2 id="emergency-title">Si estás en peligro ahora, llama</h2>
-    <p>Ambas líneas son gratuitas. Tú decides qué contar.</p>
+    <h2 id="emergency-title">{{ t('emergency.title') }}</h2>
+    <p>{{ t('emergency.body') }}</p>
     <div class="sheet-dialog__actions">
-      <a class="btn btn--plum btn--block" href="tel:911"><IconPhone aria-hidden="true" /> Llamar al 911</a>
-      <a class="btn btn--primary btn--block" href="tel:126"><IconPhone aria-hidden="true" /> Llamar al 126</a>
+      <a class="btn btn--plum btn--block" href="tel:911"><IconPhone aria-hidden="true" /> {{ t('emergency.call911') }}</a>
+      <a class="btn btn--primary btn--block" href="tel:126"><IconPhone aria-hidden="true" /> {{ t('emergency.call126') }}</a>
     </div>
     <form method="dialog">
-      <button class="btn btn--ghost btn--block" autofocus>Cerrar</button>
+      <button class="btn btn--ghost btn--block" autofocus>{{ t('emergency.close') }}</button>
     </form>
   </dialog>
 </template>

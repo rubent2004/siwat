@@ -1,0 +1,320 @@
+{
+  "app": {
+    "skipLink": "Skip to content",
+    "defaultTitle": "SIWAT — Bring colour to what others make invisible",
+    "routes": {
+      "identify": "Step 1 of 2",
+      "risk": "Step 2 of 2",
+      "result": "Result",
+      "assistant": "Quick assistant"
+    }
+  },
+  "language": {
+    "label": "Language"
+  },
+  "common": {
+    "error": "Error",
+    "yes": "Yes",
+    "no": "No",
+    "chooseYesNo": "Choose Yes or No.",
+    "newTab": "(opens in a new tab)"
+  },
+  "header": {
+    "home": "SIWAT, go to the start",
+    "exit": "QUICK EXIT",
+    "exitHint": "You can also press Esc twice. To come back, press and hold the sun for 2 seconds."
+  },
+  "footer": {
+    "text": "SIWAT is a preventive guidance tool. It does not file reports for you. If you are in physical danger right now, call {phone}."
+  },
+  "folio": {
+    "label": "Sheet {folio}"
+  },
+  "emergency": {
+    "title": "If you are in danger now, call",
+    "body": "Both lines are free. You decide what to share.",
+    "call911": "Call 911",
+    "call126": "Call 126",
+    "close": "Close"
+  },
+  "welcome": {
+    "title": "Is what you are facing online political violence? Find out in 2 minutes.",
+    "lead": "Find out whether this is violence under Salvadoran law, back up your evidence safely and learn where to turn. You decide whether and when to report.",
+    "noticeTitle": "Free and private:",
+    "noticeBody": "You do not need to give your real name. SIWAT guides you; it does not send reports to institutions for you.",
+    "consent": "I understand that this is a guidance tool and I accept the privacy notice.",
+    "start": "Start the traffic-light check",
+    "danger": "I am in physical danger right now",
+    "exitTip": "If someone comes near, tap {exit} or press Esc twice: you will see the weather. To come back, {hold}.",
+    "exitTipHold": "press and hold the sun for 2 seconds",
+    "linksLabel": "Other options",
+    "assistantLink": "Use the Quick Assistant (button guide)",
+    "localSpaceActive": "Local space active",
+    "localSpaceCreate": "Create a local space with a PIN (optional)",
+    "privacyTitle": "Privacy notice",
+    "privacyBody": "Your answers, links and screenshots are kept only in this browser's memory and are erased when you close the tab. Nothing is uploaded to servers. If you create a local space, it is stored encrypted with your PIN on this device. On the result screen you can erase everything with “Clear data from this device”."
+  },
+  "localSpace": {
+    "titleOpen": "Open my local space",
+    "titleCreate": "Create a local space with a PIN",
+    "done": "Done. Your progress is stored encrypted on this device. To pick it up another day, sign in with the same pseudonym and PIN.",
+    "continue": "Continue",
+    "createIntro": "This is optional. It stores your progress encrypted on this device only. Do not use your real name.",
+    "openIntro": "There is a saved space on this device. Enter your pseudonym and PIN to open it.",
+    "pseudonym": "Pseudonym",
+    "pin": "4-digit PIN",
+    "busy": "Protecting…",
+    "submitOpen": "Open my space",
+    "submitCreate": "Create my space",
+    "replace": "Create a new one (replaces the previous one)",
+    "cancel": "Cancel",
+    "fallbackError": "The local space could not be opened."
+  },
+  "errors": {
+    "vault": {
+      "invalid-credentials": "Enter a pseudonym and a 4-digit PIN.",
+      "not-found": "There is no local space saved on this device.",
+      "wrong-credentials": "Incorrect pseudonym or PIN. Check them and try again."
+    },
+    "evidence": {
+      "too-many-files": "You can upload up to {max} screenshots. Remove one to add another.",
+      "unsupported-format": "“{name}” is not a JPG or PNG image. Upload the original screenshot in one of those formats."
+    }
+  },
+  "identify": {
+    "stepLabel": "Step 1 of 2: Identify what happened",
+    "title": "What happened, and where?",
+    "role": "In what role do you take part? (Optional)",
+    "preferNot": "I prefer not to say",
+    "department": "Department (Optional)",
+    "hint": "These two answers are used only for anonymous statistics. They do not identify you.",
+    "platforms": "Where did the attack happen?",
+    "required": "(required)",
+    "electoral": "Is it happening during an election campaign or while you hold public office?",
+    "conducts": "Tick everything that has happened to you:",
+    "errorPlatforms": "Tick at least one network or channel where it happened.",
+    "errorConducts": "Tick at least one of the situations.",
+    "next": "Next: Assess risk and evidence"
+  },
+  "risk": {
+    "stepLabel": "Step 2 of 2: Urgency level and evidence",
+    "title": "Risk check and evidence backup",
+    "threat": "Have you received threats of physical or sexual harm, or against your family?",
+    "exposure": "Did they expose your exact address, workplace, personal phone number or intimate images without permission?",
+    "importantTitle": "Important!",
+    "importantBody": "Before you block the person attacking you, save the original screenshot and the link. If you block first, you will lose access to the evidence.",
+    "url": "Link (URL) to the post or the attacker's profile (Optional)",
+    "urlHint": "Copy the link from the 3 dots on the post.",
+    "narrative": "Briefly describe what happened (Optional)",
+    "counter": "{count}/{max} characters",
+    "submit": "See my traffic-light result",
+    "back": "Back"
+  },
+  "uploader": {
+    "label": "Upload the original screenshot (Optional, JPG or PNG)",
+    "hint": "Up to {max} images. Your browser calculates their digital fingerprint (SHA-256) and the UTC time to certify that they do not change. The images never leave your device.",
+    "proof": "Evidence {n}",
+    "sealUtc": "UTC stamp",
+    "remove": "Remove evidence {n}, {name}",
+    "hashing": "Calculating digital fingerprint…",
+    "addAnother": "Add another screenshot",
+    "choose": "Choose screenshots",
+    "fallbackError": "The image could not be processed."
+  },
+  "result": {
+    "lawTitle": "What does Salvadoran law say about your case?",
+    "lawOfficialNote": "The official text of these laws is in Spanish."
+  },
+  "bitacora": {
+    "title": "Evidence Log",
+    "lead": "A PDF with case code {code}, UTC date and time, the SHA-256 fingerprint of each screenshot, the link and the legal framework. Keep it together with your original, unedited files.",
+    "ack": "This document is a personal backup log. SIWAT does not file reports for you and does not replace legal proceedings before the FGR or the TSE.",
+    "generating": "Creating PDF…",
+    "download": "Download Evidence Log (PDF)",
+    "spanishNote": "The log is generated in Spanish so that you can present it to Salvadoran institutions.",
+    "downloaded": "Log downloaded. Check your downloads folder.",
+    "error": "The PDF could not be created. Try again; if it keeps failing, remove the screenshots and upload them again.",
+    "eraseHint": "When you are done, erase everything SIWAT stored on this device: answers, links, screenshots and local space.",
+    "clear": "Clear data from this device",
+    "confirmTitle": "Erase everything from this device?",
+    "confirmBody": "Your answers, links, screenshots and the PIN-protected local space will be erased. This cannot be undone.",
+    "notDownloaded": "You have not downloaded your log yet.",
+    "keep": "Keep my data",
+    "confirmClear": "Yes, erase everything"
+  },
+  "route": {
+    "title": "Your action plan",
+    "step1": "1. Report it on the platform (do not just block)",
+    "seeSteps": "See how to report on {platform}",
+    "howtoSave": "Save the evidence first: a screenshot with the date, the account name and the link visible.",
+    "howtoConfirm": "Take a screenshot of the report confirmation. Afterwards, if you want, block or restrict the account.",
+    "step2": "2. Where to turn",
+    "note": "You decide whether to report. SIWAT does not send your data or file reports for you.",
+    "step3": "3. Protect your accounts",
+    "shieldSummary": "Protect your accounts today (3 key steps)"
+  },
+  "reportLocation": {
+    "facebook": "Tap the three dots (…) on the post or profile and choose “Report”. Select the reason: harassment, impersonation or nudity.",
+    "whatsapp": "Open the chat, tap the contact or group name and choose “Report”.",
+    "tiktok": "Press and hold the video or tap “Share” and choose “Report”. On a profile, use the three dots.",
+    "x": "Tap the three dots (…) on the post or profile and choose “Report”.",
+    "instagram": "Tap the three dots (…) on the post, story or profile and choose “Report”.",
+    "youtube": "Tap the three dots (⋮) on the video or comment and choose “Report”.",
+    "telegram": "Open the profile, channel or message, tap the three dots and choose “Report”.",
+    "email": "Do not delete the email: save it in full (“Download message” or “Show original”) and mark it as spam or phishing.",
+    "other": "Look for the “Report” option next to the post or on the profile of the person attacking you."
+  },
+  "shield": {
+    "two-step": {
+      "label": "Turn on two-step verification",
+      "detail": "In the security settings of each network. That way nobody can get in, even with your password."
+    },
+    "hide-contact": {
+      "label": "Hide your phone number and email",
+      "detail": "So that only you can see them on your public profile."
+    },
+    "sessions": {
+      "label": "Check your open sessions",
+      "detail": "Close any you do not recognise and change your password if you see one that looks strange."
+    }
+  },
+  "stats": {
+    "title": "Anonymous statistics (optional)",
+    "optIn": "I want to contribute anonymous data to the ANDRYSAS Political Violence Observatory.",
+    "preview": "This is everything that would be shared: no name, links, account of events or screenshots. In this demo it is not sent anywhere yet."
+  },
+  "assistant": {
+    "title": "Quick assistant",
+    "intro": "Choose what you need right now. It works without internet and without artificial intelligence.",
+    "capture": {
+      "question": "How do I take a screenshot that counts as evidence?",
+      "s1": "Capture the whole screen without cropping: the date, the time and the account name or username must be visible.",
+      "s2": "Copy the link to the post or profile (in the 3 dots, “Copy link”).",
+      "s3": "Also capture the profile of the person attacking you and, if there are any, the comments.",
+      "s4": "Do not edit it, crop it or forward it through a chat app: keep the original file.",
+      "s5": "Upload it in Step 2 of the traffic-light check to calculate its SHA-256 fingerprint and the UTC time.",
+      "s6": "Do all of this before blocking."
+    },
+    "hide": {
+      "question": "How do I hide SIWAT if someone comes near?",
+      "s1": "Tap “QUICK EXIT” at the top right, or press Esc twice on a computer.",
+      "s2": "A San Salvador weather screen appears, with no mention of SIWAT.",
+      "s3": "To go back to where you were, press and hold the sun for 2 seconds."
+    },
+    "shield": {
+      "question": "I want to secure my WhatsApp and Facebook now",
+      "whatsapp1": "Settings › Account › Two-step verification › Turn on. Create a 6-digit PIN.",
+      "whatsapp2": "Settings › Privacy: set “Profile photo”, “About” and “Groups” to “My contacts”.",
+      "whatsapp3": "Settings › Linked devices: log out of any you do not recognise.",
+      "facebook1": "Accounts Centre › Password and security › Two-factor authentication.",
+      "facebook2": "In the same section, “Where you're logged in”: log out of any strange sessions.",
+      "facebook3": "Profile › Contact info: set your phone number and email to “Only me”."
+    },
+    "goDiagnosis": "Go to the traffic-light check"
+  },
+  "catalog": {
+    "roles": {
+      "alcaldesa-sindica-regidora": "Mayor/Municipal trustee/Councillor",
+      "diputada": "Member of the Legislative Assembly",
+      "candidata": "Candidate",
+      "militante": "Party member",
+      "lideresa-comunitaria": "Community leader",
+      "activista-defensora": "Activist/Human rights defender",
+      "otro": "Other"
+    },
+    "platforms": {
+      "facebook": "Facebook",
+      "whatsapp": "WhatsApp",
+      "tiktok": "TikTok",
+      "x": "X (Twitter)",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "telegram": "Telegram",
+      "email": "Email",
+      "other": "Other"
+    },
+    "conducts": {
+      "threats": {
+        "label": "Threats",
+        "description": "They say they will harm you or your family."
+      },
+      "sexist-insults": {
+        "label": "Sexist insults or mockery",
+        "description": "They humiliate you for being a woman, for your body or your private life."
+      },
+      "doxing": {
+        "label": "Sharing of private data (doxing)",
+        "description": "They published your phone number, address or private photos without permission."
+      },
+      "deepfake": {
+        "label": "Doctored or fake content (deepfake)",
+        "description": "Altered photos, videos or audio."
+      },
+      "impersonation": {
+        "label": "Identity theft",
+        "description": "They created a fake account pretending to be you."
+      },
+      "disinformation": {
+        "label": "Disinformation or coordinated attack",
+        "description": "Mass lies or many accounts attacking you to discredit your political work."
+      }
+    },
+    "light": {
+      "red": {
+        "label": "Red",
+        "title": "Red light — High risk",
+        "body": "There are serious signs of a threat to your physical safety, your privacy or of a computer crime. Immediate action and protection are needed."
+      },
+      "yellow": {
+        "label": "Yellow",
+        "title": "Yellow light — Digital political violence",
+        "body": "What you are facing aims to discredit you or limit your political participation. Document it systematically and report it."
+      },
+      "green": {
+        "label": "Green",
+        "title": "Green light — Preventive alert",
+        "body": "Early signs of harassment or symbolic violence. Do not normalise it; secure your accounts and keep a record."
+      }
+    }
+  },
+  "legal": {
+    "leiv-49-51": "3 to 10 years in prison for sharing or creating intimate/sexual content without consent through electronic means.",
+    "leiv-50": "1 to 3 years in prison for publishing personal data that harms someone's honour or privacy.",
+    "leiv-55-e": "Penalises exposing a woman to imminent risk to her physical or emotional integrity.",
+    "ledic-22-32": "Penalises identity theft and the fraudulent use of computer data.",
+    "leiv-55-c": "Penalises discrediting or degrading women in spaces of political participation.",
+    "leiv-55-c-d": "Penalises mocking, discrediting or obstructing women's political participation.",
+    "electoral-code-173-249": "Prohibits smear or defamatory campaign propaganda.",
+    "lie-20-23": "Guarantees equality in the exercise of political rights.",
+    "leiv-9": "Recognises psychological, emotional and symbolic violence against women.",
+    "leiv-55-a": "Penalises spreading messages that promote hatred or contempt towards women.",
+    "belem-do-para-3-7": "The right to a life free of violence in public and political life."
+  },
+  "institutions": {
+    "pnc": "Emergencies and risks to your physical safety or that of your family.",
+    "fgr": "Investigates threats, doxing and identity theft.",
+    "isdemu": "Free guidance for women facing violence.",
+    "tse": "Political violence during an election campaign or while holding office.",
+    "actions": {
+      "pnc-911": "Call emergency services (PNC 911)",
+      "fgr-web": "See FGR contact channels",
+      "isdemu-126": "Get free guidance (ISDEMU 126)",
+      "isdemu-web": "Open 126 Te Orienta",
+      "tse-web": "Report political violence (TSE)"
+    }
+  },
+  "weather": {
+    "documentTitle": "Weather — San Salvador",
+    "city": "San Salvador",
+    "subtitle": "Weather forecast",
+    "sunLabel": "Current weather details",
+    "now": "Partly cloudy",
+    "humidity": "Humidity {value}%",
+    "wind": "Wind {value} km/h",
+    "hourly": "Hourly",
+    "daily": "Next days",
+    "tomorrow": "Tomorrow",
+    "friday": "Friday",
+    "saturday": "Saturday"
+  }
+}

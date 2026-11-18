@@ -10,8 +10,18 @@ interface StoredVault {
   data: string
 }
 
+export type PinVaultErrorCode = 'invalid-credentials' | 'not-found' | 'wrong-credentials'
+
+/** Carries a stable code so the UI can show the message in the active language. */
 export class PinVaultError extends Error {
   override name = 'PinVaultError'
+
+  readonly code: PinVaultErrorCode
+
+  constructor(code: PinVaultErrorCode) {
+    super(code)
+    this.code = code
+  }
 }
 
 export interface PinVault {
@@ -52,7 +62,7 @@ export function createPinVault(
 
     async save(pseudonym, pin, snapshot) {
       if (!pseudonym.trim() || !isValidPin(pin)) {
-        throw new PinVaultError('Escribe un seudónimo y un PIN de 4 números.')
+        throw new PinVaultError('invalid-credentials')
       }
       const salt = crypto.getRandomValues(new Uint8Array(16))
       const iv = crypto.getRandomValues(new Uint8Array(12))
@@ -65,14 +75,14 @@ export function createPinVault(
 
     async open(pseudonym, pin) {
       const raw = storage.getItem(VAULT_KEY)
-      if (!raw) throw new PinVaultError('No hay un espacio local guardado en este dispositivo.')
+      if (!raw) throw new PinVaultError('not-found')
       try {
         const stored = JSON.parse(raw) as StoredVault
         const key = await deriveKey(pseudonym, pin, fromBase64(stored.salt))
         const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromBase64(stored.iv) }, key, fromBase64(stored.data))
         return JSON.parse(new TextDecoder().decode(plain)) as CaseSnapshot
       } catch {
-        throw new PinVaultError('Seudónimo o PIN incorrectos. Revisa e intenta de nuevo.')
+        throw new PinVaultError('wrong-credentials')
       }
     },
 

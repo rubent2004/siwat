@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useCase } from '../case/use-case'
 import { buildAnonymousStats } from './domain/anonymous-stats'
 
+const { t } = useI18n()
 const { state, result } = useCase()
 const optedIn = ref(false)
 const preview = computed(() => JSON.stringify(buildAnonymousStats(state.answers, result.value.light), null, 2))
@@ -10,16 +12,13 @@ const preview = computed(() => JSON.stringify(buildAnonymousStats(state.answers,
 
 <template>
   <section class="stats" aria-labelledby="stats-title">
-    <h2 id="stats-title">Estadística anónima (opcional)</h2>
+    <h2 id="stats-title">{{ t('stats.title') }}</h2>
     <label class="check-row">
       <input v-model="optedIn" type="checkbox" />
-      <span>Quiero aportar datos anónimos al Observatorio de Violencia Política de ANDRYSAS.</span>
+      <span>{{ t('stats.optIn') }}</span>
     </label>
     <div v-if="optedIn" class="stats__preview">
-      <p class="field__hint">
-        Esto es todo lo que se compartiría: sin nombre, enlaces, relato ni capturas. En esta demo todavía no se envía a
-        ningún lugar.
-      </p>
+      <p class="field__hint">{{ t('stats.preview') }}</p>
       <pre class="data">{{ preview }}</pre>
     </div>
   </section>

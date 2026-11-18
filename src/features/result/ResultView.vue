@@ -1,16 +1,22 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconPhone from '~icons/lucide/phone'
 import FolioSheet from '../../shared/ui/FolioSheet.vue'
 import VerdictStamp from '../../shared/ui/VerdictStamp.vue'
 import { useCase } from '../case/use-case'
-import { LIGHT_COPY } from '../diagnosis/catalog'
+import { lightKey } from '../diagnosis/catalog'
+import { actionLabelKey } from './route-catalog'
 import ActionRoute from './ActionRoute.vue'
 import AnonymousStatsOptIn from './AnonymousStatsOptIn.vue'
 import BitacoraPanel from './BitacoraPanel.vue'
 
+const { t, locale } = useI18n()
 const { state, result } = useCase()
-const copy = computed(() => LIGHT_COPY[result.value.light])
+const copy = computed(() => {
+  const light = result.value.light
+  return { label: t(lightKey(light, 'label')), title: t(lightKey(light, 'title')), body: t(lightKey(light, 'body')) }
+})
 const issuedAt = new Date().toISOString()
 </script>
 
@@ -31,17 +37,19 @@ const issuedAt = new Date().toISOString()
 
       <a v-if="result.light === 'red'" href="tel:911" class="btn btn--plum btn--block">
         <IconPhone aria-hidden="true" />
-        Llamar a emergencia (PNC 911)
+        {{ t(actionLabelKey('pnc-911')) }}
       </a>
 
       <details class="law">
-        <summary>¿Qué dice la ley salvadoreña sobre tu caso?</summary>
+        <summary>{{ t('result.lawTitle') }}</summary>
         <dl class="law__list">
-          <div v-for="reference in result.legalBasis" :key="reference.law" class="law__item">
-            <dt>{{ reference.law }}</dt>
-            <dd>{{ reference.summary }}</dd>
+          <!-- Official law names stay in Spanish in every language; only the summary is translated. -->
+          <div v-for="reference in result.legalBasis" :key="reference.id" class="law__item">
+            <dt lang="es-SV">{{ reference.law }}</dt>
+            <dd>{{ t(`legal.${reference.id}`) }}</dd>
           </div>
         </dl>
+        <p v-if="locale !== 'es'" class="law__note">{{ t('result.lawOfficialNote') }}</p>
       </details>
     </FolioSheet>
 
@@ -141,5 +149,11 @@ const issuedAt = new Date().toISOString()
     margin: 0;
     font-size: var(--text-sm);
   }
+}
+
+.law__note {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
 }
 </style>

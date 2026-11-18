@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { onBeforeUnmount, ref, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
 import IconCircleAlert from '~icons/lucide/circle-alert'
 import IconImagePlus from '~icons/lucide/image-plus'
 import IconTrash from '~icons/lucide/trash-2'
 import { useCase } from '../case/use-case'
-import { MAX_EVIDENCE_FILES } from './domain/evidence'
+import { EvidenceError, MAX_EVIDENCE_FILES } from './domain/evidence'
 
+const { t } = useI18n()
 const { state, addEvidence, removeEvidence, evidenceFile } = useCase()
-const error = ref('')
+/** Error message key and its values, translated when shown. */
+const error = ref<{ key: string; params: Record<string, string | number> } | null>(null)
 const hashing = ref(false)
 const previews = ref<Record<string, string>>({})
 
@@ -27,12 +30,15 @@ async function onFiles(event: Event) {
   const files = [...(input.files ?? [])]
   input.value = ''
   if (!files.length) return
-  error.value = ''
+  error.value = null
   hashing.value = true
   try {
     await addEvidence(files)
   } catch (cause) {
-    error.value = cause instanceof Error ? cause.message : 'No se pudo procesar la imagen.'
+    error.value =
+      cause instanceof EvidenceError
+        ? { key: `errors.evidence.${cause.code}`, params: cause.params }
+        : { key: 'uploader.fallbackError', params: {} }
   } finally {
     hashing.value = false
   }
@@ -50,32 +56,29 @@ const formatSize = (bytes: number) =>
 
 <template>
   <div class="uploader">
-    <span class="field__label" id="evidence-label">Sube captura de pantalla original (Opcional JPG o PNG)</span>
-    <p class="field__hint" id="evidence-hint">
-      Máximo {{ MAX_EVIDENCE_FILES }} imágenes. Tu navegador calcula su huella digital (SHA-256) y la hora UTC para
-      certificar que no cambian. Las imágenes no salen de tu dispositivo.
-    </p>
+    <span class="field__label" id="evidence-label">{{ t('uploader.label') }}</span>
+    <p class="field__hint" id="evidence-hint">{{ t('uploader.hint', { max: MAX_EVIDENCE_FILES }) }}</p>
 
     <ol v-if="state.evidence.length" class="uploader__list">
       <li v-for="(record, index) in state.evidence" :key="record.sha256" class="evidence">
         <img v-if="previews[record.sha256]" :src="previews[record.sha256]" alt="" class="evidence__thumb" />
         <div class="evidence__meta">
           <p class="evidence__name">
-            <span class="data">Prueba {{ index + 1 }}</span> · {{ record.name }} · {{ formatSize(record.size) }}
+            <span class="data">{{ t('uploader.proof', { n: index + 1 }) }}</span> · {{ record.name }} · {{ formatSize(record.size) }}
           </p>
           <p class="evidence__hash">
             <span class="evidence__key">SHA-256</span>
             <span class="data">{{ record.sha256 }}</span>
           </p>
           <p class="evidence__hash">
-            <span class="evidence__key">Sello UTC</span>
+            <span class="evidence__key">{{ t('uploader.sealUtc') }}</span>
             <span class="data evidence__time">{{ record.hashedAtUtc }}</span>
           </p>
         </div>
         <button
           type="button"
           class="evidence__remove"
-          :aria-label="`Quitar prueba ${index + 1}, ${record.name}`"
+          :aria-label="t('uploader.remove', { n: index + 1, name: record.name })"
           @click="remove(record.sha256)"
         >
           <IconTrash aria-hidden="true" />
@@ -85,7 +88,9 @@ const formatSize = (bytes: number) =>
 
     <label v-if="state.evidence.length < MAX_EVIDENCE_FILES" class="btn btn--outline uploader__pick">
       <IconImagePlus aria-hidden="true" />
-      {{ hashing ? 'Calculando huella digital…' : state.evidence.length ? 'Agregar otra captura' : 'Elegir capturas' }}
+      {{
+        hashing ? t('uploader.hashing') : state.evidence.length ? t('uploader.addAnother') : t('uploader.choose')
+      }}
       <input
         type="file"
         accept="image/jpeg,image/png"
@@ -98,7 +103,7 @@ const formatSize = (bytes: number) =>
     </label>
 
     <p v-if="error" class="error-text" role="alert">
-      <IconCircleAlert role="img" aria-label="Error" /> {{ error }}
+      <IconCircleAlert role="img" :aria-label="t('common.error')" /> {{ t(error.key, error.params) }}
     </p>
   </div>
 </template>

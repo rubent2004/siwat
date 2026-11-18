@@ -1,9 +1,13 @@
+<script setup lang="ts">
+import LocaleSelect from './LocaleSelect.vue'
+</script>
+
 <template>
   <footer class="footer">
-    <p>
-      SIWAT es una herramienta preventiva de orientación. No presenta denuncias por ti. Si estás en peligro físico
-      ahora, llama al <a href="tel:911">911</a>.
-    </p>
+    <i18n-t keypath="footer.text" tag="p" scope="global">
+      <template #phone><a href="tel:911">911</a></template>
+    </i18n-t>
+    <LocaleSelect class="footer__locale" />
   </footer>
 </template>
 
@@ -17,5 +21,9 @@
   & a {
     font-weight: 700;
   }
+}
+
+.footer__locale {
+  margin-top: var(--space-4);
 }
 </style>

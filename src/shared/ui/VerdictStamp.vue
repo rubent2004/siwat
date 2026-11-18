@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import type { Light } from '../../features/diagnosis/domain/types'
+import { HTML_LANG, isLocale } from '../../i18n/locales'
 
 const props = defineProps<{ light: Light; label: string; caseCode: string; issuedAtUtc: string }>()
 
@@ -11,10 +13,14 @@ const SHAPES: Record<Light, string> = {
   green: 'M60 4a56 56 0 1 1 0 112a56 56 0 1 1 0-112z',
 }
 
+const { locale } = useI18n()
+
+/** Formatted in the active language, always in UTC like the rest of the evidence. */
 const stampDate = computed(() => {
   const date = new Date(props.issuedAtUtc)
-  const day = date.toLocaleDateString('es-SV', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' })
-  const time = date.toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' })
+  const dateLocale = isLocale(locale.value) ? HTML_LANG[locale.value] : HTML_LANG.es
+  const day = date.toLocaleDateString(dateLocale, { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' })
+  const time = date.toLocaleTimeString(dateLocale, { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' })
   return { day, time: `${time} UTC` }
 })
 

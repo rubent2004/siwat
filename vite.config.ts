@@ -32,6 +32,13 @@ function contentSecurityPolicy(): Plugin {
 // Relative base so the same build works on Netlify Drop and GitHub Pages subpaths.
 export default defineConfig({
   base: './',
+  // vue-i18n esm-bundler flags. Messages are compiled just in time to an AST (no eval), so the CSP holds.
+  define: {
+    __VUE_I18N_FULL_INSTALL__: true,
+    __VUE_I18N_LEGACY_API__: false,
+    __INTLIFY_PROD_DEVTOOLS__: false,
+    __INTLIFY_DROP_MESSAGE_COMPILER__: false,
+  },
   plugins: [
     vue(),
     contentSecurityPolicy(),

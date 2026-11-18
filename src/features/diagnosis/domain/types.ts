@@ -36,9 +36,24 @@ export interface DiagnosisAnswers {
   narrative: string
 }
 
+/** Stable id of one legal reference; its summary is looked up by this id in each language. */
+export type LegalReferenceId =
+  | 'leiv-49-51'
+  | 'leiv-50'
+  | 'leiv-55-e'
+  | 'ledic-22-32'
+  | 'leiv-55-c'
+  | 'leiv-55-c-d'
+  | 'electoral-code-173-249'
+  | 'lie-20-23'
+  | 'leiv-9'
+  | 'leiv-55-a'
+  | 'belem-do-para-3-7'
+
 export interface LegalReference {
+  id: LegalReferenceId
+  /** Official name of the law, always in Spanish. */
   law: string
-  summary: string
 }
 
 export interface DiagnosisResult {
