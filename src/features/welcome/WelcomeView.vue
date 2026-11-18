@@ -14,6 +14,7 @@ import { useCase } from '../case/use-case'
 import LocalSpaceDialog from './LocalSpaceDialog.vue'
 
 const router = useRouter()
+const base = import.meta.env.BASE_URL
 const { t } = useI18n()
 const { state, acceptConsent, vaultActive } = useCase()
 
@@ -83,6 +84,16 @@ function start() {
     </details>
   </FolioSheet>
 
+  <aside class="credits" :aria-label="t('welcome.creditsLabel')">
+    <p>{{ t('welcome.creditsText') }}</p>
+    <div class="credits__logos">
+      <img :src="`${base}credits/andrysas.webp`" alt="ANDRYSAS" width="81" height="112" loading="lazy" />
+      <img :src="`${base}credits/onu-mujeres.webp`" alt="ONU Mujeres" width="687" height="112" loading="lazy" />
+      <img :src="`${base}credits/ceg-ues.webp`" alt="Centro de Estudios de Género, UES" width="102" height="112" loading="lazy" />
+      <img :src="`${base}credits/elankidetza.webp`" alt="eLankidetza, Agencia Vasca de Cooperación y Solidaridad" width="205" height="112" loading="lazy" />
+    </div>
+  </aside>
+
   <EmergencyDialog ref="emergency" />
   <LocalSpaceDialog ref="localSpace" @opened="router.push({ name: 'identify' })" />
 </template>
@@ -145,6 +156,28 @@ function start() {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+}
+
+.credits {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  color: var(--ink-muted);
+  font-size: var(--text-xs);
+}
+
+.credits__logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+
+  & img {
+    width: auto;
+    height: 2.25rem;
+    mix-blend-mode: multiply;
+    opacity: 0.75;
+  }
 }
 
 .privacy {

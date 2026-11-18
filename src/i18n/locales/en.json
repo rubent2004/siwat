@@ -72,7 +72,9 @@
     "localSpaceCreate": "Create a local space with a PIN (optional)",
     "accessibilityLink": "Accessibility options",
     "privacyTitle": "Privacy notice",
-    "privacyBody": "Your answers, links and screenshots are kept only in this browser's memory and are erased when you close the tab. Nothing is uploaded to servers. If you create a local space, it is stored encrypted with your PIN on this device. On the result screen you can erase everything with “Clear data from this device”."
+    "privacyBody": "Your answers, links and screenshots are kept only in this browser's memory and are erased when you close the tab. Nothing is uploaded to servers. If you create a local space, it is stored encrypted with your PIN on this device. On the result screen you can erase everything with “Clear data from this device”.",
+    "creditsText": "Prototype created at the 2026 National Hackathon, organised by ANDRYSAS, UN Women and the UES Centre for Gender Studies, with support from eLankidetza. It is not an official service of these institutions.",
+    "creditsLabel": "Organisers and supporters"
   },
   "localSpace": {
     "titleOpen": "Open my local space",

@@ -72,7 +72,9 @@
     "localSpaceCreate": "Lokalen Bereich mit PIN anlegen (optional)",
     "accessibilityLink": "Optionen für Barrierefreiheit",
     "privacyTitle": "Datenschutzhinweis",
-    "privacyBody": "Ihre Antworten, Links und Screenshots bleiben nur im Speicher dieses Browsers und werden beim Schließen des Tabs gelöscht. Nichts wird auf Server hochgeladen. Wenn Sie einen lokalen Bereich anlegen, wird er mit Ihrer PIN verschlüsselt auf diesem Gerät gespeichert. Im Ergebnis können Sie alles mit „Daten von diesem Gerät löschen“ entfernen."
+    "privacyBody": "Ihre Antworten, Links und Screenshots bleiben nur im Speicher dieses Browsers und werden beim Schließen des Tabs gelöscht. Nichts wird auf Server hochgeladen. Wenn Sie einen lokalen Bereich anlegen, wird er mit Ihrer PIN verschlüsselt auf diesem Gerät gespeichert. Im Ergebnis können Sie alles mit „Daten von diesem Gerät löschen“ entfernen.",
+    "creditsText": "Prototyp aus dem Nationalen Hackathon 2026, veranstaltet von ANDRYSAS, UN Women und dem Zentrum für Geschlechterstudien der UES, mit Unterstützung von eLankidetza. Er ist kein offizieller Dienst dieser Institutionen.",
+    "creditsLabel": "Veranstalter und Unterstützer"
   },
   "localSpace": {
     "titleOpen": "Meinen lokalen Bereich öffnen",

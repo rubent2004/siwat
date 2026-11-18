@@ -72,7 +72,9 @@
     "localSpaceCreate": "Crear espacio local con PIN (Opcional)",
     "accessibilityLink": "Opciones de accesibilidad",
     "privacyTitle": "Aviso de privacidad",
-    "privacyBody": "Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la pestaña. Nada se sube a servidores. Si creas un espacio local, se guarda cifrado con tu PIN en este dispositivo. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo»."
+    "privacyBody": "Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la pestaña. Nada se sube a servidores. Si creas un espacio local, se guarda cifrado con tu PIN en este dispositivo. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo».",
+    "creditsText": "Prototipo creado en el Hackatón Nacional 2026, organizado por ANDRYSAS, ONU Mujeres y el Centro de Estudios de Género de la UES, con apoyo de eLankidetza. No es un servicio oficial de estas instituciones.",
+    "creditsLabel": "Organizan y apoyan"
   },
   "localSpace": {
     "titleOpen": "Abrir mi espacio local",
