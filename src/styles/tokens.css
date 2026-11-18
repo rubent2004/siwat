@@ -1,0 +1,56 @@
+:root {
+  /* Brand (fixed by the functional spec v2.0) */
+  --plum: #38113b;
+  --plum-700: #4c1d50;
+  --plum-50: #f4ecf3;
+  --coral: #f4a261;
+  --coral-hover: #f08a3c;
+  --coral-ink: #2a0d2c;
+  --exit: #2b2d42;
+  --exit-hover: #1c1d2c;
+
+  /* Folio world */
+  --paper: #fbf7f2;
+  --sheet: #ffffff;
+  --edge: #ddd1da;
+  --ink: #24112a;
+  --ink-muted: #63506a;
+
+  /* Traffic light inks. -text variants pass 4.5:1 on white and on their tint. */
+  --red: #e63946;
+  --red-text: #a61b29;
+  --red-tint: #fdeef0;
+  --yellow: #e9c46a;
+  --yellow-text: #6e5100;
+  --yellow-tint: #fcf5e1;
+  --green: #2a9d8f;
+  --green-text: #1b6b61;
+  --green-tint: #e8f5f3;
+
+  --font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --font-data: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', 'Roboto Mono', monospace;
+
+  /* Type scale (1.2 minor third, 17px base for reading under stress) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.625rem, 1.3rem + 1.6vw, 2.125rem);
+
+  /* One spacing rhythm, 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius-sheet: 4px;
+  --radius-control: 8px;
+  --touch: 48px;
+  --measure: 40rem;
+  --shadow-sheet: 0 1px 2px rgb(56 17 59 / 0.08), 0 8px 24px -12px rgb(56 17 59 / 0.18);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

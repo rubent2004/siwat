@@ -1,0 +1,209 @@
+{
+  "title": "Elige el mundo visual de SIWAT",
+  "question": "La tirada asignó «Folio y sello». Quédate con ella, toma una alternativa o vuelve a tirar.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Folio y sello",
+      "kicker": "THE ROLL",
+      "lineage": "Salvadoran notarial folios and institutional rubber stamps (FGR, juzgados, alcaldías)",
+      "thesis": "Your case gets the weight of a stamped legal record: every answer is a numbered folio, the verdict lands as an inked stamp.",
+      "palette": [
+        "#38113B",
+        "#FBF7F2",
+        "#F4A261",
+        "#E63946",
+        "#E9C46A",
+        "#2A9D8F",
+        "#2B2D42"
+      ],
+      "materials": [
+        "numbered folio sheet",
+        "rubber-stamp ink impression",
+        "dated time stamp"
+      ],
+      "viewport": "Plum top bar with SIWAT and SALIR RÁPIDO; a paper folio card numbered «Folio 01/03» holds the question; the coral action sits at the thumb. On the result, the semáforo verdict is pressed onto the folio as a coloured stamp carrying the case code SIWAT-2026-XXXX and the UTC time.",
+      "risk": "Can read bureaucratic and cold if the stamps are timid or the copy loses its warmth.",
+      "raised": [
+        {
+          "from": "challenger-exposure-record",
+          "raise": "Each verdict stamp has its own shape (octagon red, triangle yellow, circle green) so the light reads without colour."
+        },
+        {
+          "from": "challenger-dev-console",
+          "raise": "«Limpiar datos de este dispositivo» is isolated by deliberate empty space and a confirmation, never next to the download."
+        },
+        {
+          "from": "challenger-star-atlas",
+          "raise": "Severity is one fixed ramp (green < yellow < red) used identically on banner, legal cards and PDF."
+        },
+        {
+          "from": "challenger-vertical-feed",
+          "raise": "Each step owns one decision per screen section; nothing competes with the current question."
+        }
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Añil",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Salvadoran indigo (añil) dyed cloth",
+      "thesis": "«Dale color a lo que otros invisibilizan» made literal: the result dyes the screen like cloth in the vat.",
+      "palette": [
+        "#38113B",
+        "#1F2A5C",
+        "#F4F1F8",
+        "#F4A261",
+        "#E63946",
+        "#E9C46A",
+        "#2A9D8F"
+      ],
+      "materials": [
+        "indigo-dyed cotton",
+        "resist-dye bands"
+      ],
+      "viewport": "Deep indigo-plum header band with a dyed stripe; questions on pale cloth-white; the result floods the top half with the semáforo colour as a dye field.",
+      "risk": "Familiar warm-crafts territory; the dye field can feel decorative rather than legal.",
+      "html": ".impeccable/mocks/decision/model-pick.html",
+      "htmlFrame": "390x844"
+    },
+    {
+      "id": "challenger-exposure-record",
+      "kind": "challenger",
+      "catalogId": "operate-b-exposure-record-zone-sheets",
+      "label": "Exposure record",
+      "verdict": "declined",
+      "lineage": "darkroom exposure record sheets",
+      "palette": [
+        "#2a2a2a",
+        "#d9d9d9",
+        "#c2187a"
+      ],
+      "materials": [
+        "tracing paper",
+        "hatching"
+      ],
+      "case": "Fuses poorly: activists do not identify with darkroom printing; hatching obscures urgent copy.",
+      "kept": "State encoded without colour."
+    },
+    {
+      "id": "challenger-dev-console",
+      "kind": "challenger",
+      "catalogId": "digital-design-canon-dark-first-developer-console",
+      "label": "Developer console",
+      "verdict": "declined",
+      "lineage": "dark-first IDE panels",
+      "palette": [
+        "#1e1f22",
+        "#7aa2f7"
+      ],
+      "materials": [
+        "graphite",
+        "hairline seams"
+      ],
+      "case": "Fuses poorly: a tool for coders, foreign to the audience; dark graphite feels threatening in crisis.",
+      "kept": "Destructive actions isolated by empty space."
+    },
+    {
+      "id": "challenger-star-atlas",
+      "kind": "challenger",
+      "catalogId": "notation-diagram-systems-star-atlas",
+      "label": "Star atlas",
+      "verdict": "declined",
+      "lineage": "celestial charts",
+      "palette": [
+        "#0d1b3d",
+        "#f5f5f0",
+        "#d64545"
+      ],
+      "materials": [
+        "chart paper",
+        "magnitude dots"
+      ],
+      "case": "Fuses poorly: no link to political violence or law.",
+      "kept": "One fixed ramp carries importance."
+    },
+    {
+      "id": "challenger-vertical-feed",
+      "kind": "challenger",
+      "catalogId": "pop-culture-shelf-vertical-video-feed-surface",
+      "label": "Vertical video feed",
+      "verdict": "declined",
+      "lineage": "short-video feeds",
+      "palette": [
+        "#000000",
+        "#ffffff"
+      ],
+      "materials": [
+        "full-bleed media"
+      ],
+      "case": "Fuses poorly: mimics the very platforms where the aggression happens.",
+      "kept": "One thing owns the screen at a time."
+    },
+    {
+      "id": "challenger-zoo-map",
+      "kind": "challenger",
+      "catalogId": "aww2-zoo-gardens-guide-map",
+      "label": "Zoo guide map",
+      "verdict": "declined",
+      "lineage": "leisure guide maps",
+      "palette": [
+        "#8ED462",
+        "#F5F1E4",
+        "#FF705D"
+      ],
+      "materials": [
+        "flat colour lobes"
+      ],
+      "case": "Fuses poorly: playful leisure register is wrong for a crisis tool.",
+      "kept": "Flat unmodulated colour, no gradients."
+    },
+    {
+      "id": "challenger-crouwel",
+      "kind": "challenger",
+      "catalogId": "crouwel-grid-specimen",
+      "label": "Crouwel grid specimen",
+      "verdict": "declined",
+      "lineage": "Dutch grid posters",
+      "palette": [
+        "#ffffff",
+        "#1d4ed8"
+      ],
+      "materials": [
+        "construction grid"
+      ],
+      "case": "Fuses poorly: monumental type hurts readability under stress.",
+      "kept": "Everything snaps to one grid."
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "El estándar de la categoría",
+    "thesis": "A clean mobile safety app: white cards, plum header, coral buttons, coloured result banner.",
+    "palette": [
+      "#FFFFFF",
+      "#38113B",
+      "#F4A261",
+      "#2A9D8F"
+    ],
+    "materials": [
+      "rounded cards",
+      "soft shadows"
+    ],
+    "viewport": "Plum app bar, white rounded cards stacked, coral full-width button.",
+    "risk": "Indistinguishable from any other NGO app; forgettable in a judged hackathon.",
+    "html": ".impeccable/mocks/decision/canon.html",
+    "htmlFrame": "390x844"
+  }
+}
