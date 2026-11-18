@@ -169,7 +169,7 @@ async function next() {
   gap: var(--space-2);
   min-height: var(--touch);
   padding: var(--space-2) var(--space-4);
-  border: 1.5px solid #b9a9b6;
+  border: 1.5px solid var(--control-edge);
   border-radius: 999px;
   background: var(--sheet);
   font-weight: 700;

@@ -13,6 +13,8 @@
   --paper: #fbf7f2;
   --sheet: #ffffff;
   --edge: #ddd1da;
+  /* Resting border of form controls: 3.7:1 on paper, meets WCAG 1.4.11 non-text contrast. */
+  --control-edge: #8c7a89;
   --ink: #24112a;
   --ink-muted: #63506a;
 

@@ -1,9 +1,5 @@
-<script setup lang="ts">
-defineProps<{ size?: 'sm' | 'lg' }>()
-</script>
-
 <template>
-  <span class="brand" :class="`brand--${size ?? 'sm'}`">
+  <span class="brand">
     <svg class="brand__lights" viewBox="0 0 12 34" aria-hidden="true">
       <circle cx="6" cy="6" r="4.5" fill="#E63946" />
       <circle cx="6" cy="17" r="4.5" fill="#E9C46A" />
@@ -16,6 +12,7 @@ defineProps<{ size?: 'sm' | 'lg' }>()
 <style scoped>
 .brand {
   display: inline-flex;
+  font-size: var(--text-lg);
   align-items: center;
   gap: 0.4em;
   font-weight: 700;
@@ -26,13 +23,5 @@ defineProps<{ size?: 'sm' | 'lg' }>()
 .brand__lights {
   height: 1.35em;
   width: auto;
-}
-
-.brand--sm {
-  font-size: 1.25rem;
-}
-
-.brand--lg {
-  font-size: 2rem;
 }
 </style>

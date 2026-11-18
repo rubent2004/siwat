@@ -141,7 +141,7 @@ const formatSize = (bytes: number) =>
   height: 4rem;
   object-fit: cover;
   border: 1px solid var(--edge);
-  border-radius: 2px;
+  border-radius: var(--radius-sheet);
 }
 
 .evidence__meta {

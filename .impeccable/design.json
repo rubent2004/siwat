@@ -1,0 +1,613 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T16:23:02Z",
+  "title": "Design System: SIWAT",
+  "extensions": {
+    "colorMeta": {
+      "plum": {
+        "role": "primary",
+        "displayName": "Notarial Plum",
+        "canonical": "oklch(26.1% 0.087 324.8)",
+        "tonalRamp": [
+          "#130514",
+          "#321b33",
+          "#543556",
+          "#78517b",
+          "#9b729d",
+          "#bb97bd",
+          "#dbbedd",
+          "#fde6fe"
+        ],
+        "projectScale": [
+          "#38113b",
+          "#4c1d50",
+          "#f4ecf3"
+        ]
+      },
+      "plum-700": {
+        "role": "primary",
+        "displayName": "Plum Deep",
+        "canonical": "oklch(32.3% 0.102 324.5)",
+        "tonalRamp": [
+          "#140416",
+          "#341936",
+          "#563259",
+          "#7b4e7f",
+          "#9e6ea2",
+          "#be95c1",
+          "#debce0",
+          "#ffe5ff"
+        ]
+      },
+      "plum-50": {
+        "role": "primary",
+        "displayName": "Plum Wash",
+        "canonical": "oklch(95.1% 0.013 329.6)",
+        "tonalRamp": [
+          "#0d0a0c",
+          "#272427",
+          "#454044",
+          "#655f64",
+          "#868086",
+          "#a9a3a8",
+          "#ccc7cb",
+          "#f1edf0"
+        ]
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "Seal Coral",
+        "canonical": "oklch(78.1% 0.127 57.9)",
+        "tonalRamp": [
+          "#1c0300",
+          "#3f1800",
+          "#673200",
+          "#914d03",
+          "#b66f33",
+          "#d39666",
+          "#f0bd98",
+          "#ffe6c9"
+        ]
+      },
+      "coral-hover": {
+        "role": "secondary",
+        "displayName": "Coral Pressed",
+        "canonical": "oklch(73.0% 0.153 54.5)",
+        "tonalRamp": [
+          "#1f0100",
+          "#451200",
+          "#6f2b00",
+          "#9b4400",
+          "#c1671a",
+          "#de905a",
+          "#f9b98f",
+          "#ffe3c3"
+        ]
+      },
+      "coral-ink": {
+        "role": "secondary",
+        "displayName": "Coral Ink",
+        "canonical": "oklch(22.1% 0.069 325.0)",
+        "tonalRamp": [
+          "#120712",
+          "#2f1e30",
+          "#503851",
+          "#745575",
+          "#967697",
+          "#b69ab7",
+          "#d8c0d8",
+          "#fae8fa"
+        ]
+      },
+      "exit": {
+        "role": "neutral",
+        "displayName": "Exit Slate",
+        "canonical": "oklch(30.5% 0.038 279.7)",
+        "tonalRamp": [
+          "#0a0a12",
+          "#232430",
+          "#3f4152",
+          "#5d5f75",
+          "#7e8098",
+          "#a1a3b8",
+          "#c6c8d8",
+          "#eceefa"
+        ]
+      },
+      "exit-hover": {
+        "role": "neutral",
+        "displayName": "Exit Slate Deep",
+        "canonical": "oklch(23.7% 0.029 281.0)",
+        "tonalRamp": [
+          "#0a0b11",
+          "#23242e",
+          "#40414e",
+          "#5e6070",
+          "#7f8192",
+          "#a2a4b3",
+          "#c7c8d5",
+          "#edeef7"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Folio Paper",
+        "canonical": "oklch(97.8% 0.008 73.7)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#262522",
+          "#44423e",
+          "#64615d",
+          "#85827e",
+          "#a7a4a1",
+          "#cbc9c6",
+          "#f0eeec"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Sheet White",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "edge": {
+        "role": "neutral",
+        "displayName": "Hairline Edge",
+        "canonical": "oklch(87.3% 0.018 334.2)",
+        "tonalRamp": [
+          "#0d0a0d",
+          "#292327",
+          "#473f45",
+          "#675e65",
+          "#897f86",
+          "#aba2a9",
+          "#cec7cc",
+          "#f2ecf1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Record Ink",
+        "canonical": "oklch(21.8% 0.054 317.6)",
+        "tonalRamp": [
+          "#0f0812",
+          "#2c2030",
+          "#4b3b50",
+          "#6d5974",
+          "#8f7996",
+          "#b09db6",
+          "#d2c3d7",
+          "#f6eaf9"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Faded Ink",
+        "canonical": "oklch(46.0% 0.048 316.9)",
+        "tonalRamp": [
+          "#0f0811",
+          "#2b212f",
+          "#4a3c4f",
+          "#6b5a72",
+          "#8d7b94",
+          "#af9eb5",
+          "#d1c4d6",
+          "#f5eaf8"
+        ]
+      },
+      "red": {
+        "role": "tertiary",
+        "displayName": "Stamp Red",
+        "canonical": "oklch(61.2% 0.208 22.2)",
+        "tonalRamp": [
+          "#270000",
+          "#530003",
+          "#820015",
+          "#b50f29",
+          "#de424a",
+          "#f97776",
+          "#ffa7a3",
+          "#ffd6d2"
+        ]
+      },
+      "red-text": {
+        "role": "tertiary",
+        "displayName": "Red Text",
+        "canonical": "oklch(47.0% 0.172 22.7)",
+        "tonalRamp": [
+          "#230000",
+          "#4c010a",
+          "#79171e",
+          "#a92e34",
+          "#d05354",
+          "#ec817e",
+          "#ffaea9",
+          "#ffdbd6"
+        ]
+      },
+      "red-tint": {
+        "role": "tertiary",
+        "displayName": "Red Tint",
+        "canonical": "oklch(96.1% 0.016 8.2)",
+        "tonalRamp": [
+          "#0e0a0a",
+          "#2a2324",
+          "#483f41",
+          "#695e5f",
+          "#8b7f80",
+          "#ada2a3",
+          "#cfc7c8",
+          "#f3eced"
+        ]
+      },
+      "yellow": {
+        "role": "tertiary",
+        "displayName": "Signal Yellow",
+        "canonical": "oklch(83.4% 0.117 87.4)",
+        "tonalRamp": [
+          "#140800",
+          "#342200",
+          "#563e00",
+          "#7b5c00",
+          "#9e7e28",
+          "#bda261",
+          "#ddc794",
+          "#feedc7"
+        ]
+      },
+      "yellow-stamp": {
+        "role": "tertiary",
+        "displayName": "Stamp Ochre",
+        "canonical": "oklch(71.1% 0.138 85.3)",
+        "tonalRamp": [
+          "#170700",
+          "#372000",
+          "#5b3b00",
+          "#825900",
+          "#a57b00",
+          "#c3a051",
+          "#e2c689",
+          "#ffecbf"
+        ]
+      },
+      "yellow-text": {
+        "role": "tertiary",
+        "displayName": "Yellow Text",
+        "canonical": "oklch(45.3% 0.093 84.6)",
+        "tonalRamp": [
+          "#130900",
+          "#322200",
+          "#533e0b",
+          "#785d1f",
+          "#9a7e42",
+          "#baa271",
+          "#dac7a0",
+          "#fcedcf"
+        ]
+      },
+      "yellow-tint": {
+        "role": "tertiary",
+        "displayName": "Yellow Tint",
+        "canonical": "oklch(97.0% 0.027 90.9)",
+        "tonalRamp": [
+          "#0d0b06",
+          "#28251c",
+          "#464235",
+          "#666151",
+          "#888272",
+          "#aaa597",
+          "#cdc9bd",
+          "#f1eee5"
+        ]
+      },
+      "green": {
+        "role": "tertiary",
+        "displayName": "Stamp Teal",
+        "canonical": "oklch(63.0% 0.101 183.0)",
+        "tonalRamp": [
+          "#00110d",
+          "#002e28",
+          "#004f46",
+          "#007266",
+          "#2f9488",
+          "#6ab5aa",
+          "#9cd7cd",
+          "#cef9f1"
+        ]
+      },
+      "green-text": {
+        "role": "tertiary",
+        "displayName": "Green Text",
+        "canonical": "oklch(47.8% 0.076 182.8)",
+        "tonalRamp": [
+          "#00100c",
+          "#012c27",
+          "#144c45",
+          "#2a6e65",
+          "#4e9086",
+          "#7bb1a8",
+          "#a8d4cc",
+          "#d6f7f0"
+        ]
+      },
+      "green-tint": {
+        "role": "tertiary",
+        "displayName": "Green Tint",
+        "canonical": "oklch(96.0% 0.014 186.0)",
+        "tonalRamp": [
+          "#080c0b",
+          "#212626",
+          "#3c4443",
+          "#596462",
+          "#7a8583",
+          "#9ea7a6",
+          "#c3cbca",
+          "#eaf0ef"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Opening H1 of a fresh start: P01 welcome and P05 assistant."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Screen H1s on diagnosis steps, the P04 verdict title, dialog titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section H2s inside a folio."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose on a 17px base, within the 40rem column."
+      },
+      "body-sm": {
+        "displayName": "Body small",
+        "purpose": "Hints, descriptions, notices, legal articles, chips."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, field labels, legends, disclosure summaries."
+      },
+      "folio-data": {
+        "displayName": "Folio data",
+        "purpose": "Mono, uppercase folio heads; inline hashes and codes at 0.92em."
+      },
+      "stamp-label": {
+        "displayName": "Stamp label",
+        "purpose": "The verdict word inside the stamp (1.05rem in the triangle)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "sheet-lip",
+        "value": "0 3px 0 -1px var(--sheet), 0 3px 0 0 var(--edge)",
+        "purpose": "Stacked-sheet lip under every folio sheet; a paper edge, not a drop shadow."
+      },
+      {
+        "name": "dialog-lift",
+        "value": "0 24px 48px -16px rgb(36 17 42 / 0.45)",
+        "purpose": "Native modal dialogs only."
+      },
+      {
+        "name": "dialog-backdrop",
+        "value": "rgb(36 17 42 / 0.55)",
+        "purpose": "Backdrop dim behind modal dialogs."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "System easing for control colour transitions and the stamp press."
+      },
+      {
+        "name": "control-transition",
+        "value": "160ms",
+        "purpose": "Button background and border colour changes."
+      },
+      {
+        "name": "stamp-press",
+        "value": "520ms",
+        "purpose": "The one authored motion: stamp lands from 1.35x scale, -16deg, 35% opacity. Reduced-motion gated."
+      },
+      {
+        "name": "disclosure-chevron",
+        "value": "200ms",
+        "purpose": "Disclosure chevron rotation. Reduced-motion gated."
+      },
+      {
+        "name": "disclosure-reveal",
+        "value": "300ms ease-in-out",
+        "purpose": "Disclosure content block-size reveal. Reduced-motion gated."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stamp-stack",
+        "value": "max-width: 26rem",
+        "purpose": "Verdict stamp moves above the title."
+      },
+      {
+        "name": "folio-roomy",
+        "value": "min-width: 30rem",
+        "purpose": "Folio padding grows from 1rem to 1.5rem."
+      },
+      {
+        "name": "pair-columns",
+        "value": "min-width: 34rem",
+        "purpose": "Paired question groups on P02 go two-up."
+      }
+    ],
+    "sizes": [
+      {
+        "name": "touch",
+        "value": "48px",
+        "purpose": "Minimum height of every interactive element."
+      },
+      {
+        "name": "measure",
+        "value": "40rem",
+        "purpose": "Reading column and top-bar alignment width."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Coral forward step of a folio; at most one per folio or dialog.",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Iniciar Semáforo Diagnóstico <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--touch); padding: var(--space-2) var(--space-5); border: 2px solid transparent; border-radius: var(--radius-control); font-family: var(--font-body); font-weight: 700; font-size: var(--text-md); line-height: 1.25; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out); cursor: pointer; } .ds-btn-primary { background: var(--coral); color: var(--coral-ink); } .ds-btn-primary:hover { background: var(--coral-hover); } .ds-btn-primary:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; } .ds-btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }"
+    },
+    {
+      "name": "Plum Button",
+      "kind": "button",
+      "refersTo": "button-plum",
+      "description": "Committed actions: emergency calls and institution channels.",
+      "html": "<a class=\"ds-btn ds-btn-plum\" href=\"tel:911\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg> Llamar a emergencia (PNC 911)</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--touch); padding: var(--space-2) var(--space-5); border: 2px solid transparent; border-radius: var(--radius-control); font-family: var(--font-body); font-weight: 700; font-size: var(--text-md); line-height: 1.25; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out); cursor: pointer; text-decoration: none; } .ds-btn-plum { background: var(--plum); color: #fff; } .ds-btn-plum:hover { background: var(--plum-700); } .ds-btn-plum:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary route beside a plum action.",
+      "html": "<button class=\"ds-btn ds-btn-outline\">Abrir 126 Te Orienta</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--touch); padding: var(--space-2) var(--space-5); border: 2px solid transparent; border-radius: var(--radius-control); font-family: var(--font-body); font-weight: 700; font-size: var(--text-md); line-height: 1.25; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out); cursor: pointer; } .ds-btn-outline { background: var(--sheet); border-color: var(--plum); color: var(--plum); } .ds-btn-outline:hover { background: var(--plum-50); } .ds-btn-outline:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "The isolated device-erase action only.",
+      "html": "<button class=\"ds-btn ds-btn-danger\">Limpiar datos de este dispositivo</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: var(--touch); padding: var(--space-2) var(--space-5); border: 2px solid transparent; border-radius: var(--radius-control); font-family: var(--font-body); font-weight: 700; font-size: var(--text-md); line-height: 1.25; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out); cursor: pointer; } .ds-btn-danger { background: var(--sheet); border-color: var(--red-text); color: var(--red-text); } .ds-btn-danger:hover { background: var(--red-tint); } .ds-btn-danger:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled field with hint; red-tint on :user-invalid. Resting stroke is the build value, flagged as below 3:1.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Enlace a la publicación</span><span class=\"ds-field-hint\">Copia la dirección completa.</span><input class=\"ds-input\" type=\"url\" placeholder=\"https://\"></label>",
+      "css": ".ds-field { display: grid; gap: var(--space-2); font-family: var(--font-body); font-size: var(--text-md); color: var(--ink); } .ds-field-label { font-weight: 700; } .ds-field-hint { font-size: var(--text-sm); color: var(--ink-muted); } .ds-input { width: 100%; min-height: var(--touch); padding: var(--space-2) var(--space-3); background: var(--sheet); border: 1.5px solid var(--control-edge); border-radius: var(--radius-control); font: inherit; color: inherit; } .ds-input:hover { border-color: var(--ink-muted); } .ds-input:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; } .ds-input:user-invalid { border-color: var(--red-text); background: var(--red-tint); }"
+    },
+    {
+      "name": "Conduct Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill toggle for multi-select on P02; solid plum when checked.",
+      "html": "<label class=\"ds-chip\"><input type=\"checkbox\" checked> Facebook</label> <label class=\"ds-chip\"><input type=\"checkbox\"> TikTok</label>",
+      "css": ".ds-chip { position: relative; display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--touch); padding: var(--space-2) var(--space-4); border: 1.5px solid var(--control-edge); border-radius: 999px; background: var(--sheet); color: var(--ink); font-family: var(--font-body); font-weight: 700; font-size: var(--text-sm); cursor: pointer; } .ds-chip input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; } .ds-chip:has(:checked) { border-color: var(--plum); background: var(--plum); color: #fff; } .ds-chip:hover:not(:has(:checked)) { border-color: var(--ink-muted); } .ds-chip:has(:focus-visible) { outline: 3px solid var(--plum); outline-offset: 2px; }"
+    },
+    {
+      "name": "Top Bar with Quick Exit",
+      "kind": "nav",
+      "refersTo": "topbar",
+      "description": "Sticky plum shell: brand home link left, slate quick exit right.",
+      "html": "<header class=\"ds-topbar\"><a class=\"ds-brand\" href=\"#\"><svg width=\"10\" height=\"28\" viewBox=\"0 0 10 28\" aria-hidden=\"true\"><circle cx=\"5\" cy=\"5\" r=\"4\" fill=\"#E63946\"/><circle cx=\"5\" cy=\"14\" r=\"4\" fill=\"#E9C46A\"/><circle cx=\"5\" cy=\"23\" r=\"4\" fill=\"#2A9D8F\"/></svg>SIWAT</a><button class=\"ds-exit\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\"/><polyline points=\"16 17 21 12 16 7\"/><line x1=\"21\" x2=\"9\" y1=\"12\" y2=\"12\"/></svg> SALIR RÁPIDO</button></header>",
+      "css": ".ds-topbar { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-2) var(--space-4); background: var(--plum); color: #fff; font-family: var(--font-body); } .ds-brand { display: inline-flex; align-items: center; gap: 0.4em; min-height: var(--touch); color: #fff; text-decoration: none; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.08em; } .ds-brand:focus-visible { outline: 3px solid #fff; outline-offset: 3px; } .ds-exit { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--touch); min-width: var(--touch); padding: 0 var(--space-4); background: var(--exit); color: #fff; border: 1.5px solid rgb(255 255 255 / 0.35); border-radius: var(--radius-control); font: inherit; font-weight: 700; letter-spacing: 0.03em; cursor: pointer; } .ds-exit:hover { background: var(--exit-hover); } .ds-exit:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Folio Sheet",
+      "kind": "card",
+      "refersTo": "folio-sheet",
+      "description": "A numbered sheet of the case file: hairline edge, stacked-sheet lip, mono folio head over a dashed rule.",
+      "html": "<section class=\"ds-folio\"><div class=\"ds-folio-head\"><span>Folio 01</span><span>SIWAT-2026-6LAF</span></div><h2 class=\"ds-folio-title\">¿Lo que vives en redes es violencia política?</h2><p>Identifica si existe violencia según la ley salvadoreña y conoce a dónde acudir.</p></section>",
+      "css": ".ds-folio { display: grid; gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-6); background: var(--sheet); border: 1px solid var(--edge); border-radius: var(--radius-sheet); box-shadow: 0 3px 0 -1px var(--sheet), 0 3px 0 0 var(--edge); color: var(--ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; } .ds-folio p { margin: 0; } .ds-folio-head { display: flex; justify-content: space-between; gap: var(--space-1) var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px dashed var(--edge); color: var(--ink-muted); font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; } .ds-folio-title { margin: 0; color: var(--plum); font-size: var(--text-xl); line-height: 1.2; }"
+    },
+    {
+      "name": "Verdict Stamp",
+      "kind": "custom",
+      "refersTo": "verdict-stamp-red",
+      "description": "Signature: the inked, rotated verdict stamp pressed onto the P04 folio. Octagon red, triangle yellow, circle green.",
+      "html": "<div class=\"ds-stamp\" aria-hidden=\"true\"><svg viewBox=\"0 0 120 120\"><path d=\"M37 4h46l33 33v46l-33 33H37L4 83V37z\"/></svg><span class=\"ds-stamp-text\"><span class=\"ds-stamp-label\">Rojo</span><span class=\"ds-stamp-data\">18 nov 2026<br>16:17 UTC</span><span class=\"ds-stamp-data\">SIWAT-2026<br>6LAF</span></span></div>",
+      "css": ".ds-stamp { --ink-color: var(--red); position: relative; display: grid; place-items: center; width: 8.5rem; aspect-ratio: 1; color: var(--ink-color); rotate: -8deg; mix-blend-mode: multiply; font-family: var(--font-body); } @media (prefers-reduced-motion: no-preference) { .ds-stamp { animation: ds-stamp-press 520ms var(--ease-out) both; } } .ds-stamp svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; } .ds-stamp path { fill: color-mix(in srgb, var(--ink-color) 8%, transparent); stroke: var(--ink-color); stroke-width: 6; stroke-linejoin: round; } .ds-stamp-text { position: relative; display: grid; justify-items: center; gap: 0.15rem; text-align: center; } .ds-stamp-label { font-size: 1.35rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; } .ds-stamp-data { max-width: 6.5rem; font-family: var(--font-data); font-size: 0.625rem; font-weight: 700; line-height: 1.25; letter-spacing: 0.04em; text-transform: uppercase; } @keyframes ds-stamp-press { from { opacity: 0.35; scale: 1.35; rotate: -16deg; } }"
+    },
+    {
+      "name": "Notice",
+      "kind": "card",
+      "refersTo": "notice",
+      "description": "Inline reassurance (teal) or warning (ochre) inside a folio.",
+      "html": "<div class=\"ds-notice\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\"/><path d=\"m9 12 2 2 4-4\"/></svg><p><strong>Uso libre y privado:</strong> No necesitas dar tu nombre real.</p></div>",
+      "css": ".ds-notice { display: flex; gap: var(--space-3); padding: var(--space-4); border: 1.5px solid var(--green); border-radius: var(--radius-control); background: var(--green-tint); color: var(--ink); font-family: var(--font-body); font-size: var(--text-sm); line-height: 1.55; } .ds-notice p { margin: 0; } .ds-notice > svg { flex-shrink: 0; width: 1.4rem; height: 1.4rem; color: var(--green-text); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Folio y sello (The Stamped Case File)",
+    "overview": "A case in SIWAT is a legal record, not a wellness journey. Every step of the diagnosis is a numbered folio: a white sheet laid on warm paper, its head ruled off with a dashed line and its folio number and case code typed in monospace. The verdict is not a badge or a gradient card; it is an inked rubber stamp pressed onto the result folio, rotated a few degrees, carrying the traffic-light word, the UTC date and the case code. The world borrows its authority from the notary's desk so that a woman reading it under stress, on a phone, trusts that what she keeps is evidence.\n\nDensity is low and the reading is single-column. One plum bar frames every screen with the brand on the left and the quick exit on the right; below it, sheets stack down a 40rem column. Colour is flat and spent with discipline: plum is the voice of the record (headings, links, navigation, secondary actions), coral is the one forward step, and the three traffic-light inks appear only where the law's verdict appears. The confirmed refusal is the soft-gradient NGO card stack: no gradients, no floating rounded cards, no decorative illustration.",
+    "keyCharacteristics": [
+      "Warm paper ground, white folio sheets with a hairline edge and a stacked-sheet lip.",
+      "Monospace reserved for record data: folio numbers, case codes, SHA-256 hashes, UTC times.",
+      "Shape-coded verdict stamps: octagon (red), triangle (yellow), circle (green), always with the word.",
+      "Flat colour throughout; the only lifted surface is a modal dialog.",
+      "48px minimum for every tap target; one decision per section."
+    ],
+    "rules": [
+      {
+        "name": "The One Coral Rule",
+        "body": "A folio or dialog carries at most one coral button. Every other action is plum, outline or ghost. Coral means \"the next step\", nothing else.",
+        "section": "colors"
+      },
+      {
+        "name": "The Text Ink Rule",
+        "body": "The base traffic-light inks are for strokes, stamps and borders. Any traffic-light *text* uses its `-text` variant.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Signals Rule",
+        "body": "Severity is never colour alone: every verdict carries a colour, a stamp shape and a word (ROJO / AMARILLO / VERDE).",
+        "section": "colors"
+      },
+      {
+        "name": "The Typewriter Rule",
+        "body": "Monospace is only for data that must be read exactly: folio numbers, case codes, SHA-256 hashes, UTC timestamps. Never for headings, labels or decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Weights Rule",
+        "body": "Atkinson Hyperlegible ships at 400 and 700. Hierarchy comes from size and colour (plum headings, ink body), never from a third weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Stack Rule",
+        "body": "A surface earns depth only by being another sheet (hairline plus lip) or a modal (dialog lift). No ambient card shadows, no glows, no gradients.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Two Radii Rule",
+        "body": "Sheets 4px, controls 8px. A pill is only for chips and progress; a stamp is only for the verdict.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do put every step of the case on a folio sheet with its mono folio head and the case code.",
+      "Do keep coral to one forward action per folio or dialog, with coral-ink text.",
+      "Do pair every traffic-light colour with its stamp shape (octagon, triangle, circle) and its word.",
+      "Do use the `-text` traffic-light variants for any severity text and the base inks only for strokes, stamps and borders.",
+      "Do keep every tap target at 48px minimum and the quick exit visible on every case screen.",
+      "Do separate sections inside a sheet with a dashed or 1px hairline rule rather than nesting cards.",
+      "Do gate every authored motion behind `prefers-reduced-motion: no-preference`."
+    ],
+    "donts": [
+      "Don't use gradients, glows or soft card stacks in the case world. (The P06 weather camouflage deliberately imitates a generic weather app and sits outside this world.)",
+      "Don't use monospace for headings, buttons or decoration.",
+      "Don't add a third Atkinson weight or a display face.",
+      "Don't reuse exit slate for any control other than the quick exit.",
+      "Don't add motion beyond the stamp press and the disclosure reveal; the stamp is the one authored moment.",
+      "Don't draw a control's resting border lighter than `control-edge`; anything below 3:1 against the sheet fails WCAG 1.4.11."
+    ]
+  }
+}
