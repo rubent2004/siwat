@@ -34,6 +34,15 @@ function goToDiagnosis() {
       </details>
 
       <details class="assistant__item" name="assistant">
+        <summary class="assistant__button">¿Cómo oculto SIWAT si alguien se acerca?</summary>
+        <ol class="assistant__body">
+          <li>Toca «SALIR RÁPIDO» arriba a la derecha, o presiona Esc dos veces en una computadora.</li>
+          <li>Aparece una pantalla del clima de San Salvador, sin mención de SIWAT.</li>
+          <li>Para volver a donde estabas, mantén presionado el sol durante 2 segundos.</li>
+        </ol>
+      </details>
+
+      <details class="assistant__item" name="assistant">
         <summary class="assistant__button">Quiero blindar mi WhatsApp y Facebook ya</summary>
         <div class="assistant__body">
           <p><strong>WhatsApp</strong></p>

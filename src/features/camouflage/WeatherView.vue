@@ -16,8 +16,10 @@ const HOLD_MS = 2000
 let holdTimer: ReturnType<typeof setTimeout> | undefined
 const holding = ref(false)
 
-function startHold() {
+function startHold(event?: PointerEvent) {
   cancelHold()
+  // Keep receiving the pointer even if a shaky hand slides off the sun.
+  if (event) (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
   holding.value = true
   holdTimer = setTimeout(() => {
     holding.value = false
@@ -61,7 +63,6 @@ const days = [
         aria-label="Detalle del clima actual"
         @pointerdown="startHold"
         @pointerup="cancelHold"
-        @pointerleave="cancelHold"
         @pointercancel="cancelHold"
         @keydown.enter.space.prevent="!holding && startHold()"
         @keyup.enter.space="cancelHold"
@@ -151,10 +152,13 @@ const days = [
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: scale 2s linear;
+    transition:
+      scale 2s linear,
+      rotate 2s linear;
 
     &.is-holding {
-      scale: 0.92;
+      scale: 0.88;
+      rotate: 45deg;
     }
   }
 }

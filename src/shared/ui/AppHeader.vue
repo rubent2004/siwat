@@ -13,7 +13,9 @@ import BrandMark from './BrandMark.vue'
       <IconLogOut aria-hidden="true" />
       SALIR RÁPIDO
     </button>
-    <span id="exit-hint" class="visually-hidden">También puedes presionar Esc dos veces.</span>
+    <span id="exit-hint" class="visually-hidden">
+      También puedes presionar Esc dos veces. Para volver, mantén presionado el sol durante 2 segundos.
+    </span>
   </header>
 </template>
 

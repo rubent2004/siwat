@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import IconArrowRight from '~icons/lucide/arrow-right'
+import IconLogOut from '~icons/lucide/log-out'
 import IconShieldCheck from '~icons/lucide/shield-check'
 import IconSiren from '~icons/lucide/siren'
 import EmergencyDialog from '../../shared/ui/EmergencyDialog.vue'
@@ -56,6 +57,14 @@ function start() {
       </button>
     </div>
 
+    <p class="welcome__exit-tip">
+      <IconLogOut aria-hidden="true" />
+      <span>
+        Si alguien se acerca, toca <strong>SALIR RÁPIDO</strong> o presiona Esc dos veces: verás el clima. Para
+        volver, <strong>mantén presionado el sol durante 2 segundos</strong>.
+      </span>
+    </p>
+
     <nav class="welcome__links" aria-label="Otras opciones">
       <RouterLink :to="{ name: 'assistant' }">Usar Asistente Rápido (Guía por botones)</RouterLink>
       <button type="button" class="welcome__link-button" @click="localSpace?.open()">
@@ -88,6 +97,22 @@ function start() {
   display: grid;
   gap: var(--space-3);
   margin-top: var(--space-2);
+}
+
+.welcome__exit-tip {
+  display: flex;
+  gap: var(--space-3);
+  padding-block: var(--space-3);
+  border-block: 1px solid var(--edge);
+  font-size: var(--text-sm);
+
+  & svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.15rem;
+    color: var(--exit);
+  }
 }
 
 .welcome__links {
