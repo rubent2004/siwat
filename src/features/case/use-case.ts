@@ -9,7 +9,7 @@ import {
   validateEvidenceFiles,
   type EvidenceRecord,
 } from '../evidence/domain/evidence'
-import type { CaseSnapshot } from './domain/case-snapshot'
+import { toPlainSnapshot, type CaseSnapshot } from './domain/case-snapshot'
 import { createPinVault } from './infrastructure/pin-vault'
 import { createSessionRepository } from './infrastructure/session-repository'
 
@@ -47,7 +47,7 @@ watch(
     if (vaultCredentials) {
       clearTimeout(vaultSaveTimer)
       const { pseudonym, pin } = vaultCredentials
-      const current = structuredClone(snapshot())
+      const current = toPlainSnapshot(snapshot())
       vaultSaveTimer = setTimeout(() => void pinVault.save(pseudonym, pin, current), 600)
     }
   },
@@ -101,7 +101,7 @@ function evidenceFile(record: EvidenceRecord): File | undefined {
 }
 
 async function createLocalSpace(pseudonym: string, pin: string) {
-  await pinVault.save(pseudonym, pin, structuredClone(snapshot()))
+  await pinVault.save(pseudonym, pin, toPlainSnapshot(snapshot()))
   vaultCredentials = { pseudonym, pin }
   vaultActive.value = true
 }

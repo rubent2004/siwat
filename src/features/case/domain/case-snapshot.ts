@@ -24,3 +24,12 @@ export type KeyValueStorage = Pick<Storage, 'getItem' | 'setItem' | 'removeItem'
 export function withCurrentAnswers(snapshot: CaseSnapshot): CaseSnapshot {
   return { ...snapshot, answers: { ...emptyAnswers(), ...snapshot.answers } }
 }
+
+/**
+ * Plain, detached copy of a snapshot. Vue's reactive state is a Proxy, which structuredClone
+ * and Web Crypto callers cannot clone; every value in a snapshot is JSON-safe, so a JSON round trip
+ * gives an independent copy.
+ */
+export function toPlainSnapshot(snapshot: CaseSnapshot): CaseSnapshot {
+  return JSON.parse(JSON.stringify(snapshot)) as CaseSnapshot
+}
