@@ -188,15 +188,27 @@ async function addImage(doc: JsPdf, file: File, place: (height: number) => numbe
   const scale = Math.min(maxWidth / bitmap.width, maxHeight / bitmap.height)
   const width = bitmap.width * scale
   const height = bitmap.height * scale
+  const dataUrl = previewJpeg(bitmap)
   bitmap.close()
-  const dataUrl = await new Promise<string>((resolve, reject) => {
-    const reader = new FileReader()
-    reader.onload = () => resolve(reader.result as string)
-    reader.onerror = () => reject(reader.error)
-    reader.readAsDataURL(file)
-  })
   const top = place(height)
-  doc.addImage(dataUrl, file.type === 'image/png' ? 'PNG' : 'JPEG', PAGE.margin, top, width, height)
+  doc.addImage(dataUrl, 'JPEG', PAGE.margin, top, width, height)
+}
+
+/**
+ * The image in the log is only a visual preview: integrity rests on the SHA-256 of the
+ * untouched original. Downscaling to ~1000 px JPEG keeps a 3-capture log small enough to share.
+ */
+function previewJpeg(bitmap: ImageBitmap, maxSide = 1000, quality = 0.82): string {
+  const ratio = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height))
+  const canvas = document.createElement('canvas')
+  canvas.width = Math.round(bitmap.width * ratio)
+  canvas.height = Math.round(bitmap.height * ratio)
+  const context = canvas.getContext('2d')!
+  // JPEG has no transparency: paint white first so transparent PNG areas do not turn black.
+  context.fillStyle = '#ffffff'
+  context.fillRect(0, 0, canvas.width, canvas.height)
+  context.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+  return canvas.toDataURL('image/jpeg', quality)
 }
 
 export function downloadBlob(blob: Blob, filename: string) {
