@@ -42,6 +42,18 @@ describe('session repository', () => {
 
     expect(createSessionRepository(storage).load()).toBeNull()
   })
+
+  it('loads a snapshot saved before the free-text answers existed, with empty texts', () => {
+    const storage = new MemoryStorage()
+    const { otherPlatform: _platform, otherRole: _role, ...oldAnswers } = snapshot.answers
+    storage.setItem('siwat:case', JSON.stringify({ ...snapshot, answers: oldAnswers }))
+
+    const loaded = createSessionRepository(storage).load()
+
+    expect(loaded?.answers.otherPlatform).toBe('')
+    expect(loaded?.answers.otherRole).toBe('')
+    expect(loaded?.answers.platforms).toEqual(['tiktok'])
+  })
 })
 
 describe('pin vault', () => {

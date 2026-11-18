@@ -42,6 +42,8 @@ export const PLATFORMS: Platform[] = [
   'telegram',
   'email',
   'other',
+  // Always last: it unchecks the others (see togglePlatform).
+  'prefer-not-to-say',
 ]
 
 export const CONDUCTS: Conduct[] = [

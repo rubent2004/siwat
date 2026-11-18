@@ -9,6 +9,7 @@ import IconSiren from '~icons/lucide/siren'
 import EmergencyDialog from '../../shared/ui/EmergencyDialog.vue'
 import FolioSheet from '../../shared/ui/FolioSheet.vue'
 import LocaleSelect from '../../shared/ui/LocaleSelect.vue'
+import { openAccessibilityPanel } from '../accessibility/use-accessibility'
 import { useCase } from '../case/use-case'
 import LocalSpaceDialog from './LocalSpaceDialog.vue'
 
@@ -70,6 +71,9 @@ function start() {
       <RouterLink :to="{ name: 'assistant' }">{{ t('welcome.assistantLink') }}</RouterLink>
       <button type="button" class="welcome__link-button" @click="localSpace?.open()">
         {{ vaultActive ? t('welcome.localSpaceActive') : t('welcome.localSpaceCreate') }}
+      </button>
+      <button type="button" class="welcome__link-button" @click="openAccessibilityPanel">
+        {{ t('welcome.accessibilityLink') }}
       </button>
     </nav>
 

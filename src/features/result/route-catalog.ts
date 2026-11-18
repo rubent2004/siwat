@@ -26,7 +26,7 @@ export const INSTITUTIONS: Record<InstitutionId, Institution> = {
     actions: [{ id: 'fgr-web', href: 'https://www.fiscalia.gob.sv/', kind: 'web' }],
   },
   isdemu: {
-    name: 'ISDEMU (Línea 126)',
+    name: 'ISDEMU (126)',
     actions: [
       { id: 'isdemu-126', href: 'tel:126', kind: 'call' },
       { id: 'isdemu-web', href: 'https://126teorienta.gob.sv/dirservicios/', kind: 'web' },
@@ -41,11 +41,30 @@ export const INSTITUTIONS: Record<InstitutionId, Institution> = {
 export const institutionPurposeKey = (id: InstitutionId) => `institutions.${id}`
 export const actionLabelKey = (id: ContactActionId) => `institutions.actions.${id}`
 
+type ReportablePlatform = Exclude<Platform, 'prefer-not-to-say'>
+
 /**
- * Where the «Reportar» option lives on each network: `reportLocation.<platform>`.
- * Generic until the ANDRYSAS manual text is supplied (assumption A3).
+ * How many report steps each platform has, from the ANDRYSAS manual
+ * («Manual Práctico Violencia Política Digital contra Mujeres», ¿Cómo denunciar…?).
+ * The text of each step is `reportLocation.<platform>.s<n>`.
  */
-export const reportLocationKey = (platform: Platform) => `reportLocation.${platform}`
+const REPORT_STEP_COUNT: Record<ReportablePlatform, number> = {
+  facebook: 3,
+  whatsapp: 3,
+  tiktok: 4,
+  x: 4,
+  instagram: 3,
+  youtube: 4,
+  telegram: 4,
+  email: 4,
+  other: 3,
+}
+
+/** Message keys of the report steps for one platform, in order. Empty for «Prefiero no decirlo». */
+export function reportStepKeys(platform: Platform): string[] {
+  if (platform === 'prefer-not-to-say') return []
+  return Array.from({ length: REPORT_STEP_COUNT[platform] }, (_, index) => `reportLocation.${platform}.s${index + 1}`)
+}
 
 /** Account protection measures: `shield.<id>.label` and `shield.<id>.detail`. */
 export const SHIELD_MEASURES = ['two-step', 'hide-contact', 'sessions'] as const

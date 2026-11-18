@@ -32,4 +32,27 @@ describe('buildAnonymousStats', () => {
     expect(stats.department).toBe('sin-dato')
     expect(stats.role).toBe('sin-dato')
   })
+
+  it('never includes the free texts written for "Otra" platform or "Otro" role', () => {
+    const stats = buildAnonymousStats(
+      {
+        ...emptyAnswers(),
+        role: 'otro',
+        otherRole: 'Concejal suplente de Apopa',
+        platforms: ['other'],
+        otherPlatform: 'Foro del partido',
+        conducts: ['sexist-insults'],
+      },
+      'green',
+    )
+
+    expect(stats).toEqual({
+      department: 'sin-dato',
+      role: 'otro',
+      platforms: ['other'],
+      conducts: ['sexist-insults'],
+      light: 'green',
+    })
+    expect(JSON.stringify(stats)).not.toMatch(/Apopa|Foro del partido/)
+  })
 })

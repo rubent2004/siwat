@@ -1,0 +1,77 @@
+/*
+ * Display options from the accessibility panel («Opciones de accesibilidad»).
+ * The classes are set on <html> by use-accessibility.ts; high contrast also follows the
+ * system setting (prefers-contrast: more) without any script.
+ */
+
+/* «Texto más grande»: every size in the app is in rem, so the root size scales them all. */
+html.a11y-large-text {
+  font-size: 125%;
+}
+
+/* «Alto contraste»: black ink on white, 2px control borders, underlined links, no tints behind text. */
+html.a11y-high-contrast {
+  --ink: #000;
+  --ink-muted: #000;
+  --paper: #fff;
+  --sheet: #fff;
+  --edge: #000;
+  --control-edge: #000;
+  --control-border: 2px;
+  --plum-50: #fff;
+  --red-tint: #fff;
+  --yellow-tint: #fff;
+  --green-tint: #fff;
+}
+
+html.a11y-high-contrast a:not(.btn, .topbar__home, .assistant__link) {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+html.a11y-high-contrast .stamp__shape path {
+  fill: #fff;
+}
+
+@media (prefers-contrast: more) {
+  html:root {
+    --ink: #000;
+    --ink-muted: #000;
+    --paper: #fff;
+    --sheet: #fff;
+    --edge: #000;
+    --control-edge: #000;
+    --control-border: 2px;
+    --plum-50: #fff;
+    --red-tint: #fff;
+    --yellow-tint: #fff;
+    --green-tint: #fff;
+  }
+
+  html:root a:not(.btn, .topbar__home, .assistant__link) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  html:root .stamp__shape path {
+    fill: #fff;
+  }
+}
+
+/* Windows high contrast and other forced palettes: keep shapes and states visible. */
+@media (forced-colors: active) {
+  html:root .chip:has(:checked) {
+    border-width: 3px;
+    border-color: Highlight;
+  }
+
+  html:root .disclosure summary::before {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+
+  html:root .stamp__shape path {
+    fill: Canvas;
+    stroke: CanvasText;
+  }
+}

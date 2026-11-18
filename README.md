@@ -11,11 +11,11 @@ verificable y botones directos a los canales oficiales de El Salvador.
 | Pantalla | Qué hace |
 |---|---|
 | P01 Inicio | Consentimiento obligatorio, botón «Estoy en peligro físico ahora» (911 / 126), acceso al asistente y espacio local opcional con seudónimo + PIN. |
-| P02 Paso 1 | Rol y departamento (opcionales), redes, contexto electoral y 6 conductas. |
+| P02 Paso 1 | Rol y departamento (opcionales; «Otro» admite texto libre), redes con sus iconos (incluye «Otra» con texto libre y «Prefiero no decirlo», que excluye a las demás), contexto electoral y 6 conductas. |
 | P03 Paso 2 | Dos filtros de riesgo, aviso «guarda antes de bloquear», URL, hasta 3 capturas con **SHA-256 + sello UTC** calculados en el navegador, relato de 500 caracteres. |
-| P04 Resultado | Sello rojo / amarillo / verde (color + forma + texto), artículos de LEIV, LEDIC, Código Electoral, LIE y Belém do Pará, **Bitácora PDF** con código `SIWAT-2026-XXXX`, pasos para reportar en cada red, botones directos a PNC 911, FGR, ISDEMU 126 / 126 Te Orienta y TSE, checklist de blindaje, «Limpiar datos de este dispositivo». |
+| P04 Resultado | Sello rojo / amarillo / verde (color + forma + texto), artículos de LEIV, LEDIC, Código Penal, Código Electoral, LIE y Belém do Pará (con el aviso «Orientación, no asesoría legal»), **Bitácora PDF** con código `SIWAT-2026-XXXX`, pasos para reportar en cada red según el manual de ANDRYSAS, botones directos a PNC 911, FGR, ISDEMU 126 / 126 Te Orienta y TSE, checklist de blindaje, «Limpiar datos de este dispositivo». |
 | P05 Asistente | 4 botones fijos, funciona sin internet y sin IA. |
-| P06 Camuflaje | «SALIR RÁPIDO» o `Esc` dos veces: pantalla de clima de San Salvador sin rastro de SIWAT (cambia título y favicon). Mantener presionado el sol 2 s para volver. |
+| P06 Camuflaje | «SALIR RÁPIDO» o `Esc` dos veces: pantalla de clima de San Salvador sin rastro de SIWAT (cambia título y favicon). Para volver: mantener presionado el sol 2 s o activarlo 3 veces en 2 s (funciona con lector de pantalla). |
 
 ## Cómo funciona
 
@@ -35,6 +35,16 @@ Las figuras se generan desde LaTeX (`docs/figures/src/*.tex`) con `steamr figure
 - Sin fuentes, iconos ni scripts de terceros en tiempo de ejecución; funciona sin conexión (PWA).
 - El idioma elegido también vive solo en `sessionStorage`, y «Limpiar datos de este dispositivo» lo devuelve a español.
 
+## Accesibilidad
+
+SIWAT está pensado para funcionar con el lector de pantalla del teléfono (TalkBack, VoiceOver): encabezados,
+etiquetas, foco al cambiar de pantalla y una única región `aria-live` que anuncia el resultado. No hay un lector propio
+que hable encima del del teléfono. El panel «Opciones de accesibilidad» (pie de página y portada) ofrece, opcionalmente,
+texto más grande (125 %), alto contraste (también automático con `prefers-contrast: more`) y «Leer en voz alta» con
+`speechSynthesis` en el idioma activo, previa advertencia de usar audífonos. «SALIR RÁPIDO» y `Esc` dos veces detienen la
+lectura al instante. Las opciones viven solo en `sessionStorage`, se borran con «Limpiar datos de este dispositivo», y
+SIWAT nunca detecta ni registra el uso de tecnologías de apoyo.
+
 ## Idiomas
 
 Español (predeterminado, nunca se detecta del navegador), English, 简体中文 y Deutsch, con un selector en la portada y
@@ -45,7 +55,7 @@ nombres oficiales de las leyes no se traducen: cada resumen legal tiene un id es
 ## Herramientas
 
 Vue 3 + TypeScript + Vite · vue-router · vue-i18n · jsPDF (carga diferida) · Web Crypto (`SubtleCrypto`) · vite-plugin-pwa ·
-iconos Lucide compilados con unplugin-icons · Atkinson Hyperlegible (autoalojada) · Vitest.
+iconos Lucide y Simple Icons (marcas de las plataformas) compilados con unplugin-icons · Atkinson Hyperlegible (autoalojada) · Vitest.
 
 ## Arquitectura (por funcionalidad, puertos y adaptadores)
 
@@ -59,6 +69,7 @@ src/
     evidence/          subida de capturas, generador de Bitácora PDF
     case/              estado del caso; puerto CaseRepository + adaptadores sessionStorage y bóveda con PIN
     result/            P04, catálogo de instituciones y pasos de reporte, estadística anónima
+    accessibility/     panel de opciones, lectura en voz alta, preferencias en sessionStorage
     welcome/ assistant/ camouflage/
   shared/ui/           cabecera, pie, folio, sello, diálogos
   styles/              tokens y controles

@@ -1,5 +1,6 @@
 import type { RouteLocationRaw, Router } from 'vue-router'
 import { i18n } from '../../i18n'
+import { stopSpeech } from '../accessibility/speech'
 
 const DOUBLE_ESC_WINDOW_MS = 800
 const CAMOUFLAGE_ICON = './weather.svg'
@@ -18,6 +19,8 @@ function closeOpenDialogs() {
 
 /** «SALIR RÁPIDO»: hide the session behind a neutral weather screen. */
 export function quickExit() {
+  // Silence any reading aloud first, before anything else happens.
+  stopSpeech()
   if (!router || router.currentRoute.value.meta.camouflage) return
   returnTo = router.currentRoute.value.fullPath
   appIdentity = { title: document.title, icon: iconLink()?.href ?? '' }

@@ -27,6 +27,9 @@ importers:
       '@iconify-json/lucide':
         specifier: ^1.2.156
         version: 1.2.156
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.103
+        version: 1.2.103
       '@types/node':
         specifier: ^24.19.2
         version: 24.19.2
@@ -604,6 +607,9 @@ packages:
 
   '@iconify-json/lucide@1.2.156':
     resolution: {integrity: sha512-IOB3g2X+cmpoEPcjEbGfpDWPPzXioeDW2gnYgaNxYSaVEHyM4fQqP2uz29cdRQJbQwo5CTQ8D9NJnATeCQKatQ==}
+
+  '@iconify-json/simple-icons@1.2.103':
+    resolution: {integrity: sha512-FMn+aVTsqQdYOwf5reCXXtfWapb+4ijI6WrU8ej1spWXWfA+d41TBXcKagHFwiHZyqt7kP7F04AiG1dYj2R06w==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3208,6 +3214,10 @@ snapshots:
   '@fontsource/atkinson-hyperlegible@5.3.0': {}
 
   '@iconify-json/lucide@1.2.156':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.103':
     dependencies:
       '@iconify/types': 2.0.0
 

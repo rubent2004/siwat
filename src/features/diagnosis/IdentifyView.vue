@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import IconArrowRight from '~icons/lucide/arrow-right'
@@ -10,12 +10,28 @@ import StepIndicator from '../../shared/ui/StepIndicator.vue'
 import YesNoField from '../../shared/ui/YesNoField.vue'
 import { useCase } from '../case/use-case'
 import { CONDUCTS, conductKey, DEPARTMENTS, PLATFORMS, platformKey, roleKey, ROLES } from './catalog'
+import { togglePlatform } from './domain/platforms'
+import { FREE_TEXT_MAX_LENGTH, type Platform } from './domain/types'
+import PlatformIcon from './PlatformIcon.vue'
 
 const router = useRouter()
 const { t } = useI18n()
 const { state } = useCase()
 const answers = state.answers
 const submitted = ref(false)
+
+function onPlatformChange(platform: Platform, event: Event) {
+  answers.platforms = togglePlatform(answers.platforms, platform, (event.target as HTMLInputElement).checked)
+  // A free text only lives while its option is chosen.
+  if (!answers.platforms.includes('other')) answers.otherPlatform = ''
+}
+
+watch(
+  () => answers.role,
+  (role) => {
+    if (role !== 'otro') answers.otherRole = ''
+  },
+)
 
 const errors = computed(() => ({
   platforms: answers.platforms.length === 0 ? t('identify.errorPlatforms') : '',
@@ -53,6 +69,21 @@ async function next() {
             <option value="">{{ t('identify.preferNot') }}</option>
             <option v-for="role in ROLES" :key="role" :value="role">{{ t(roleKey(role)) }}</option>
           </select>
+          <div v-if="answers.role === 'otro'" class="field">
+            <label class="field__label" for="other-role">{{ t('identify.otherRole') }}</label>
+            <input
+              id="other-role"
+              v-model="answers.otherRole"
+              class="input"
+              type="text"
+              autocomplete="off"
+              :maxlength="FREE_TEXT_MAX_LENGTH"
+              aria-describedby="other-role-hint"
+            />
+            <span id="other-role-hint" class="field__hint">
+              {{ t('identify.otherRoleHint', { max: FREE_TEXT_MAX_LENGTH }) }}
+            </span>
+          </div>
         </div>
         <div class="field">
           <label class="field__label" for="department">{{ t('identify.department') }}</label>
@@ -74,10 +105,31 @@ async function next() {
         </legend>
         <div class="chips">
           <label v-for="platform in PLATFORMS" :key="platform" class="chip">
-            <input v-model="answers.platforms" type="checkbox" :value="platform" />
+            <input
+              type="checkbox"
+              :value="platform"
+              :checked="answers.platforms.includes(platform)"
+              @change="onPlatformChange(platform, $event)"
+            />
             <IconCheck class="chip__check" aria-hidden="true" />
+            <PlatformIcon :platform="platform" />
             {{ t(platformKey(platform)) }}
           </label>
+        </div>
+        <div v-if="answers.platforms.includes('other')" class="field">
+          <label class="field__label" for="other-platform">{{ t('identify.otherPlatform') }}</label>
+          <input
+            id="other-platform"
+            v-model="answers.otherPlatform"
+            class="input"
+            type="text"
+            autocomplete="off"
+            :maxlength="FREE_TEXT_MAX_LENGTH"
+            aria-describedby="other-platform-hint"
+          />
+          <span id="other-platform-hint" class="field__hint">
+            {{ t('identify.otherPlatformHint', { max: FREE_TEXT_MAX_LENGTH }) }}
+          </span>
         </div>
         <p v-if="visibleErrors.platforms" id="platforms-error" class="error-text">
           <IconCircleAlert role="img" :aria-label="t('common.error')" /> {{ visibleErrors.platforms }}
@@ -173,7 +225,7 @@ async function next() {
   gap: var(--space-2);
   min-height: var(--touch);
   padding: var(--space-2) var(--space-4);
-  border: 1.5px solid var(--control-edge);
+  border: var(--control-border) solid var(--control-edge);
   border-radius: 999px;
   background: var(--sheet);
   font-weight: 700;

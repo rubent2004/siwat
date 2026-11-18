@@ -5,6 +5,7 @@ import { useRouter } from 'vue-router'
 import IconCircleAlert from '~icons/lucide/circle-alert'
 import IconFileDown from '~icons/lucide/file-down'
 import IconTrash from '~icons/lucide/trash-2'
+import { announce } from '../../shared/ui/announcer'
 import { useCase } from '../case/use-case'
 import { createBitacoraPdf, downloadBlob } from '../evidence/bitacora-pdf'
 
@@ -31,6 +32,7 @@ async function download() {
     })
     downloadBlob(blob, `${state.caseCode}.pdf`)
     downloaded.value = true
+    void announce(t('bitacora.downloaded'))
   } catch {
     error.value = 'bitacora.error'
   } finally {
@@ -65,7 +67,7 @@ function onConfirmClose() {
     </button>
     <!-- The PDF stays in Spanish for Salvadoran institutions; say so in any other language. -->
     <p v-if="locale !== 'es'" class="field__hint">{{ t('bitacora.spanishNote') }}</p>
-    <p v-if="downloaded" class="bitacora__done" role="status">{{ t('bitacora.downloaded') }}</p>
+    <p v-if="downloaded" class="bitacora__done">{{ t('bitacora.downloaded') }}</p>
     <p v-if="error" class="error-text" role="alert">
       <IconCircleAlert role="img" :aria-label="t('common.error')" /> {{ t(error) }}
     </p>

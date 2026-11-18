@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
+import AccessibilityDialog from '../features/accessibility/AccessibilityDialog.vue'
+import ReadAloudButton from '../features/accessibility/ReadAloudButton.vue'
+import { speechSupported } from '../features/accessibility/speech'
+import { useAccessibility } from '../features/accessibility/use-accessibility'
 import AppFooter from '../shared/ui/AppFooter.vue'
 import AppHeader from '../shared/ui/AppHeader.vue'
+import LiveAnnouncer from '../shared/ui/LiveAnnouncer.vue'
 
 const route = useRoute()
 const { t } = useI18n()
+const { preferences } = useAccessibility()
 </script>
 
 <template>
@@ -14,9 +20,12 @@ const { t } = useI18n()
     <a class="skip-link" href="#main">{{ t('app.skipLink') }}</a>
     <AppHeader />
     <main id="main" class="app-main">
+      <ReadAloudButton v-if="speechSupported && preferences.readAloud" />
       <RouterView />
     </main>
     <AppFooter />
+    <AccessibilityDialog />
+    <LiveAnnouncer />
   </template>
 </template>
 

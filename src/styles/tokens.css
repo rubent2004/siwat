@@ -17,6 +17,8 @@
   --control-edge: #8c7a89;
   --ink: #24112a;
   --ink-muted: #63506a;
+  /* Border width of form controls; 2px in high contrast. */
+  --control-border: 1.5px;
 
   /* Traffic light inks. -text variants pass 4.5:1 on white and on their tint. */
   --red: #e63946;

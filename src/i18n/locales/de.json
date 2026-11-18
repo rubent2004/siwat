@@ -22,10 +22,11 @@
   "header": {
     "home": "SIWAT, zur Startseite",
     "exit": "SCHNELL VERLASSEN",
-    "exitHint": "Sie können auch zweimal Esc drücken. Um zurückzukehren, halten Sie die Sonne 2 Sekunden lang gedrückt."
+    "exitHint": "Sie können auch zweimal Esc drücken. Um zurückzukehren, halten Sie die Sonne 2 Sekunden lang gedrückt oder aktivieren Sie sie 3-mal hintereinander."
   },
   "footer": {
-    "text": "SIWAT ist ein vorbeugendes Orientierungsangebot. Es erstattet keine Anzeige für Sie. Wenn Sie jetzt in körperlicher Gefahr sind, rufen Sie die {phone} an."
+    "text": "SIWAT ist ein vorbeugendes Orientierungsangebot. Es erstattet keine Anzeige für Sie. Wenn Sie jetzt in körperlicher Gefahr sind, rufen Sie die {phone} an.",
+    "accessibility": "Optionen für Barrierefreiheit"
   },
   "folio": {
     "label": "Blatt {folio}"
@@ -37,6 +38,24 @@
     "call126": "126 anrufen",
     "close": "Schließen"
   },
+  "accessibility": {
+    "title": "Optionen für Barrierefreiheit",
+    "screenReaderNote": "Wenn Sie TalkBack oder VoiceOver nutzen, funktioniert SIWAT mit Ihrem Screenreader; Sie müssen nichts aktivieren.",
+    "largeText": "Größerer Text",
+    "largeTextHint": "Vergrößert den gesamten Text.",
+    "highContrast": "Hoher Kontrast",
+    "highContrastHint": "Schwarzer Text auf weißem Grund, dickere Rahmen und unterstrichene Links.",
+    "readAloud": "Vorlesen",
+    "readAloudHint": "Fügt über dem Inhalt eine Schaltfläche „Diese Seite vorlesen“ hinzu.",
+    "readAloudWarning": "Verwenden Sie Kopfhörer: Andere Personen in der Nähe könnten mithören.",
+    "readAloudConfirm": "Vorlesen aktivieren",
+    "readAloudCancel": "Abbrechen",
+    "readAloudUnsupported": "Dieser Browser kann nicht vorlesen. Sie können den Screenreader Ihres Telefons verwenden.",
+    "readScreen": "Diese Seite vorlesen",
+    "stopReading": "Vorlesen beenden",
+    "privacyNote": "Diese Optionen werden nur in diesem Tab gespeichert und mit „Daten von diesem Gerät löschen“ entfernt.",
+    "close": "Schließen"
+  },
   "welcome": {
     "title": "Ist das, was Sie im Netz erleben, politische Gewalt? Finden Sie es in 2 Minuten heraus.",
     "lead": "Erkennen Sie, ob nach salvadorianischem Recht Gewalt vorliegt, sichern Sie Ihre Beweise geschützt und erfahren Sie, an wen Sie sich wenden können. Sie entscheiden, ob und wann Sie Anzeige erstatten.",
@@ -46,11 +65,12 @@
     "start": "Ampel-Diagnose starten",
     "danger": "Ich bin jetzt in körperlicher Gefahr",
     "exitTip": "Wenn sich jemand nähert, tippen Sie auf {exit} oder drücken Sie zweimal Esc: Sie sehen dann das Wetter. Um zurückzukehren, {hold}.",
-    "exitTipHold": "halten Sie die Sonne 2 Sekunden lang gedrückt",
+    "exitTipHold": "halten Sie die Sonne 2 Sekunden lang gedrückt oder tippen Sie sie 3-mal hintereinander an",
     "linksLabel": "Weitere Optionen",
     "assistantLink": "Schnellhilfe nutzen (Anleitung per Schaltflächen)",
     "localSpaceActive": "Lokaler Bereich aktiv",
     "localSpaceCreate": "Lokalen Bereich mit PIN anlegen (optional)",
+    "accessibilityLink": "Optionen für Barrierefreiheit",
     "privacyTitle": "Datenschutzhinweis",
     "privacyBody": "Ihre Antworten, Links und Screenshots bleiben nur im Speicher dieses Browsers und werden beim Schließen des Tabs gelöscht. Nichts wird auf Server hochgeladen. Wenn Sie einen lokalen Bereich anlegen, wird er mit Ihrer PIN verschlüsselt auf diesem Gerät gespeichert. Im Ergebnis können Sie alles mit „Daten von diesem Gerät löschen“ entfernen."
   },
@@ -85,10 +105,14 @@
     "stepLabel": "Schritt 1 von 2: Was ist passiert?",
     "title": "Was ist passiert und wo?",
     "role": "In welcher Rolle sind Sie aktiv? (optional)",
+    "otherRole": "Welche Rolle? (optional)",
+    "otherRoleHint": "Geben Sie den Bereich an, in dem Sie aktiv sind. Höchstens {max} Zeichen.",
     "preferNot": "Keine Angabe",
     "department": "Departamento (optional)",
     "hint": "Diese beiden Angaben dienen nur der anonymen Statistik. Sie identifizieren Sie nicht.",
     "platforms": "Wo fand der Angriff statt?",
+    "otherPlatform": "Wo? (optional)",
+    "otherPlatformHint": "Geben Sie das Netzwerk, die App oder die Website an. Höchstens {max} Zeichen.",
     "required": "(Pflichtangabe)",
     "electoral": "Geschieht es während eines Wahlkampfs oder bei der Ausübung eines öffentlichen Amtes?",
     "conducts": "Markieren Sie alles, was Ihnen passiert ist:",
@@ -123,7 +147,9 @@
   },
   "result": {
     "lawTitle": "Was sagt das salvadorianische Recht zu Ihrem Fall?",
-    "lawOfficialNote": "Der amtliche Wortlaut dieser Gesetze ist auf Spanisch."
+    "lawOfficialNote": "Der amtliche Wortlaut dieser Gesetze ist auf Spanisch.",
+    "lawDisclaimer": "Orientierung, keine Rechtsberatung: Wie das Gesetz auf Ihren Fall angewendet wird, entscheiden die Staatsanwaltschaft (Fiscalía) und die Gerichte.",
+    "announce": "Ergebnis der Ampel: {title}. {body}"
   },
   "bitacora": {
     "title": "Beweisprotokoll",
@@ -146,23 +172,66 @@
     "title": "Ihr Handlungsplan",
     "step1": "1. Auf der Plattform melden (nicht nur blockieren)",
     "seeSteps": "So melden Sie es auf {platform}",
+    "seeStepsGeneral": "So melden Sie es auf jeder Plattform",
     "howtoSave": "Sichern Sie zuerst den Beweis: ein Screenshot, auf dem Datum, Kontoname und Link zu sehen sind.",
-    "howtoConfirm": "Machen Sie einen Screenshot der Meldebestätigung. Danach können Sie das Konto blockieren oder einschränken, wenn Sie möchten.",
+    "howtoReport": "Melden Sie es auf der Plattform:",
+    "howtoConfirm": "Machen Sie einen Screenshot der Meldebestätigung. Blockieren Sie erst nach dem Melden: Blockieren hält die angreifende Person nicht auf und benachrichtigt die Plattform nicht.",
     "step2": "2. An wen Sie sich wenden können",
     "note": "Sie entscheiden, ob Sie Anzeige erstatten. SIWAT sendet Ihre Daten nicht weiter und erstattet keine Anzeige für Sie.",
     "step3": "3. Konten absichern",
     "shieldSummary": "Schützen Sie Ihre Konten noch heute (3 wichtige Maßnahmen)"
   },
   "reportLocation": {
-    "facebook": "Tippen Sie auf die drei Punkte (…) am Beitrag oder Profil und wählen Sie „Melden“. Wählen Sie den Grund: Belästigung, Identitätsmissbrauch oder Nacktheit.",
-    "whatsapp": "Öffnen Sie den Chat, tippen Sie auf den Namen des Kontakts oder der Gruppe und wählen Sie „Melden“.",
-    "tiktok": "Halten Sie das Video gedrückt oder tippen Sie auf „Teilen“ und wählen Sie „Melden“. Nutzen Sie auf einem Profil die drei Punkte.",
-    "x": "Tippen Sie auf die drei Punkte (…) am Beitrag oder Profil und wählen Sie „Melden“.",
-    "instagram": "Tippen Sie auf die drei Punkte (…) am Beitrag, an der Story oder am Profil und wählen Sie „Melden“.",
-    "youtube": "Tippen Sie auf die drei Punkte (⋮) am Video oder Kommentar und wählen Sie „Melden“.",
-    "telegram": "Öffnen Sie das Profil, den Kanal oder die Nachricht, tippen Sie auf die drei Punkte und wählen Sie „Melden“.",
-    "email": "Löschen Sie die E-Mail nicht: Speichern Sie sie vollständig („Nachricht herunterladen“ oder „Original anzeigen“) und markieren Sie sie als Spam oder Phishing.",
-    "other": "Suchen Sie die Option „Melden“ neben dem Beitrag oder im Profil der angreifenden Person."
+    "facebook": {
+      "s1": "Suchen Sie den Beitrag oder Kommentar, den Sie melden möchten, oder öffnen Sie das Profil des Kontos oder der Seite. Tippen Sie auf das Symbol mit den drei Punkten (…).",
+      "s2": "Wählen Sie den Grund der Meldung (zum Beispiel Belästigung oder Gewalt).",
+      "s3": "Folgen Sie den weiteren Schritten und senden Sie die Meldung ab."
+    },
+    "whatsapp": {
+      "s1": "Tippen Sie oben im Chat auf den Namen oder die Nummer, um die Kontaktinfo zu öffnen, oder wählen Sie den Status oder Inhalt aus, den Sie melden möchten.",
+      "s2": "Tippen Sie auf das Symbol mit den drei Punkten, dann auf „Mehr“, und wählen Sie „Melden“.",
+      "s3": "Bestätigen Sie die Meldung."
+    },
+    "tiktok": {
+      "s1": "Halten Sie das Video oder den Kommentar gedrückt oder tippen Sie auf den Pfeil „Teilen“. Tippen Sie auf einem Profil ebenfalls auf „Teilen“.",
+      "s2": "Tippen Sie auf das Flaggensymbol „Melden“.",
+      "s3": "Wählen Sie den Grund der Meldung (zum Beispiel Hass und Belästigung, Falschinformationen oder Gewalt). Wenn Sie ein Profil melden, wählen Sie zuerst „Konto melden“.",
+      "s4": "Folgen Sie den weiteren Schritten und senden Sie die Meldung ab."
+    },
+    "x": {
+      "s1": "Suchen Sie den Inhalt oder öffnen Sie das Profil des Kontos. Tippen Sie auf das Symbol mit den drei Punkten (…).",
+      "s2": "Wählen Sie „Melden“.",
+      "s3": "Wählen Sie den Grund der Meldung (zum Beispiel Missbrauch, gewalttätige Äußerungen oder Privatsphäre).",
+      "s4": "Die Plattform bittet Sie eventuell, die missbräuchlichen oder schädlichen Beiträge zu markieren und weitere Angaben zu machen."
+    },
+    "instagram": {
+      "s1": "Suchen Sie den Beitrag, das Live-Video oder den Kommentar, oder öffnen Sie das Profil. Tippen Sie auf das Symbol mit den drei Punkten (…) und dann auf „Melden“.",
+      "s2": "Wählen Sie den Grund der Meldung (zum Beispiel Belästigung oder Gewalt).",
+      "s3": "Folgen Sie den weiteren Schritten und senden Sie die Meldung ab."
+    },
+    "youtube": {
+      "s1": "Tippen Sie auf die drei senkrechten Punkte (⋮) neben dem Video.",
+      "s2": "Tippen Sie auf die Flagge „Melden“.",
+      "s3": "Wählen Sie die passende Option (zum Beispiel Belästigung oder Mobbing, sexuelle Inhalte oder Hassrede).",
+      "s4": "Folgen Sie den Anweisungen, um die Meldung abzuschließen."
+    },
+    "telegram": {
+      "s1": "Öffnen Sie den Chat oder die Gruppe, in der die Belästigung stattfindet.",
+      "s2": "Tippen Sie auf den Namen des Kontakts, dann auf das Symbol mit den drei Punkten, „Mehr“ und „Melden“.",
+      "s3": "Wählen Sie die Art des Missbrauchs (Belästigung, unangemessene Inhalte usw.).",
+      "s4": "Senden Sie die Meldung ab. Telegram prüft den Fall."
+    },
+    "email": {
+      "s1": "Löschen Sie die E-Mail nicht: Speichern Sie sie vollständig („Nachricht herunterladen“ oder „Original anzeigen“). Öffnen Sie in Gmail oder einer anderen Google-App die Nachricht, die Sie melden möchten.",
+      "s2": "Tippen Sie auf die drei senkrechten Punkte (⋮) und dann auf „Melden“.",
+      "s3": "Wenn Sie vermuten, dass jemand Ihre Daten stehlen will, wählen Sie „Phishing melden“ unter dem Angelhaken-Symbol.",
+      "s4": "Folgen Sie den Anweisungen, um die Meldung abzuschließen."
+    },
+    "other": {
+      "s1": "Suchen Sie die Schaltflächen zum Melden: meist drei Punkte oder eine Flagge, neben dem Beitrag oder im Profil.",
+      "s2": "Wenn Sie darauf tippen, öffnet sich ein Menü: Wählen Sie „Melden“ und den Grund.",
+      "s3": "Folgen Sie den weiteren Schritten und senden Sie die Meldung ab."
+    }
   },
   "shield": {
     "two-step": {
@@ -193,13 +262,16 @@
       "s3": "Nehmen Sie auch das Profil der angreifenden Person auf und, falls vorhanden, die Kommentare.",
       "s4": "Bearbeiten, beschneiden oder verschicken Sie ihn nicht per Chat: Bewahren Sie die Originaldatei auf.",
       "s5": "Laden Sie ihn in Schritt 2 der Ampel-Diagnose hoch, um seinen SHA-256-Fingerabdruck und die UTC-Uhrzeit zu berechnen.",
-      "s6": "Tun Sie all das, bevor Sie blockieren."
+      "s6": "Wenn der Beitrag öffentlich ist, sichern Sie eine Kopie im Internet Archive: Öffnen Sie https://web.archive.org, fügen Sie den vollständigen Link bei „Save Page Now“ ein und notieren Sie die erzeugte URL.",
+      "s7": "Öffnen Sie in WhatsApp das Profil des Kontakts oder der Gruppe und tippen Sie auf „Chat exportieren“, um das Gespräch als Datei zu sichern.",
+      "s8": "Fordern Sie bei Facebook oder Instagram eine Kopie Ihrer Nachrichten an: Kontenübersicht › Deine Informationen › „Deine Informationen herunterladen“.",
+      "s9": "Tun Sie all das, bevor Sie blockieren."
     },
     "hide": {
       "question": "Wie verberge ich SIWAT, wenn sich jemand nähert?",
       "s1": "Tippen Sie oben rechts auf „SCHNELL VERLASSEN“ oder drücken Sie am Computer zweimal Esc.",
       "s2": "Es erscheint eine Wetteranzeige für San Salvador, ohne Hinweis auf SIWAT.",
-      "s3": "Um dorthin zurückzukehren, wo Sie waren, halten Sie die Sonne 2 Sekunden lang gedrückt."
+      "s3": "Um dorthin zurückzukehren, wo Sie waren, halten Sie die Sonne 2 Sekunden lang gedrückt oder tippen Sie sie 3-mal hintereinander an (das funktioniert auch mit Ihrem Screenreader)."
     },
     "shield": {
       "question": "Ich möchte mein WhatsApp und Facebook jetzt absichern",
@@ -231,7 +303,8 @@
       "youtube": "YouTube",
       "telegram": "Telegram",
       "email": "E-Mail",
-      "other": "Andere"
+      "other": "Andere",
+      "prefer-not-to-say": "Keine Angabe"
     },
     "conducts": {
       "threats": {
@@ -278,23 +351,25 @@
     }
   },
   "legal": {
-    "leiv-49-51": "Freiheitsstrafe von 3 bis 10 Jahren für das Verbreiten oder Erstellen intimer/sexueller Inhalte ohne Einwilligung über elektronische Medien.",
-    "leiv-50": "Freiheitsstrafe von 1 bis 3 Jahren für das Veröffentlichen personenbezogener Daten, die die Ehre oder die Privatsphäre verletzen.",
-    "leiv-55-e": "Bestraft es, eine Frau einer unmittelbaren Gefahr für ihre körperliche oder seelische Unversehrtheit auszusetzen.",
-    "ledic-22-32": "Bestraft Identitätsmissbrauch und die betrügerische Verwendung von Computerdaten.",
-    "leiv-55-c": "Bestraft es, Frauen in Bereichen politischer Teilhabe zu diskreditieren oder herabzuwürdigen.",
-    "leiv-55-c-d": "Bestraft es, die politische Teilhabe von Frauen zu verspotten, zu diskreditieren oder zu behindern.",
-    "electoral-code-173-249": "Verbietet schmutzige oder verleumderische Wahlpropaganda.",
-    "lie-20-23": "Garantiert Gleichstellung bei der Ausübung politischer Rechte.",
+    "leiv-49-51": "Freiheitsstrafe von 5 bis 10 Jahren, wenn eine Frau über elektronische Medien für sexuelle Handlungen benutzt oder sexuelles Material mit ihrem echten oder simulierten Bild ohne ihre Einwilligung verbreitet wird.",
+    "leiv-50": "Freiheitsstrafe von 3 bis 5 Jahren für das Veröffentlichen oder Teilen persönlicher Informationen ohne Einwilligung, die die Ehre, die Privatsphäre oder das Bild einer Frau verletzen, auch in sozialen Netzwerken.",
+    "cp-154-155": "Drohungen sind eine Straftat: Freiheitsstrafe von 1 bis 3 Jahren, mit Strafverschärfung, wenn sie anonym, mit einer Waffe oder aus politischen oder geschlechtsbezogenen Motiven erfolgen.",
+    "leiv-55-e": "Geldbuße dafür, eine Frau einer unmittelbaren Gefahr für ihre körperliche oder seelische Unversehrtheit auszusetzen.",
+    "ledic-22-24": "Freiheitsstrafe von 3 bis 5 Jahren dafür, sich mit technologischen Mitteln als eine andere Person auszugeben, und von 4 bis 6 Jahren für die unbefugte Nutzung ihrer personenbezogenen Daten.",
+    "leiv-55-c": "Geldbuße dafür, Frauen in Bereichen politischer Teilhabe zu verspotten, zu diskreditieren oder herabzuwürdigen.",
+    "leiv-10-d": "Definiert geschlechtsbezogene politische Gewalt gegen Frauen und verpflichtet das TSE, ihr vorzubeugen und sich ihrer anzunehmen.",
+    "leiv-55-c-d": "Geldbuße dafür, die politische Teilhabe von Frauen zu verspotten, zu diskreditieren oder zu behindern.",
+    "electoral-code-173-249": "Verbietet Wahlpropaganda, die beleidigt, diffamiert oder verleumdet oder die Ehre oder das Privatleben von Kandidatinnen verletzt, und ahndet sie mit einer Geldbuße.",
+    "lie-20-23": "Verpflichtet den Staat und die Parteien, die Gleichstellung von Frauen bei der politischen Teilhabe zu fördern.",
     "leiv-9": "Erkennt psychische, emotionale und symbolische Gewalt gegen Frauen an.",
-    "leiv-55-a": "Bestraft das Verbreiten von Botschaften, die Hass oder Verachtung gegenüber Frauen fördern.",
-    "belem-do-para-3-7": "Recht auf ein Leben frei von Gewalt im öffentlichen und politischen Bereich."
+    "leiv-55-a": "Geldbuße für das Verbreiten von Botschaften oder Bildern mit hasserfülltem oder verächtlichem Inhalt gegenüber Frauen, auch auf digitalen Plattformen.",
+    "belem-do-para-3-4j-7": "Erkennt das Recht auf ein Leben frei von Gewalt im öffentlichen und im privaten Bereich an sowie das Recht, an öffentlichen Angelegenheiten teilzunehmen."
   },
   "institutions": {
     "pnc": "Notfälle und Gefahr für Ihre körperliche Unversehrtheit oder die Ihrer Familie.",
-    "fgr": "Ermittelt bei Drohungen, Doxing und Identitätsmissbrauch.",
+    "fgr": "Stellvertretende Staatsanwaltschaft für Frauen (Fiscalía Adjunta para la Mujer): ermittelt bei Drohungen, Doxing und Identitätsmissbrauch.",
     "isdemu": "Kostenlose Beratung für Frauen, die Gewalt erleben.",
-    "tse": "Politische Gewalt während eines Wahlkampfs oder bei der Ausübung eines Amtes.",
+    "tse": "Zeigen Sie politische Gewalt bei der Gleichstellungsstelle des TSE (Unidad de Género, San Salvador) oder in seinen Büros in San Miguel, Santa Ana und Cuscatlán an. Das TSE nimmt keine anonymen Anzeigen an.",
     "actions": {
       "pnc-911": "Notruf wählen (PNC 911)",
       "fgr-web": "Kontaktwege der FGR ansehen",

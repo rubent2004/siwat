@@ -24,6 +24,24 @@ const LIGHT_RGB: Record<DiagnosisResult['light'], [number, number, number]> = {
 
 const yesNo = (value: boolean | null) => (value === null ? 'Sin responder' : value ? 'Sí' : 'No')
 
+/** «Otra: <texto>» / «Otro: <texto>» when she wrote something; the plain label otherwise. */
+const withFreeText = (label: string, freeText: string) => (freeText.trim() ? `${label}: ${freeText.trim()}` : label)
+
+function platformsText(answers: DiagnosisAnswers): string {
+  return answers.platforms
+    .map((platform) => {
+      const label = spanish(platformKey(platform))
+      return platform === 'other' ? withFreeText(label, answers.otherPlatform) : label
+    })
+    .join(', ')
+}
+
+function roleText(answers: DiagnosisAnswers): string {
+  if (!isRole(answers.role)) return answers.role
+  const label = spanish(roleKey(answers.role))
+  return answers.role === 'otro' ? withFreeText(label, answers.otherRole) : label
+}
+
 /**
  * Writes the evidence log as a PDF entirely in the browser.
  * Always in Spanish, whatever the interface language: it is presented to Salvadoran institutions.
@@ -101,12 +119,12 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
   text(spanish('bitacora.ack'), { size: 9 })
 
   heading('1. Lo ocurrido')
-  field('Plataformas', answers.platforms.map((platform) => spanish(platformKey(platform))).join(', '))
+  field('Plataformas', platformsText(answers))
   field('Durante campaña o ejercicio de cargo público', yesNo(answers.electoralContext))
   field('Conductas', answers.conducts.map((conduct) => spanish(conductKey(conduct, 'label'))).join('; '))
   field('Amenazas de daño físico, sexual o contra la familia', yesNo(answers.physicalThreat))
   field('Exposición de dirección, trabajo, teléfono o imágenes íntimas', yesNo(answers.privateDataExposed))
-  if (answers.role) field('Espacio de participación', isRole(answers.role) ? spanish(roleKey(answers.role)) : answers.role)
+  if (answers.role) field('Espacio de participación', roleText(answers))
   if (answers.department) field('Departamento', answers.department)
   field('Relato', answers.narrative.trim() || 'No registrado')
 
@@ -133,6 +151,7 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
     text(reference.law, { bold: true, gap: 0.5 })
     text(spanish(`legal.${reference.id}`))
   }
+  text(spanish('result.lawDisclaimer'), { bold: true })
 
   heading('5. A dónde acudir')
   for (const id of result.institutions) {
@@ -146,7 +165,8 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
     'Conserva los archivos originales sin editar, recortar ni reenviar por aplicaciones que los compriman. ' +
       'La huella SHA-256 identifica cada imagen: si cambia un solo píxel, la huella será distinta. ' +
       'Para verificarla, calcula de nuevo el SHA-256 del archivo original (por ejemplo «sha256sum archivo.png» ' +
-      'en Linux/macOS o «certutil -hashfile archivo.png SHA256» en Windows) y compárala con la de esta bitácora.',
+      'en Linux/macOS o «certutil -hashfile archivo.png SHA256» en Windows) y compárala con la de esta bitácora. ' +
+      'Entrega los archivos originales y esta bitácora a tu representación legal, que se encarga de mantener la cadena de custodia.',
   )
 
   const pages = doc.getNumberOfPages()

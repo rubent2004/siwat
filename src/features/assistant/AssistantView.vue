@@ -27,7 +27,7 @@ function goToDiagnosis() {
       <details class="assistant__item" name="assistant">
         <summary class="assistant__button">{{ t('assistant.capture.question') }}</summary>
         <ol class="assistant__body">
-          <li v-for="n in 6" :key="n">{{ t(`assistant.capture.s${n}`) }}</li>
+          <li v-for="n in 9" :key="n">{{ t(`assistant.capture.s${n}`) }}</li>
         </ol>
       </details>
 
@@ -86,7 +86,7 @@ function goToDiagnosis() {
 }
 
 .assistant__item {
-  border: 1.5px solid var(--plum);
+  border: var(--control-border) solid var(--plum);
   border-radius: var(--radius-control);
   background: var(--sheet);
 
@@ -118,7 +118,7 @@ function goToDiagnosis() {
 }
 
 .assistant__link {
-  border: 1.5px solid var(--plum);
+  border: var(--control-border) solid var(--plum);
   border-radius: var(--radius-control);
   background: var(--plum);
   color: #fff;

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import IconPhone from '~icons/lucide/phone'
+import { announce } from '../../shared/ui/announcer'
 import FolioSheet from '../../shared/ui/FolioSheet.vue'
 import VerdictStamp from '../../shared/ui/VerdictStamp.vue'
 import { useCase } from '../case/use-case'
@@ -18,6 +19,9 @@ const copy = computed(() => {
   return { label: t(lightKey(light, 'label')), title: t(lightKey(light, 'title')), body: t(lightKey(light, 'body')) }
 })
 const issuedAt = new Date().toISOString()
+
+// Focus moves to the h1; the live region also reads the verdict and its meaning once.
+onMounted(() => void announce(t('result.announce', { title: copy.value.title, body: copy.value.body })))
 </script>
 
 <template>
@@ -49,6 +53,7 @@ const issuedAt = new Date().toISOString()
             <dd>{{ t(`legal.${reference.id}`) }}</dd>
           </div>
         </dl>
+        <p class="law__note law__disclaimer">{{ t('result.lawDisclaimer') }}</p>
         <p v-if="locale !== 'es'" class="law__note">{{ t('result.lawOfficialNote') }}</p>
       </details>
     </FolioSheet>
@@ -155,5 +160,12 @@ const issuedAt = new Date().toISOString()
   margin-top: var(--space-3);
   font-size: var(--text-sm);
   color: var(--ink-muted);
+}
+
+.law__disclaimer {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--edge);
+  font-weight: 700;
+  color: var(--ink);
 }
 </style>

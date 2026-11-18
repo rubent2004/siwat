@@ -55,7 +55,7 @@ function onChange(event: Event) {
 .locale__select {
   min-height: var(--touch);
   padding: var(--space-2) var(--space-3);
-  border: 1.5px solid var(--control-edge);
+  border: var(--control-border) solid var(--control-edge);
   border-radius: var(--radius-control);
   background: var(--sheet);
   color: var(--ink);

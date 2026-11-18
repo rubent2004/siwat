@@ -8,10 +8,13 @@ import IconDroplets from '~icons/lucide/droplets'
 import IconSun from '~icons/lucide/sun'
 import IconWind from '~icons/lucide/wind'
 import { returnFromCamouflage } from './quick-exit'
+import { createTapWindow } from './tap-window'
 
 /**
  * P06: a neutral weather screen with no trace of SIWAT, in any language.
- * Holding the sun for 2 seconds returns to the hidden session.
+ * Holding the sun for 2 seconds returns to the hidden session, and so does activating it
+ * 3 times within 2 seconds, which also works with a screen reader (TalkBack/VoiceOver
+ * double-tap) and the keyboard. Nothing on screen hints at either gesture.
  */
 const { t } = useI18n()
 const HOLD_MS = 2000
@@ -34,7 +37,26 @@ function cancelHold() {
   holding.value = false
 }
 
-onBeforeUnmount(cancelHold)
+const taps = createTapWindow({ count: 3, windowMs: 2000 })
+
+/** Each click, tap or Enter on the sun counts; the third within 2 seconds returns. */
+function countActivation(event: Event) {
+  if (!taps.register(event.timeStamp)) return
+  cancelHold()
+  returnFromCamouflage()
+}
+
+function onKeydown(event: KeyboardEvent) {
+  if (event.repeat) return
+  // Enter's keydown is prevented (it starts the hold), so it never also fires a click.
+  if (event.key === 'Enter') countActivation(event)
+  if (!holding.value) startHold()
+}
+
+onBeforeUnmount(() => {
+  cancelHold()
+  taps.reset()
+})
 
 const hours = [
   { time: '14:00', temp: 29, icon: IconSun },
@@ -66,8 +88,9 @@ const days = [
         @pointerdown="startHold"
         @pointerup="cancelHold"
         @pointercancel="cancelHold"
-        @keydown.enter.space.prevent="!holding && startHold()"
+        @keydown.enter.space.prevent="onKeydown"
         @keyup.enter.space="cancelHold"
+        @click="countActivation"
         @contextmenu.prevent
       >
         <IconSun aria-hidden="true" />

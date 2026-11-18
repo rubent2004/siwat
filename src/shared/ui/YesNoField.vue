@@ -55,7 +55,7 @@ const { t } = useI18n()
   gap: var(--space-3);
   min-height: var(--touch);
   padding: var(--space-2) var(--space-4);
-  border: 1.5px solid var(--control-edge);
+  border: var(--control-border) solid var(--control-edge);
   border-radius: var(--radius-control);
   background: var(--sheet);
   font-weight: 700;

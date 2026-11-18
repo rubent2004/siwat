@@ -22,10 +22,11 @@
   "header": {
     "home": "SIWAT, go to the start",
     "exit": "QUICK EXIT",
-    "exitHint": "You can also press Esc twice. To come back, press and hold the sun for 2 seconds."
+    "exitHint": "You can also press Esc twice. To come back, press and hold the sun for 2 seconds or activate it 3 times in a row."
   },
   "footer": {
-    "text": "SIWAT is a preventive guidance tool. It does not file reports for you. If you are in physical danger right now, call {phone}."
+    "text": "SIWAT is a preventive guidance tool. It does not file reports for you. If you are in physical danger right now, call {phone}.",
+    "accessibility": "Accessibility options"
   },
   "folio": {
     "label": "Sheet {folio}"
@@ -37,6 +38,24 @@
     "call126": "Call 126",
     "close": "Close"
   },
+  "accessibility": {
+    "title": "Accessibility options",
+    "screenReaderNote": "If you use TalkBack or VoiceOver, SIWAT works with your screen reader; you do not need to turn anything on.",
+    "largeText": "Larger text",
+    "largeTextHint": "Makes all the text bigger.",
+    "highContrast": "High contrast",
+    "highContrastHint": "Black text on a white background, thicker borders and underlined links.",
+    "readAloud": "Read aloud",
+    "readAloudHint": "Adds a “Read this screen” button above the content.",
+    "readAloudWarning": "Use headphones: people nearby could hear.",
+    "readAloudConfirm": "Turn on read aloud",
+    "readAloudCancel": "Cancel",
+    "readAloudUnsupported": "This browser cannot read aloud. You can use your phone's screen reader.",
+    "readScreen": "Read this screen",
+    "stopReading": "Stop reading",
+    "privacyNote": "These options are kept only in this tab and are erased with “Clear data from this device”.",
+    "close": "Close"
+  },
   "welcome": {
     "title": "Is what you are facing online political violence? Find out in 2 minutes.",
     "lead": "Find out whether this is violence under Salvadoran law, back up your evidence safely and learn where to turn. You decide whether and when to report.",
@@ -46,11 +65,12 @@
     "start": "Start the traffic-light check",
     "danger": "I am in physical danger right now",
     "exitTip": "If someone comes near, tap {exit} or press Esc twice: you will see the weather. To come back, {hold}.",
-    "exitTipHold": "press and hold the sun for 2 seconds",
+    "exitTipHold": "press and hold the sun for 2 seconds or tap it 3 times in a row",
     "linksLabel": "Other options",
     "assistantLink": "Use the Quick Assistant (button guide)",
     "localSpaceActive": "Local space active",
     "localSpaceCreate": "Create a local space with a PIN (optional)",
+    "accessibilityLink": "Accessibility options",
     "privacyTitle": "Privacy notice",
     "privacyBody": "Your answers, links and screenshots are kept only in this browser's memory and are erased when you close the tab. Nothing is uploaded to servers. If you create a local space, it is stored encrypted with your PIN on this device. On the result screen you can erase everything with “Clear data from this device”."
   },
@@ -85,10 +105,14 @@
     "stepLabel": "Step 1 of 2: Identify what happened",
     "title": "What happened, and where?",
     "role": "In what role do you take part? (Optional)",
+    "otherRole": "Which one? (Optional)",
+    "otherRoleHint": "Write the space where you take part. Up to {max} characters.",
     "preferNot": "I prefer not to say",
     "department": "Department (Optional)",
     "hint": "These two answers are used only for anonymous statistics. They do not identify you.",
     "platforms": "Where did the attack happen?",
+    "otherPlatform": "Where? (Optional)",
+    "otherPlatformHint": "Write the network, app or website. Up to {max} characters.",
     "required": "(required)",
     "electoral": "Is it happening during an election campaign or while you hold public office?",
     "conducts": "Tick everything that has happened to you:",
@@ -123,7 +147,9 @@
   },
   "result": {
     "lawTitle": "What does Salvadoran law say about your case?",
-    "lawOfficialNote": "The official text of these laws is in Spanish."
+    "lawOfficialNote": "The official text of these laws is in Spanish.",
+    "lawDisclaimer": "Guidance, not legal advice: how the law applies to your case is decided by the Attorney General's Office (Fiscalía) and the courts.",
+    "announce": "Traffic-light result: {title}. {body}"
   },
   "bitacora": {
     "title": "Evidence Log",
@@ -146,23 +172,66 @@
     "title": "Your action plan",
     "step1": "1. Report it on the platform (do not just block)",
     "seeSteps": "See how to report on {platform}",
+    "seeStepsGeneral": "See how to report on any platform",
     "howtoSave": "Save the evidence first: a screenshot with the date, the account name and the link visible.",
-    "howtoConfirm": "Take a screenshot of the report confirmation. Afterwards, if you want, block or restrict the account.",
+    "howtoReport": "Report it on the platform:",
+    "howtoConfirm": "Take a screenshot of the report confirmation. Block only after reporting: blocking does not stop the person attacking you and does not alert the platform.",
     "step2": "2. Where to turn",
     "note": "You decide whether to report. SIWAT does not send your data or file reports for you.",
     "step3": "3. Protect your accounts",
     "shieldSummary": "Protect your accounts today (3 key steps)"
   },
   "reportLocation": {
-    "facebook": "Tap the three dots (…) on the post or profile and choose “Report”. Select the reason: harassment, impersonation or nudity.",
-    "whatsapp": "Open the chat, tap the contact or group name and choose “Report”.",
-    "tiktok": "Press and hold the video or tap “Share” and choose “Report”. On a profile, use the three dots.",
-    "x": "Tap the three dots (…) on the post or profile and choose “Report”.",
-    "instagram": "Tap the three dots (…) on the post, story or profile and choose “Report”.",
-    "youtube": "Tap the three dots (⋮) on the video or comment and choose “Report”.",
-    "telegram": "Open the profile, channel or message, tap the three dots and choose “Report”.",
-    "email": "Do not delete the email: save it in full (“Download message” or “Show original”) and mark it as spam or phishing.",
-    "other": "Look for the “Report” option next to the post or on the profile of the person attacking you."
+    "facebook": {
+      "s1": "Find the post or comment you want to report, or go to the account's or page's profile. Tap the three-dot icon (…).",
+      "s2": "Choose the reason for the report (for example, harassment or violence).",
+      "s3": "Follow the additional steps and send the report."
+    },
+    "whatsapp": {
+      "s1": "Tap the name or number at the top of the chat to open the contact info, or select the status or content you want to report.",
+      "s2": "Tap the three-dot icon, then “More”, and choose “Report”.",
+      "s3": "Confirm the report."
+    },
+    "tiktok": {
+      "s1": "Press and hold the video or comment, or tap the “Share” arrow. On a profile, tap “Share” too.",
+      "s2": "Tap the flag icon, “Report”.",
+      "s3": "Choose the reason for the report (for example, hate and harassment, false information or violence). If you are reporting a profile, first choose “Report account”.",
+      "s4": "Follow the additional steps and send the report."
+    },
+    "x": {
+      "s1": "Find the content or go to the account's profile. Tap the three-dot icon (…).",
+      "s2": "Choose “Report”.",
+      "s3": "Choose the reason for the report (for example, abuse, violent speech or privacy).",
+      "s4": "The platform may ask you to point out the abusive or harmful posts and give other information."
+    },
+    "instagram": {
+      "s1": "Find the post, live video or comment, or go to the profile. Tap the three-dot icon (…) and then “Report”.",
+      "s2": "Choose the reason for the report (for example, harassment or violence).",
+      "s3": "Follow the additional steps and send the report."
+    },
+    "youtube": {
+      "s1": "Tap the three vertical dots (⋮) next to the video.",
+      "s2": "Tap the flag, “Report”.",
+      "s3": "Choose the option that applies (for example, harassment or bullying, sexual content or hateful content).",
+      "s4": "Follow the instructions to complete the report."
+    },
+    "telegram": {
+      "s1": "Open the chat or group where the harassment happens.",
+      "s2": "Tap the contact's name, then the three-dot icon, “More” and “Report”.",
+      "s3": "Choose the type of abuse (harassment, inappropriate content, etc.).",
+      "s4": "Send the report. Telegram will review the case."
+    },
+    "email": {
+      "s1": "Do not delete the email: save it in full (“Download message” or “Show original”). In Gmail or another Google app, open the message you want to report.",
+      "s2": "Tap the three vertical dots (⋮) to “Report”.",
+      "s3": "If you suspect it is a trick to steal your data, choose “Report phishing”, under the fish-hook symbol.",
+      "s4": "Follow the instructions to complete the report."
+    },
+    "other": {
+      "s1": "Look for the buttons to report: they are usually three dots or a flag, next to the post or on the profile.",
+      "s2": "Tapping them opens a menu: choose “Report” and the reason.",
+      "s3": "Follow the additional steps and send the report."
+    }
   },
   "shield": {
     "two-step": {
@@ -193,13 +262,16 @@
       "s3": "Also capture the profile of the person attacking you and, if there are any, the comments.",
       "s4": "Do not edit it, crop it or forward it through a chat app: keep the original file.",
       "s5": "Upload it in Step 2 of the traffic-light check to calculate its SHA-256 fingerprint and the UTC time.",
-      "s6": "Do all of this before blocking."
+      "s6": "If the post is public, save a copy in the Internet Archive: go to https://web.archive.org, paste the full link into “Save Page Now” and write down the URL it generates.",
+      "s7": "On WhatsApp, open the contact's or group's profile and tap “Export chat” to save the conversation in a file.",
+      "s8": "On Facebook or Instagram, request a copy of your messages in Accounts Center › Your information › “Download your information”.",
+      "s9": "Do all of this before blocking."
     },
     "hide": {
       "question": "How do I hide SIWAT if someone comes near?",
       "s1": "Tap “QUICK EXIT” at the top right, or press Esc twice on a computer.",
       "s2": "A San Salvador weather screen appears, with no mention of SIWAT.",
-      "s3": "To go back to where you were, press and hold the sun for 2 seconds."
+      "s3": "To go back to where you were, press and hold the sun for 2 seconds or tap it 3 times in a row (this also works with your screen reader)."
     },
     "shield": {
       "question": "I want to secure my WhatsApp and Facebook now",
@@ -231,7 +303,8 @@
       "youtube": "YouTube",
       "telegram": "Telegram",
       "email": "Email",
-      "other": "Other"
+      "other": "Other",
+      "prefer-not-to-say": "I prefer not to say"
     },
     "conducts": {
       "threats": {
@@ -278,23 +351,25 @@
     }
   },
   "legal": {
-    "leiv-49-51": "3 to 10 years in prison for sharing or creating intimate/sexual content without consent through electronic means.",
-    "leiv-50": "1 to 3 years in prison for publishing personal data that harms someone's honour or privacy.",
-    "leiv-55-e": "Penalises exposing a woman to imminent risk to her physical or emotional integrity.",
-    "ledic-22-32": "Penalises identity theft and the fraudulent use of computer data.",
-    "leiv-55-c": "Penalises discrediting or degrading women in spaces of political participation.",
-    "leiv-55-c-d": "Penalises mocking, discrediting or obstructing women's political participation.",
-    "electoral-code-173-249": "Prohibits smear or defamatory campaign propaganda.",
-    "lie-20-23": "Guarantees equality in the exercise of political rights.",
+    "leiv-49-51": "5 to 10 years in prison for using a woman in sexual acts through electronic means or spreading sexual material with her image, real or simulated, without her consent.",
+    "leiv-50": "3 to 5 years in prison for publishing or sharing, without consent, personal information that harms a woman's honour, privacy or image, including on social media.",
+    "cp-154-155": "Threats are a crime: 1 to 3 years in prison, with aggravating circumstances if they are anonymous, made with a weapon or for political or gender-based reasons.",
+    "leiv-55-e": "A fine for exposing a woman to imminent risk to her physical or emotional integrity.",
+    "ledic-22-24": "3 to 5 years in prison for impersonating someone through technological means, and 4 to 6 years for using their personal data without authorisation.",
+    "leiv-55-c": "A fine for mocking, discrediting or degrading women in spaces of political participation.",
+    "leiv-10-d": "Defines gender-based political violence against women and requires the TSE to prevent and address it.",
+    "leiv-55-c-d": "A fine for mocking, discrediting or obstructing women's political participation.",
+    "electoral-code-173-249": "Prohibits electoral propaganda that insults, defames or slanders, or that harms women candidates' honour or private life, and penalises it with a fine.",
+    "lie-20-23": "Requires the State and political parties to promote women's equality in political participation.",
     "leiv-9": "Recognises psychological, emotional and symbolic violence against women.",
-    "leiv-55-a": "Penalises spreading messages that promote hatred or contempt towards women.",
-    "belem-do-para-3-7": "The right to a life free of violence in public and political life."
+    "leiv-55-a": "A fine for spreading messages or images with hateful or contemptuous content towards women, including on digital platforms.",
+    "belem-do-para-3-4j-7": "Recognises the right to a life free of violence in both public and private life, and to take part in public affairs."
   },
   "institutions": {
     "pnc": "Emergencies and risks to your physical safety or that of your family.",
-    "fgr": "Investigates threats, doxing and identity theft.",
+    "fgr": "Women's Deputy Prosecutor's Office (Fiscalía Adjunta para la Mujer): investigates threats, doxing and identity theft.",
     "isdemu": "Free guidance for women facing violence.",
-    "tse": "Political violence during an election campaign or while holding office.",
+    "tse": "Report political violence to the TSE Gender Unit (San Salvador) or its offices in San Miguel, Santa Ana and Cuscatlán. The TSE does not accept anonymous reports.",
     "actions": {
       "pnc-911": "Call emergency services (PNC 911)",
       "fgr-web": "See FGR contact channels",

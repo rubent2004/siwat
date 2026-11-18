@@ -1,4 +1,4 @@
-import type { CaseRepository, CaseSnapshot, KeyValueStorage } from '../domain/case-snapshot'
+import { withCurrentAnswers, type CaseRepository, type CaseSnapshot, type KeyValueStorage } from '../domain/case-snapshot'
 
 const CASE_KEY = 'siwat:case'
 
@@ -9,7 +9,7 @@ export function createSessionRepository(storage: KeyValueStorage): CaseRepositor
       const raw = storage.getItem(CASE_KEY)
       if (!raw) return null
       try {
-        return JSON.parse(raw) as CaseSnapshot
+        return withCurrentAnswers(JSON.parse(raw) as CaseSnapshot)
       } catch {
         return null
       }

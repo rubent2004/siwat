@@ -1,4 +1,4 @@
-import type { CaseSnapshot, KeyValueStorage } from '../domain/case-snapshot'
+import { withCurrentAnswers, type CaseSnapshot, type KeyValueStorage } from '../domain/case-snapshot'
 
 const VAULT_KEY = 'siwat:vault'
 const DEFAULT_ITERATIONS = 310_000
@@ -80,7 +80,7 @@ export function createPinVault(
         const stored = JSON.parse(raw) as StoredVault
         const key = await deriveKey(pseudonym, pin, fromBase64(stored.salt))
         const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromBase64(stored.iv) }, key, fromBase64(stored.data))
-        return JSON.parse(new TextDecoder().decode(plain)) as CaseSnapshot
+        return withCurrentAnswers(JSON.parse(new TextDecoder().decode(plain)) as CaseSnapshot)
       } catch {
         throw new PinVaultError('wrong-credentials')
       }

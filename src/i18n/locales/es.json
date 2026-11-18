@@ -22,10 +22,11 @@
   "header": {
     "home": "SIWAT, ir al inicio",
     "exit": "SALIR RÁPIDO",
-    "exitHint": "También puedes presionar Esc dos veces. Para volver, mantén presionado el sol durante 2 segundos."
+    "exitHint": "También puedes presionar Esc dos veces. Para volver, mantén presionado el sol durante 2 segundos o actívalo 3 veces seguidas."
   },
   "footer": {
-    "text": "SIWAT es una herramienta preventiva de orientación. No presenta denuncias por ti. Si estás en peligro físico ahora, llama al {phone}."
+    "text": "SIWAT es una herramienta preventiva de orientación. No presenta denuncias por ti. Si estás en peligro físico ahora, llama al {phone}.",
+    "accessibility": "Opciones de accesibilidad"
   },
   "folio": {
     "label": "Folio {folio}"
@@ -37,6 +38,24 @@
     "call126": "Llamar al 126",
     "close": "Cerrar"
   },
+  "accessibility": {
+    "title": "Opciones de accesibilidad",
+    "screenReaderNote": "Si usas TalkBack o VoiceOver, SIWAT funciona con tu lector de pantalla; no necesitas activar nada.",
+    "largeText": "Texto más grande",
+    "largeTextHint": "Aumenta el tamaño de todo el texto.",
+    "highContrast": "Alto contraste",
+    "highContrastHint": "Texto negro sobre fondo blanco, bordes más gruesos y enlaces subrayados.",
+    "readAloud": "Leer en voz alta",
+    "readAloudHint": "Agrega un botón «Leer esta pantalla» arriba del contenido.",
+    "readAloudWarning": "Usa audífonos: otras personas cerca podrían escuchar.",
+    "readAloudConfirm": "Activar lectura en voz alta",
+    "readAloudCancel": "Cancelar",
+    "readAloudUnsupported": "Este navegador no puede leer en voz alta. Puedes usar el lector de pantalla de tu teléfono.",
+    "readScreen": "Leer esta pantalla",
+    "stopReading": "Detener lectura",
+    "privacyNote": "Estas opciones se guardan solo en esta pestaña y se borran con «Limpiar datos de este dispositivo».",
+    "close": "Cerrar"
+  },
   "welcome": {
     "title": "¿Lo que vives en redes es violencia política? Descúbrelo en 2 minutos.",
     "lead": "Identifica si existe violencia según la ley salvadoreña, respalda tus pruebas de forma segura y conoce a dónde acudir. Tú decides si denuncias y cuándo.",
@@ -46,11 +65,12 @@
     "start": "Iniciar Semáforo Diagnóstico",
     "danger": "Estoy en peligro físico ahora",
     "exitTip": "Si alguien se acerca, toca {exit} o presiona Esc dos veces: verás el clima. Para volver, {hold}.",
-    "exitTipHold": "mantén presionado el sol durante 2 segundos",
+    "exitTipHold": "mantén presionado el sol 2 segundos o tócalo 3 veces seguidas",
     "linksLabel": "Otras opciones",
     "assistantLink": "Usar Asistente Rápido (Guía por botones)",
     "localSpaceActive": "Espacio local activo",
     "localSpaceCreate": "Crear espacio local con PIN (Opcional)",
+    "accessibilityLink": "Opciones de accesibilidad",
     "privacyTitle": "Aviso de privacidad",
     "privacyBody": "Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la pestaña. Nada se sube a servidores. Si creas un espacio local, se guarda cifrado con tu PIN en este dispositivo. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo»."
   },
@@ -85,10 +105,14 @@
     "stepLabel": "Paso 1 de 2: Identifica lo que ocurrió",
     "title": "¿Qué pasó y dónde?",
     "role": "¿Desde qué espacio participas? (Opcional)",
-    "preferNot": "Prefiero no decir",
+    "otherRole": "¿Cuál? (Opcional)",
+    "otherRoleHint": "Escribe tu espacio de participación. Máximo {max} caracteres.",
+    "preferNot": "Prefiero no decirlo",
     "department": "Departamento (Opcional)",
     "hint": "Estos dos datos solo sirven para estadística anónima. No te identifican.",
     "platforms": "¿Dónde ocurrió la agresión?",
+    "otherPlatform": "¿Dónde? (Opcional)",
+    "otherPlatformHint": "Escribe la red, aplicación o sitio. Máximo {max} caracteres.",
     "required": "(obligatorio)",
     "electoral": "¿Ocurre durante una campaña electoral o en el ejercicio de un cargo público?",
     "conducts": "Marca todo lo que te haya pasado:",
@@ -123,7 +147,9 @@
   },
   "result": {
     "lawTitle": "¿Qué dice la ley salvadoreña sobre tu caso?",
-    "lawOfficialNote": "El texto oficial de estas leyes está en español."
+    "lawOfficialNote": "El texto oficial de estas leyes está en español.",
+    "lawDisclaimer": "Orientación, no asesoría legal: la aplicación de la ley a tu caso la deciden la Fiscalía y los tribunales.",
+    "announce": "Resultado del Semáforo: {title}. {body}"
   },
   "bitacora": {
     "title": "Bitácora de Evidencia",
@@ -146,23 +172,66 @@
     "title": "Tu ruta de acción",
     "step1": "1. Reporta en la plataforma (no solo bloquees)",
     "seeSteps": "Ver pasos para reportar en {platform}",
+    "seeStepsGeneral": "Ver pasos para reportar en cualquier plataforma",
     "howtoSave": "Guarda la prueba primero: captura con fecha, nombre de la cuenta y enlace visibles.",
-    "howtoConfirm": "Captura la confirmación del reporte. Después, si quieres, bloquea o restringe la cuenta.",
+    "howtoReport": "Reporta en la plataforma:",
+    "howtoConfirm": "Captura la confirmación del reporte. Bloquea solo después de reportar: bloquear no detiene a quien te agrede ni avisa a la plataforma.",
     "step2": "2. A dónde acudir",
     "note": "Tú decides si denuncias. SIWAT no envía tus datos ni interpone denuncias por ti.",
     "step3": "3. Blindaje",
     "shieldSummary": "Protege tus cuentas hoy (3 medidas clave)"
   },
   "reportLocation": {
-    "facebook": "Toca los tres puntos (…) de la publicación o del perfil y elige «Reportar». Selecciona el motivo: acoso, suplantación o desnudos.",
-    "whatsapp": "Abre el chat, toca el nombre del contacto o del grupo y elige «Reportar».",
-    "tiktok": "Mantén presionado el video o toca «Compartir» y elige «Reportar». En un perfil, usa los tres puntos.",
-    "x": "Toca los tres puntos (…) de la publicación o del perfil y elige «Reportar».",
-    "instagram": "Toca los tres puntos (…) de la publicación, historia o perfil y elige «Reportar».",
-    "youtube": "Toca los tres puntos (⋮) del video o comentario y elige «Denunciar».",
-    "telegram": "Abre el perfil, canal o mensaje, toca los tres puntos y elige «Reportar».",
-    "email": "No borres el correo: guárdalo completo («Descargar mensaje» o «Mostrar original») y márcalo como spam o phishing.",
-    "other": "Busca la opción «Reportar» o «Denunciar» junto a la publicación o en el perfil de quien te agrede."
+    "facebook": {
+      "s1": "Identifica la publicación o el comentario que deseas denunciar, o visita el perfil de la cuenta o página. Toca el ícono de tres puntos (…).",
+      "s2": "Selecciona la razón de la denuncia (por ejemplo, acoso o violencia).",
+      "s3": "Sigue los pasos adicionales y envía la denuncia."
+    },
+    "whatsapp": {
+      "s1": "Toca el nombre o número en la parte superior del chat para abrir la información del contacto, o selecciona el estado o contenido a reportar.",
+      "s2": "Toca el ícono de tres puntos, luego «Más», y selecciona «Reportar».",
+      "s3": "Confirma el reporte."
+    },
+    "tiktok": {
+      "s1": "Mantén presionado el video o el comentario, o toca la flecha de «Compartir». En un perfil, toca también «Compartir».",
+      "s2": "Toca el ícono de la bandera, «Denunciar».",
+      "s3": "Selecciona la razón de la denuncia (por ejemplo, odio y acoso, información falsa o violencia). Si denuncias un perfil, elige primero «Denunciar cuenta».",
+      "s4": "Sigue los pasos adicionales y envía la denuncia."
+    },
+    "x": {
+      "s1": "Identifica el contenido o visita el perfil de la cuenta. Toca el ícono de tres puntos (…).",
+      "s2": "Selecciona «Denunciar».",
+      "s3": "Selecciona la razón de la denuncia (por ejemplo, abuso, discurso violento o privacidad).",
+      "s4": "La plataforma podría pedirte que identifiques las publicaciones abusivas o dañinas y otra información."
+    },
+    "instagram": {
+      "s1": "Identifica la publicación, el en vivo o el comentario, o visita el perfil. Toca el ícono de tres puntos (…) y luego «Reportar».",
+      "s2": "Selecciona el motivo de la denuncia (por ejemplo, acoso o violencia).",
+      "s3": "Sigue los pasos adicionales y envía la denuncia."
+    },
+    "youtube": {
+      "s1": "Toca los tres puntos verticales (⋮) junto al video.",
+      "s2": "Toca la bandera, «Denunciar».",
+      "s3": "Selecciona la opción que corresponda (por ejemplo, hostigamiento o acoso, contenido sexual o contenido que incite al odio).",
+      "s4": "Sigue las instrucciones para completar la denuncia."
+    },
+    "telegram": {
+      "s1": "Abre el chat o grupo donde ocurre el acoso.",
+      "s2": "Toca el nombre del contacto, luego el ícono de tres puntos, «Más» y «Reportar».",
+      "s3": "Elige el tipo de abuso (acoso, contenido inapropiado, etc.).",
+      "s4": "Envía la denuncia. Telegram revisará el caso."
+    },
+    "email": {
+      "s1": "No borres el correo: guárdalo completo («Descargar mensaje» o «Mostrar original»). En Gmail u otra aplicación de Google, abre el mensaje que quieras reportar.",
+      "s2": "Toca los tres puntos verticales (⋮) para «Reportar».",
+      "s3": "Si sospechas que es un engaño para robar tus datos, elige «Reportar phishing», bajo el símbolo de un anzuelo.",
+      "s4": "Sigue las instrucciones para completar la denuncia."
+    },
+    "other": {
+      "s1": "Busca los botones para denunciar o reportar: suelen ser tres puntos o una bandera, junto a la publicación o en el perfil.",
+      "s2": "Al tocarlos se abre un menú: elige «Reportar» o «Denunciar» y la razón.",
+      "s3": "Sigue los pasos adicionales y envía la denuncia."
+    }
   },
   "shield": {
     "two-step": {
@@ -193,13 +262,16 @@
       "s3": "Captura también el perfil de quien te agrede y, si hay, los comentarios.",
       "s4": "No edites, no recortes y no la reenvíes por chat: guarda el archivo original.",
       "s5": "Súbela en el Paso 2 del Semáforo para calcular su huella SHA-256 y la hora UTC.",
-      "s6": "Haz todo esto antes de bloquear."
+      "s6": "Si la publicación es pública, guarda una copia en Internet Archive: entra a https://web.archive.org, pega el enlace completo en «Save Page Now» y anota la URL que se genere.",
+      "s7": "En WhatsApp, abre el perfil del contacto o grupo y toca «Exportar chat» para guardar la conversación en un archivo.",
+      "s8": "En Facebook o Instagram, pide una copia de tus mensajes en Centro de cuentas › Tu información › «Descargar tu información».",
+      "s9": "Haz todo esto antes de bloquear."
     },
     "hide": {
       "question": "¿Cómo oculto SIWAT si alguien se acerca?",
       "s1": "Toca «SALIR RÁPIDO» arriba a la derecha, o presiona Esc dos veces en una computadora.",
       "s2": "Aparece una pantalla del clima de San Salvador, sin mención de SIWAT.",
-      "s3": "Para volver a donde estabas, mantén presionado el sol durante 2 segundos."
+      "s3": "Para volver a donde estabas, mantén presionado el sol durante 2 segundos o tócalo 3 veces seguidas (también funciona con tu lector de pantalla)."
     },
     "shield": {
       "question": "Quiero blindar mi WhatsApp y Facebook ya",
@@ -231,7 +303,8 @@
       "youtube": "YouTube",
       "telegram": "Telegram",
       "email": "Correo",
-      "other": "Otra"
+      "other": "Otra",
+      "prefer-not-to-say": "Prefiero no decirlo"
     },
     "conducts": {
       "threats": {
@@ -278,23 +351,25 @@
     }
   },
   "legal": {
-    "leiv-49-51": "Prisión de 3 a 10 años por difundir o crear contenido íntimo/sexual sin consentimiento por medios electrónicos.",
-    "leiv-50": "Prisión de 1 a 3 años por publicar datos personales que dañen el honor o la intimidad.",
-    "leiv-55-e": "Sanciona exponer a una mujer a riesgo inminente para su integridad física o emocional.",
-    "ledic-22-32": "Sanciona la suplantación de identidad y el uso fraudulento de datos informáticos.",
-    "leiv-55-c": "Sanciona desacreditar o degradar a las mujeres en espacios de participación política.",
-    "leiv-55-c-d": "Sanciona burlarse, desacreditar u obstaculizar la participación política de las mujeres.",
-    "electoral-code-173-249": "Prohíbe la propaganda sucia o difamatoria.",
-    "lie-20-23": "Garantiza igualdad en el ejercicio de derechos políticos.",
+    "leiv-49-51": "Prisión de 5 a 10 años por utilizar a una mujer en actos sexuales por medios electrónicos o difundir material sexual con su imagen, real o simulada, sin su consentimiento.",
+    "leiv-50": "Prisión de 3 a 5 años por publicar o compartir sin consentimiento información personal que dañe el honor, la intimidad o la imagen de una mujer, incluso en redes sociales.",
+    "cp-154-155": "Las amenazas son delito: prisión de 1 a 3 años, con agravantes si son anónimas, con arma o por motivos políticos o de género.",
+    "leiv-55-e": "Multa por exponer a una mujer a un riesgo inminente para su integridad física o emocional.",
+    "ledic-22-24": "Prisión de 3 a 5 años por suplantar la identidad de una persona por medios tecnológicos, y de 4 a 6 años por usar sus datos personales sin autorización.",
+    "leiv-55-c": "Multa por burlarse, desacreditar o degradar a las mujeres en espacios de participación política.",
+    "leiv-10-d": "Define la violencia política contra las mujeres por razón de género y obliga al TSE a prevenirla y atenderla.",
+    "leiv-55-c-d": "Multa por burlarse, desacreditar u obstaculizar la participación política de las mujeres.",
+    "electoral-code-173-249": "Prohíbe la propaganda electoral que injurie, difame o calumnie, o que dañe el honor o la vida privada de las candidatas, y la sanciona con multa.",
+    "lie-20-23": "Obliga al Estado y a los partidos a promover la igualdad de las mujeres en la participación política.",
     "leiv-9": "Reconoce la violencia psicológica, emocional y simbólica contra las mujeres.",
-    "leiv-55-a": "Sanciona difundir mensajes que promuevan odio o menosprecio hacia las mujeres.",
-    "belem-do-para-3-7": "Derecho a una vida libre de violencia en lo público y político."
+    "leiv-55-a": "Multa por difundir mensajes o imágenes con contenido de odio o menosprecio hacia las mujeres, también en plataformas digitales.",
+    "belem-do-para-3-4j-7": "Reconoce el derecho a una vida libre de violencia en el ámbito público y privado, y a participar en los asuntos públicos."
   },
   "institutions": {
     "pnc": "Emergencias y riesgo para tu integridad física o la de tu familia.",
-    "fgr": "Investigación de amenazas, doxing y suplantación de identidad.",
+    "fgr": "Fiscalía Adjunta para la Mujer: investigación de amenazas, doxing y suplantación de identidad.",
     "isdemu": "Orientación gratuita para mujeres que enfrentan violencia.",
-    "tse": "Violencia política durante una campaña electoral o en el ejercicio de un cargo.",
+    "tse": "Denuncia la violencia política en la Unidad de Género del TSE (San Salvador) o en sus oficinas de San Miguel, Santa Ana y Cuscatlán. El TSE no acepta denuncias anónimas.",
     "actions": {
       "pnc-911": "Llamar a emergencia (PNC 911)",
       "fgr-web": "Consultar canales de atención FGR",
