@@ -12,8 +12,8 @@ verificable y botones directos a los canales oficiales de El Salvador.
 |---|---|
 | P01 Inicio | Consentimiento obligatorio, botón «Estoy en peligro físico ahora» (911 / 126), acceso al asistente y espacio local opcional con seudónimo + PIN. |
 | P02 Paso 1 | Rol y departamento (opcionales; «Otro» admite texto libre), redes con sus iconos (incluye «Otra» con texto libre y «Prefiero no decirlo», que excluye a las demás), contexto electoral y 6 conductas. |
-| P03 Paso 2 | Dos filtros de riesgo, aviso «guarda antes de bloquear», URL, hasta 3 capturas con **SHA-256 + sello UTC** calculados en el navegador, relato de 500 caracteres. |
-| P04 Resultado | Sello rojo / amarillo / verde (color + forma + texto), artículos de LEIV, LEDIC, Código Penal, Código Electoral, LIE y Belém do Pará (con el aviso «Orientación, no asesoría legal»), **Bitácora PDF** con código `SIWAT-2026-XXXX`, pasos para reportar en cada red según el manual de ANDRYSAS, botones directos a PNC 911, FGR, ISDEMU 126 / 126 Te Orienta y TSE, checklist de blindaje, «Limpiar datos de este dispositivo». |
+| P03 Paso 2 | Dos filtros de riesgo (más una pregunta sobre imágenes íntimas o sexuales solo si hubo exposición o deepfake), aviso «guarda antes de bloquear», URL, hasta 3 capturas con **SHA-256 + sello UTC** calculados en el navegador, relato de 500 caracteres. |
+| P04 Resultado | Sello rojo / amarillo / verde (color + forma + texto), solo los artículos de LEIV, LEDIC, Código Penal, Código Electoral, LIE y Belém do Pará que aplican a lo que marcó (con el aviso «Orientación, no asesoría legal»), **Bitácora PDF** con código `SIWAT-2026-XXXX`, pasos para reportar en cada red según el manual de ANDRYSAS, botones directos a PNC 911, FGR, ISDEMU 126 / 126 Te Orienta y TSE, checklist de blindaje, «Limpiar datos de este dispositivo». |
 | P05 Asistente | 4 botones fijos, funciona sin internet y sin IA. |
 | P06 Camuflaje | «SALIR RÁPIDO» o `Esc` dos veces: pantalla de clima de San Salvador sin rastro de SIWAT (cambia título y favicon). Para volver: mantener presionado el sol 2 s o activarlo 3 veces en 2 s (funciona con lector de pantalla). |
 

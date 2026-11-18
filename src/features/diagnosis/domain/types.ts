@@ -37,6 +37,11 @@ export interface DiagnosisAnswers {
   conducts: Conduct[]
   physicalThreat: boolean | null
   privateDataExposed: boolean | null
+  /**
+   * P03 follow-up, asked only when private data was exposed or a deepfake was marked:
+   * whether it includes intimate or sexual images or videos, real or fabricated.
+   */
+  intimateContent: boolean | null
   evidenceUrl: string
   narrative: string
 }
@@ -47,7 +52,8 @@ export type LegalReferenceId =
   | 'leiv-50'
   | 'cp-154-155'
   | 'leiv-55-e'
-  | 'ledic-22-24'
+  | 'ledic-24'
+  | 'ledic-22'
   | 'leiv-55-c'
   | 'leiv-10-d'
   | 'leiv-55-c-d'
@@ -88,6 +94,7 @@ export function emptyAnswers(): DiagnosisAnswers {
     conducts: [],
     physicalThreat: null,
     privateDataExposed: null,
+    intimateContent: null,
     evidenceUrl: '',
     narrative: '',
   }

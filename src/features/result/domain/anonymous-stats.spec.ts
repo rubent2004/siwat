@@ -55,4 +55,20 @@ describe('buildAnonymousStats', () => {
     })
     expect(JSON.stringify(stats)).not.toMatch(/Apopa|Foro del partido/)
   })
+
+  it('never includes the intimate-content answer', () => {
+    const stats = buildAnonymousStats(
+      { ...emptyAnswers(), platforms: ['whatsapp'], conducts: ['deepfake'], privateDataExposed: true, intimateContent: true },
+      'red',
+    )
+
+    expect(stats).toEqual({
+      department: 'sin-dato',
+      role: 'sin-dato',
+      platforms: ['whatsapp'],
+      conducts: ['deepfake'],
+      light: 'red',
+    })
+    expect(Object.keys(stats)).not.toContain('intimateContent')
+  })
 })

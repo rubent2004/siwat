@@ -54,6 +54,17 @@ describe('session repository', () => {
     expect(loaded?.answers.otherRole).toBe('')
     expect(loaded?.answers.platforms).toEqual(['tiktok'])
   })
+
+  it('loads a snapshot saved before the intimate-content follow-up existed, as unanswered', () => {
+    const storage = new MemoryStorage()
+    const { intimateContent: _intimate, ...oldAnswers } = snapshot.answers
+    storage.setItem('siwat:case', JSON.stringify({ ...snapshot, answers: oldAnswers }))
+
+    const loaded = createSessionRepository(storage).load()
+
+    expect(loaded?.answers.intimateContent).toBeNull()
+    expect(loaded?.answers.conducts).toEqual(['doxing'])
+  })
 })
 
 describe('pin vault', () => {

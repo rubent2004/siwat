@@ -10,6 +10,7 @@ import StepIndicator from '../../shared/ui/StepIndicator.vue'
 import YesNoField from '../../shared/ui/YesNoField.vue'
 import { useCase } from '../case/use-case'
 import EvidenceUploader from '../evidence/EvidenceUploader.vue'
+import { asksIntimateContent } from './domain/classify'
 import { NARRATIVE_MAX_LENGTH } from './domain/types'
 
 const router = useRouter()
@@ -18,15 +19,18 @@ const { state } = useCase()
 const answers = state.answers
 const submitted = ref(false)
 
+const showIntimateContent = computed(() => asksIntimateContent(answers))
+
 const errors = computed(() => ({
   threat: answers.physicalThreat === null ? t('common.chooseYesNo') : '',
   exposure: answers.privateDataExposed === null ? t('common.chooseYesNo') : '',
+  intimate: showIntimateContent.value && answers.intimateContent === null ? t('common.chooseYesNo') : '',
 }))
 
 async function showResult(event: Event) {
   submitted.value = true
   const form = event.target as HTMLFormElement
-  const firstInvalid = (['threat', 'exposure'] as const).find((key) => errors.value[key])
+  const firstInvalid = (['threat', 'exposure', 'intimate'] as const).find((key) => errors.value[key])
   if (!firstInvalid && form.checkValidity()) {
     void router.push({ name: 'result' })
     return
@@ -56,6 +60,13 @@ async function showResult(event: Event) {
           v-model="answers.privateDataExposed"
           :legend="t('risk.exposure')"
           :error="submitted ? errors.exposure : ''"
+        />
+      </div>
+      <div v-if="showIntimateContent" data-group="intimate">
+        <YesNoField
+          v-model="answers.intimateContent"
+          :legend="t('risk.intimateContent')"
+          :error="submitted ? errors.intimate : ''"
         />
       </div>
 

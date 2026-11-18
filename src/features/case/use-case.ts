@@ -1,7 +1,7 @@
 import { computed, reactive, readonly, ref, watch } from 'vue'
 import { resetLocale } from '../../i18n'
 import { resetAccessibility } from '../accessibility/use-accessibility'
-import { classify } from '../diagnosis/domain/classify'
+import { asksIntimateContent, classify } from '../diagnosis/domain/classify'
 import { emptyAnswers, type DiagnosisAnswers } from '../diagnosis/domain/types'
 import {
   createCaseCode,
@@ -54,6 +54,14 @@ watch(
   { deep: true },
 )
 
+// The intimate-content follow-up only exists while it is asked: hiding it (on P02 or P03) clears it.
+watch(
+  () => asksIntimateContent(state.answers),
+  (asked) => {
+    if (!asked) state.answers.intimateContent = null
+  },
+)
+
 const result = computed(() => classify(state.answers))
 
 const step1Complete = computed(
@@ -61,7 +69,11 @@ const step1Complete = computed(
 )
 
 const step2Complete = computed(
-  () => step1Complete.value && state.answers.physicalThreat !== null && state.answers.privateDataExposed !== null,
+  () =>
+    step1Complete.value &&
+    state.answers.physicalThreat !== null &&
+    state.answers.privateDataExposed !== null &&
+    (!asksIntimateContent(state.answers) || state.answers.intimateContent !== null),
 )
 
 function updateAnswers(patch: Partial<DiagnosisAnswers>) {

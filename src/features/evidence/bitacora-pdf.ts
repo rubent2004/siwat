@@ -1,6 +1,7 @@
 import type { jsPDF as JsPdf } from 'jspdf'
 import { spanish } from '../../i18n'
 import { conductKey, isRole, lightKey, platformKey, roleKey } from '../diagnosis/catalog'
+import { asksIntimateContent } from '../diagnosis/domain/classify'
 import type { DiagnosisAnswers, DiagnosisResult } from '../diagnosis/domain/types'
 import { actionLabelKey, INSTITUTIONS } from '../result/route-catalog'
 import type { EvidenceRecord } from './domain/evidence'
@@ -124,6 +125,7 @@ export async function createBitacoraPdf(input: BitacoraInput): Promise<Blob> {
   field('Conductas', answers.conducts.map((conduct) => spanish(conductKey(conduct, 'label'))).join('; '))
   field('Amenazas de daño físico, sexual o contra la familia', yesNo(answers.physicalThreat))
   field('Exposición de dirección, trabajo, teléfono o imágenes íntimas', yesNo(answers.privateDataExposed))
+  if (asksIntimateContent(answers)) field('Incluye imágenes o videos íntimos o sexuales', yesNo(answers.intimateContent))
   if (answers.role) field('Espacio de participación', roleText(answers))
   if (answers.department) field('Departamento', answers.department)
   field('Relato', answers.narrative.trim() || 'No registrado')
