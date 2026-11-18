@@ -60,6 +60,8 @@ const issuedAt = new Date().toISOString()
 .result {
   display: grid;
   gap: var(--space-5);
+  /* The stamp may hang past the sheet edge; never let it widen the page. */
+  overflow-x: clip;
 }
 
 .verdict {
@@ -96,8 +98,7 @@ const issuedAt = new Date().toISOString()
 }
 
 .result__stats {
-  padding-top: var(--space-5);
-  border-top: 1px dashed var(--edge);
+  padding-top: var(--space-3);
 }
 
 .law {

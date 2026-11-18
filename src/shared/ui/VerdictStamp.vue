@@ -17,6 +17,12 @@ const stampDate = computed(() => {
   const time = date.toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' })
   return { day, time: `${time} UTC` }
 })
+
+/** "SIWAT-2026-ABCD" split in two lines so it fits inside every stamp shape. */
+const caseCodeLines = computed(() => {
+  const cut = props.caseCode.lastIndexOf('-')
+  return [props.caseCode.slice(0, cut), props.caseCode.slice(cut + 1)]
+})
 </script>
 
 <template>
@@ -27,7 +33,7 @@ const stampDate = computed(() => {
     <span class="stamp__text">
       <span class="stamp__label">{{ label }}</span>
       <span class="stamp__date data">{{ stampDate.day }}<br />{{ stampDate.time }}</span>
-      <span class="stamp__date data">{{ caseCode }}</span>
+      <span class="stamp__date data">{{ caseCodeLines[0] }}<br />{{ caseCodeLines[1] }}</span>
     </span>
   </div>
 </template>
