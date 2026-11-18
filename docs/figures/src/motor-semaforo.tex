@@ -31,13 +31,13 @@
 \node[head, anchor=west] at (14.0,0.9) {A DÓNDE ACUDIR};
 
 % Rows: y positions
-\def\rowA{0} \def\rowB{-2.1} \def\rowC{-4.2} \def\rowD{-6.3}
+\def\rowA{0} \def\rowB{-2.5} \def\rowC{-5.0} \def\rowD{-7.5}
 
 % Row A: red
 \node[cond, anchor=north west] (ca) at (0,\rowA+0.3) {Amenaza física \textbf{o} datos privados expuestos (doxing, imágenes íntimas)};
 \node[regular polygon, regular polygon sides=8, draw=siwatRed, line width=2pt, fill=siwatRed!8,
   minimum size=1.5cm, font=\scriptsize\bfseries, text=siwatRedText] (la) at (ca.center -| 6.15,0) {ROJO};
-\node[law, anchor=north west] at (7.6,\rowA+0.3) {\textbf{LEIV Arts. 49, 50, 51} (prisión por difundir contenido íntimo o datos personales) · \textbf{LEIV Art. 55 lit. e}};
+\node[law, anchor=north west] at (7.6,\rowA+0.3) {\textbf{LEIV Arts. 49 y 51} (prisión 5--10 años) · \textbf{LEIV Art. 50} (prisión 3--5 años) · \textbf{Código Penal Arts. 154 y 155}, amenazas (prisión 1--3 años) · \textbf{LEIV Art. 55 lit. e} (multa)};
 \node[inst, anchor=north west] at (14.0,\rowA+0.3) {PNC 911\\Fiscalía (FGR)\\ISDEMU 126};
 
 % Row B: yellow (identity)
@@ -45,7 +45,7 @@
 \coordinate (lb) at (cb.center -| 6.15,0);
 \draw[siwatYellow, line width=2pt, fill=siwatYellow!10, line join=round] ($(lb)+(0,0.62)$) -- ($(lb)+(0.74,-0.58)$) -- ($(lb)+(-0.74,-0.58)$) -- cycle;
 \node[font=\tiny\bfseries, text=siwatYellowText] at ($(lb)+(0,-0.28)$) {AMARILLO};
-\node[law, anchor=north west] at (7.6,\rowB+0.3) {\textbf{LEDIC Arts. 22 y 32} (suplantación y uso fraudulento de datos) · \textbf{LEIV Art. 55 lit. c}};
+\node[law, anchor=north west] at (7.6,\rowB+0.3) {\textbf{LEDIC Art. 22}, suplantación (prisión 3--5 años) · \textbf{LEDIC Art. 24}, datos personales (prisión 4--6 años) · \textbf{LEIV Art. 55 lit. c} (multa)};
 \node[inst, anchor=north west] at (14.0,\rowB+0.3) {Fiscalía (FGR)\\Reporte en la red};
 
 % Row C: yellow (electoral)
@@ -53,23 +53,23 @@
 \coordinate (lc) at (cc.center -| 6.15,0);
 \draw[siwatYellow, line width=2pt, fill=siwatYellow!10, line join=round] ($(lc)+(0,0.62)$) -- ($(lc)+(0.74,-0.58)$) -- ($(lc)+(-0.74,-0.58)$) -- cycle;
 \node[font=\tiny\bfseries, text=siwatYellowText] at ($(lc)+(0,-0.28)$) {AMARILLO};
-\node[law, anchor=north west] at (7.6,\rowC+0.3) {\textbf{LEIV Art. 55 lit. c y d} · \textbf{Código Electoral Arts. 173 y 249} · \textbf{\mbox{Ley de Igualdad Arts. 20-23}}};
-\node[inst, anchor=north west] at (14.0,\rowC+0.3) {TSE\\ISDEMU 126};
+\node[law, anchor=north west] at (7.6,\rowC+0.3) {\textbf{LEIV Art. 10 lit. d y 10-A}, violencia política (D.L. 829/2021) · \textbf{LEIV Art. 55 lit. c y d} (multa) · \textbf{Código Electoral Arts. 173 y 249} (multa) · \textbf{\mbox{Ley de Igualdad Arts. 20-23}}};
+\node[inst, anchor=north west] at (14.0,\rowC+0.3) {TSE, Unidad de Género\\ISDEMU 126};
 
 % Row D: green
 \node[cond, anchor=north west] (cd) at (0,\rowD+0.3) {Insultos o burlas sexistas, sin amenaza ni datos expuestos};
 \node[circle, draw=siwatGreen, line width=2pt, fill=siwatGreen!8, minimum size=1.45cm,
   font=\scriptsize\bfseries, text=siwatGreenText] (ld) at (cd.center -| 6.15,0) {VERDE};
-\node[law, anchor=north west] at (7.6,\rowD+0.3) {\textbf{LEIV Art. 9} (violencia simbólica) · \textbf{LEIV Art. 55 lit. a} · \textbf{Belém do Pará Arts. 3 y 7}};
+\node[law, anchor=north west] at (7.6,\rowD+0.3) {\textbf{LEIV Art. 9} (violencia simbólica) · \textbf{LEIV Art. 55 lit. a} (multa) · \textbf{Belém do Pará Arts. 3, 4 lit. j y 7}};
 \node[inst, anchor=north west] at (14.0,\rowD+0.3) {ISDEMU 126\\126 Te Orienta\\Reporte en la red};
 
 \foreach \c in {ca, cb, cc, cd} \draw[link] (\c.east) -- ++(0.46,0);
 
 % Row separators
-\foreach \y in {-1.6,-3.7,-5.8} \draw[siwatEdge, line width=0.6pt] (0,\y) -- (17.6,\y);
+\foreach \y in {-2.05,-4.55,-7.05} \draw[siwatEdge, line width=0.6pt] (0,\y) -- (17.6,\y);
 
 % Combination rule
-\node[anchor=north west, text width=17.4cm, font=\small, text=siwatPlum, align=left] at (0,-8.1)
-  {\textbf{Se suman todas las filas que se cumplen:} el color final es el más grave, y se muestran todas sus leyes e instituciones. Si en P02 marcó contexto electoral, siempre aparece el TSE.};
+\node[anchor=north west, text width=17.4cm, font=\small, text=siwatPlum, align=left] at (0,-9.5)
+  {\textbf{Se suman todas las filas que se cumplen:} el color final es el más grave, y se muestran todas sus leyes e instituciones. Si en P02 marcó contexto electoral, siempre aparece el TSE. \textit{Orientación, no asesoría legal: la aplicación de la ley la deciden la Fiscalía y los tribunales.}};
 \end{tikzpicture}
 \end{document}
