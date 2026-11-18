@@ -1,18 +1,16 @@
 <script setup lang="ts">
 defineProps<{
-  /** Folio number shown on the sheet, e.g. "01". */
-  folio: string
-  /** What this folio records, e.g. "Inicio". */
-  caption: string
+  /** Folio number in the case file, e.g. "01". Omitted on sheets outside the case. */
+  folio?: string
   caseCode?: string
 }>()
 </script>
 
 <template>
   <section class="folio">
-    <div class="folio__head">
-      <span class="data">Folio {{ folio }} · {{ caption }}</span>
-      <span v-if="caseCode" class="data">{{ caseCode }}</span>
+    <div v-if="folio" class="folio__head">
+      <span class="data">Folio {{ folio }}</span>
+      <span class="data">{{ caseCode ?? 'SIWAT' }}</span>
     </div>
     <slot />
   </section>
@@ -30,8 +28,7 @@ defineProps<{
   border-radius: var(--radius-sheet);
   box-shadow:
     0 3px 0 -1px var(--sheet),
-    0 3px 0 0 var(--edge),
-    var(--shadow-sheet);
+    0 3px 0 0 var(--edge);
 
   @media (min-width: 30rem) {
     padding: var(--space-5) var(--space-5) var(--space-6);

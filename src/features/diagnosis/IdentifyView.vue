@@ -41,7 +41,7 @@ async function next() {
   <StepIndicator :step="1" label="Paso 1 de 2: Identifica lo que ocurrió" />
 
   <form class="identify" novalidate @submit.prevent="next">
-    <FolioSheet folio="02" caption="Qué pasó y dónde" :case-code="state.caseCode">
+    <FolioSheet folio="02" :case-code="state.caseCode">
       <h1 tabindex="-1" class="step-title">¿Qué pasó y dónde?</h1>
 
       <div class="identify__pair">
@@ -208,17 +208,15 @@ async function next() {
 
 .conducts {
   display: grid;
-  gap: var(--space-2);
+  border-bottom: 1px solid var(--edge);
 }
 
 .conduct {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  border: 1.5px solid var(--edge);
-  border-radius: var(--radius-control);
-  background: var(--sheet);
+  padding: var(--space-3) var(--space-2);
+  border-top: 1px solid var(--edge);
   cursor: pointer;
 
   & input {
@@ -233,11 +231,10 @@ async function next() {
   }
 
   &:hover {
-    border-color: #b9a9b6;
+    background: var(--paper);
   }
 
   &:has(:checked) {
-    border-color: var(--plum);
     background: var(--plum-50);
   }
 }

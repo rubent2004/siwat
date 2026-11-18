@@ -39,7 +39,7 @@ async function showResult(event: Event) {
   <StepIndicator :step="2" label="Paso 2 de 2: Nivel de urgencia y evidencia" />
 
   <form class="risk" novalidate @submit.prevent="showResult">
-    <FolioSheet folio="03" caption="Urgencia y evidencia" :case-code="state.caseCode">
+    <FolioSheet folio="03" :case-code="state.caseCode">
       <h1 tabindex="-1" class="step-title">Termómetro de riesgo y respaldo de prueba</h1>
 
       <div data-group="threat">

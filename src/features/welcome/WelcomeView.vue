@@ -23,7 +23,7 @@ function start() {
 </script>
 
 <template>
-  <FolioSheet folio="01" caption="Inicio">
+  <FolioSheet folio="01">
     <h1 tabindex="-1" class="welcome__title">
       ¿Lo que vives en redes es violencia política? Descúbrelo en 2 minutos.
     </h1>

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import type { Light } from '../../features/diagnosis/domain/types'
 
-const props = defineProps<{ light: Light; label: string; issuedAtUtc: string }>()
+const props = defineProps<{ light: Light; label: string; caseCode: string; issuedAtUtc: string }>()
 
 /** Each light has its own stamp shape so it reads without colour: octagon, triangle, circle. */
 const SHAPES: Record<Light, string> = {
@@ -15,7 +15,7 @@ const stampDate = computed(() => {
   const date = new Date(props.issuedAtUtc)
   const day = date.toLocaleDateString('es-SV', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' })
   const time = date.toLocaleTimeString('es-SV', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC' })
-  return `${day} · ${time} UTC`
+  return { day, time: `${time} UTC` }
 })
 </script>
 
@@ -26,7 +26,8 @@ const stampDate = computed(() => {
     </svg>
     <span class="stamp__text">
       <span class="stamp__label">{{ label }}</span>
-      <span class="stamp__date data">{{ stampDate }}</span>
+      <span class="stamp__date data">{{ stampDate.day }}<br />{{ stampDate.time }}</span>
+      <span class="stamp__date data">{{ caseCode }}</span>
     </span>
   </div>
 </template>

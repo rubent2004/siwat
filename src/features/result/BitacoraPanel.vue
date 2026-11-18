@@ -111,10 +111,6 @@ function onConfirmClose() {
 }
 
 .bitacora__ack {
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--edge);
-  border-radius: var(--radius-control);
-  background: var(--paper);
   font-size: var(--text-sm);
 }
 

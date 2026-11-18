@@ -16,13 +16,17 @@ const issuedAt = new Date().toISOString()
 
 <template>
   <div class="result">
-    <FolioSheet folio="04" caption="Resultado" :case-code="state.caseCode">
+    <FolioSheet folio="04" :case-code="state.caseCode">
+      <VerdictStamp
+        class="verdict__stamp"
+        :light="result.light"
+        :label="copy.label"
+        :case-code="state.caseCode"
+        :issued-at-utc="issuedAt"
+      />
       <div class="verdict" :class="`verdict--${result.light}`">
-        <div class="verdict__text">
-          <h1 tabindex="-1" class="verdict__title">{{ copy.title }}</h1>
-          <p>{{ copy.body }}</p>
-        </div>
-        <VerdictStamp class="verdict__stamp" :light="result.light" :label="copy.label" :issued-at-utc="issuedAt" />
+        <h1 tabindex="-1" class="verdict__title">{{ copy.title }}</h1>
+        <p>{{ copy.body }}</p>
       </div>
 
       <a v-if="result.light === 'red'" href="tel:911" class="btn btn--plum btn--block">
@@ -30,7 +34,7 @@ const issuedAt = new Date().toISOString()
         Llamar a emergencia (PNC 911)
       </a>
 
-      <details class="law" open>
+      <details class="law">
         <summary>¿Qué dice la ley salvadoreña sobre tu caso?</summary>
         <dl class="law__list">
           <div v-for="reference in result.legalBasis" :key="reference.law" class="law__item">
@@ -41,15 +45,14 @@ const issuedAt = new Date().toISOString()
       </details>
     </FolioSheet>
 
-    <FolioSheet folio="05" caption="Respaldo">
+    <FolioSheet folio="05" :case-code="state.caseCode">
       <BitacoraPanel />
     </FolioSheet>
 
-    <FolioSheet folio="06" caption="Ruta">
+    <FolioSheet folio="06" :case-code="state.caseCode">
       <ActionRoute />
+      <AnonymousStatsOptIn class="result__stats" />
     </FolioSheet>
-
-    <AnonymousStatsOptIn />
   </div>
 </template>
 
@@ -61,45 +64,40 @@ const issuedAt = new Date().toISOString()
 
 .verdict {
   --tone: var(--red-text);
-  --tint: var(--red-tint);
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: start;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-radius: var(--radius-sheet);
-  background: var(--tint);
+  gap: var(--space-2);
+  padding-inline-end: 9.5rem;
 
   @media (max-width: 26rem) {
-    grid-template-columns: 1fr;
-
-    & .verdict__stamp {
-      justify-self: end;
-      margin-top: calc(var(--space-6) * -1);
-      order: -1;
-    }
+    padding-inline-end: 0;
+    padding-top: 7.5rem;
   }
 }
 
 .verdict--yellow {
   --tone: var(--yellow-text);
-  --tint: var(--yellow-tint);
 }
 
 .verdict--green {
   --tone: var(--green-text);
-  --tint: var(--green-tint);
 }
 
-.verdict__text {
-  display: grid;
-  gap: var(--space-2);
+/* Pressed onto the sheet, crossing its head rule like a real stamp. */
+.result .verdict__stamp {
+  position: absolute;
+  top: 2.35rem;
+  right: var(--space-2);
 }
 
 .verdict__title {
   font-size: var(--text-xl);
   color: var(--tone);
   outline: none;
+}
+
+.result__stats {
+  padding-top: var(--space-5);
+  border-top: 1px dashed var(--edge);
 }
 
 .law {
@@ -133,7 +131,6 @@ const issuedAt = new Date().toISOString()
   }
 
   & dt {
-    font-family: var(--font-data);
     font-size: var(--text-sm);
     font-weight: 700;
     color: var(--ink);

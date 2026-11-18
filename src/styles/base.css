@@ -10,6 +10,7 @@ html {
   accent-color: var(--plum);
   caret-color: var(--plum);
   scrollbar-color: var(--edge) var(--paper);
+  scroll-padding-top: calc(var(--touch) + var(--space-5));
 }
 
 body {

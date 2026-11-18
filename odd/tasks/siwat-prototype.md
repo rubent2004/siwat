@@ -25,12 +25,14 @@ Assumptions (to validate with the team):
 
 | ID | Specs | Route | Status | Evidence |
 |----|-------|-------|--------|----------|
-| T1 | S1, S6 | inline | pending | |
-| T2 | S2–S5, S7–S9 | inline | pending | |
-| T3 | S10 | inline | pending | |
+| T1 | S1, S6 | inline | done | a11656c — 27 tests GREEN (RED observed first) |
+| T2 | S2–S5, S7–S9 | inline | done | 3f98b8f — full flow driven in Chromium (mobile + desktop), PDF generated |
+| T3 | S10 | inline | in review | build + PWA + CSP OK; Impeccable finish review pending |
 
 ## Log
 
 - L1 (2026-11-18, user, verbatim): "https://126teorienta.gob.sv/dirservicios/   , podrias ayudarme a hacer este proyecto o simulador mejor dicho ahi hay un audio que puedes pasar a texto para ver mejor como seria , puedes usar cualquier herramienta como vue , typscript, vite, etc , tambien librerias como las de https://icons0.dev/ , https://vue-bits.dev/ ... recuerda hacerlo con la mejor arquitectura, modular , mejores practicas ..."
 - L2 (audio transcription): "...en lugar de eso [asistencia entre pares / psicólogas / abogadas] ... a partir de los resultados ya estén los botones con los links que les lleven a las plataformas que ya son oficiales para hacer las denuncias..."
 - L3: 126teorienta.gob.sv blocks automated clients (Cloudflare 403); linked directly from the institution card. Engram mirror pending (memory tools unavailable this session).
+- L4 (2026-11-18): Visual direction «Folio y sello» chosen by the user on the Impeccable decision page (seed:e57a2df38d8f4d32). PRODUCT.md confirmed.
+- L5: Playwright run: camouflage title «Clima — San Salvador», no «SIWAT» text on P06, 2 s hold returns to Resultado; PDF downloaded on both viewports. Impeccable detector: 0 findings.

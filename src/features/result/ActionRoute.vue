@@ -109,16 +109,18 @@ const shieldDone = reactive<Record<string, boolean>>({})
 }
 
 .disclosure {
-  border: 1px solid var(--edge);
-  border-radius: var(--radius-control);
-  background: var(--sheet);
+  border-top: 1px solid var(--edge);
+
+  &:last-of-type {
+    border-bottom: 1px solid var(--edge);
+  }
 
   & summary {
     display: flex;
     align-items: center;
     gap: var(--space-2);
     min-height: var(--touch);
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-2) 0;
     font-weight: 700;
     color: var(--plum);
     cursor: pointer;
@@ -170,12 +172,12 @@ const shieldDone = reactive<Record<string, boolean>>({})
   display: grid;
   gap: var(--space-2);
   margin: 0;
-  padding: 0 var(--space-4) var(--space-4) var(--space-6);
+  padding: 0 0 var(--space-4) var(--space-5);
   font-size: var(--text-sm);
 }
 
 .shield {
-  padding-left: var(--space-4);
+  padding-left: 0;
   list-style: none;
 }
 
@@ -186,7 +188,6 @@ const shieldDone = reactive<Record<string, boolean>>({})
 
 .institutions {
   display: grid;
-  gap: var(--space-3);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -195,10 +196,12 @@ const shieldDone = reactive<Record<string, boolean>>({})
 .institution {
   display: grid;
   gap: var(--space-2);
-  padding: var(--space-4);
-  border: 1px solid var(--edge);
-  border-radius: var(--radius-control);
-  background: var(--sheet);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--edge);
+
+  &:last-child {
+    border-bottom: 1px solid var(--edge);
+  }
 }
 
 .institution__name {

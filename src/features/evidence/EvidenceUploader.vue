@@ -121,8 +121,8 @@ const formatSize = (bytes: number) =>
 
 .uploader__list {
   display: grid;
-  gap: var(--space-3);
   margin: 0;
+  border-bottom: 1px solid var(--edge);
   padding: 0;
   list-style: none;
 }
@@ -132,10 +132,8 @@ const formatSize = (bytes: number) =>
   grid-template-columns: 4rem 1fr auto;
   gap: var(--space-3);
   align-items: start;
-  padding: var(--space-3);
-  border: 1px solid var(--edge);
-  border-radius: var(--radius-sheet);
-  background: var(--paper);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--edge);
 }
 
 .evidence__thumb {

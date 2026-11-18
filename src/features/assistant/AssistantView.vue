@@ -16,7 +16,7 @@ function goToDiagnosis() {
 </script>
 
 <template>
-  <FolioSheet folio="A" caption="Asistente rápido">
+  <FolioSheet>
     <h1 tabindex="-1" class="assistant__title">Asistente rápido</h1>
     <p>Elige lo que necesitas ahora. Funciona sin internet y sin inteligencia artificial.</p>
 

@@ -1,7 +1,7 @@
 ---
 version: 1
-slug: "src-app-vue"
-primary_target: "src/App.vue"
+slug: "src-app-app-vue"
+primary_target: "src/app/App.vue"
 related_targets: []
 ---
 
