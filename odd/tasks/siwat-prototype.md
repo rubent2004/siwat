@@ -27,7 +27,7 @@ Assumptions (to validate with the team):
 |----|-------|-------|--------|----------|
 | T1 | S1, S6 | inline | done | a11656c — 27 tests GREEN (RED observed first) |
 | T2 | S2–S5, S7–S9 | inline | done | 3f98b8f — full flow driven in Chromium (mobile + desktop), PDF generated |
-| T3 | S10 | inline | in review | build + PWA + CSP OK; Impeccable finish review pending |
+| T3 | S10 | inline | done | 065bc12, 1a2ecbd — build + PWA + CSP; Impeccable finish review: ship |
 
 ## Log
 
@@ -36,3 +36,4 @@ Assumptions (to validate with the team):
 - L3: 126teorienta.gob.sv blocks automated clients (Cloudflare 403); linked directly from the institution card. Engram mirror pending (memory tools unavailable this session).
 - L4 (2026-11-18): Visual direction «Folio y sello» chosen by the user on the Impeccable decision page (seed:e57a2df38d8f4d32). PRODUCT.md confirmed.
 - L5: Playwright run: camouflage title «Clima — San Salvador», no «SIWAT» text on P06, 2 s hold returns to Resultado; PDF downloaded on both viewports. Impeccable detector: 0 findings.
+- L6: Impeccable finish review: first pass `fix` (8 items), second pass `fix` (2 partial, 2 regressions), final pass `ship`. LaTeX figures (flow, traffic-light engine) rendered with steamr into docs/figures for the report.
