@@ -22,3 +22,26 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment and secrets (never commit)
+.env
+.env.*
+!.env.example
+
+# Build and tool caches
+*.tsbuildinfo
+coverage
+.vite
+.netlify
+.eslintcache
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Impeccable runtime artefacts (screenshots, decision mocks, question server)
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/build/
+.impeccable/config.local.json

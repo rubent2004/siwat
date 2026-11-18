@@ -97,3 +97,7 @@ pnpm preview    # sirve dist/ localmente
 - Regla «ROJO / AMARILLO» para suplantación o montaje: hoy es amarillo salvo que haya amenaza o exposición de datos.
 - Desinformación fuera de contexto electoral: hoy cae en verde preventivo.
 - La estadística anónima solo se muestra; no se envía (Fase 2).
+
+## Licencia
+
+SIWAT se distribuye bajo la [GNU General Public License v3.0](LICENSE) (`GPL-3.0-only`): puedes usarlo, estudiarlo, modificarlo y compartirlo, siempre que las versiones que distribuyas mantengan la misma licencia y su código fuente.
