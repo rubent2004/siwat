@@ -10,7 +10,7 @@ verificable y botones directos a los canales oficiales de El Salvador.
 
 | Pantalla | Qué hace |
 |---|---|
-| P01 Inicio | Consentimiento obligatorio, botón «Estoy en peligro físico ahora» (911 / 126), acceso al asistente y espacio local opcional con seudónimo + PIN. |
+| P01 Inicio | Consentimiento obligatorio, botón «Estoy en peligro físico ahora» (911 / 126), acceso al asistente y a las opciones de accesibilidad. |
 | P02 Paso 1 | Rol y departamento (opcionales; «Otro» admite texto libre), redes con sus iconos (incluye «Otra» con texto libre y «Prefiero no decirlo», que excluye a las demás), contexto electoral y 6 conductas. |
 | P03 Paso 2 | Dos filtros de riesgo (más una pregunta sobre imágenes íntimas o sexuales solo si hubo exposición o deepfake), aviso «guarda antes de bloquear», URL, hasta 3 capturas con **SHA-256 + sello UTC** calculados en el navegador, relato de 500 caracteres. |
 | P04 Resultado | Sello rojo / amarillo / verde (color + forma + texto), solo los artículos de LEIV, LEDIC, Código Penal, Código Electoral, LIE y Belém do Pará que aplican a lo que marcó (con el aviso «Orientación, no asesoría legal»), **Bitácora PDF** con código `SIWAT-2026-XXXX`, pasos para reportar en cada red según el manual de ANDRYSAS, botones directos a PNC 911, FGR, ISDEMU 126 / 126 Te Orienta y TSE, checklist de blindaje, «Limpiar datos de este dispositivo». |
@@ -28,7 +28,6 @@ Las figuras se generan desde LaTeX (`docs/figures/src/*.tex`) con `steamr figure
 ## Privacidad por diseño (verificable)
 
 - Sin servidor: todo vive en `sessionStorage` (se borra al cerrar la pestaña).
-- Espacio local opcional cifrado con AES-GCM; la clave se deriva de seudónimo + PIN con PBKDF2 (el seudónimo nunca se guarda).
 - Las capturas nunca salen del dispositivo: solo se guardan su nombre, tamaño, SHA-256 y hora UTC.
 - La versión publicada incluye una **Content-Security-Policy** (`connect-src 'self'`): el propio navegador bloquea cualquier envío de datos a otro dominio.
 - Historial en memoria: los pasos no quedan en el historial del navegador.
@@ -67,8 +66,8 @@ src/
     diagnosis/domain/  motor de clasificación + base legal (sin dependencias de Vue)
     evidence/domain/   SHA-256, validación de capturas, código de caso
     evidence/          subida de capturas, generador de Bitácora PDF
-    case/              estado del caso; puerto CaseRepository + adaptadores sessionStorage y bóveda con PIN
-    result/            P04, catálogo de instituciones y pasos de reporte, estadística anónima
+    case/              estado del caso; puerto CaseRepository + adaptador sessionStorage
+    result/            P04, catálogo de instituciones y pasos de reporte
     accessibility/     panel de opciones, lectura en voz alta, preferencias en sessionStorage
     welcome/ assistant/ camouflage/
   shared/ui/           cabecera, pie, folio, sello, diálogos
@@ -96,7 +95,6 @@ pnpm preview    # sirve dist/ localmente
 - Texto del Manual ANDRYSAS para los pasos de reporte por red (los actuales son genéricos).
 - Regla «ROJO / AMARILLO» para suplantación o montaje: hoy es amarillo salvo que haya amenaza o exposición de datos.
 - Desinformación fuera de contexto electoral: hoy cae en verde preventivo.
-- La estadística anónima solo se muestra; no se envía (Fase 2).
 
 ## Licencia
 

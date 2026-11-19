@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { emptyAnswers } from '../../diagnosis/domain/types'
 import type { CaseSnapshot } from '../domain/case-snapshot'
-import { createPinVault, isValidPin, PinVaultError } from './pin-vault'
 import { createSessionRepository } from './session-repository'
 
 class MemoryStorage implements Pick<Storage, 'getItem' | 'setItem' | 'removeItem'> {
@@ -64,60 +63,5 @@ describe('session repository', () => {
 
     expect(loaded?.answers.intimateContent).toBeNull()
     expect(loaded?.answers.conducts).toEqual(['doxing'])
-  })
-})
-
-describe('pin vault', () => {
-  it('only accepts PINs of exactly 4 digits', () => {
-    expect(isValidPin('0420')).toBe(true)
-    expect(isValidPin('042')).toBe(false)
-    expect(isValidPin('04a0')).toBe(false)
-  })
-
-  it('stores the snapshot encrypted and opens it with the same pseudonym and PIN', async () => {
-    const storage = new MemoryStorage()
-    const vault = createPinVault(storage, { iterations: 1000 })
-
-    await vault.save('Luna', '0420', snapshot)
-
-    const raw = [...storage.items.values()].join('')
-    expect(raw).not.toContain('Publicaron mi dirección')
-    expect(raw).not.toContain('Luna')
-    expect(vault.exists()).toBe(true)
-    await expect(vault.open('Luna', '0420')).resolves.toEqual(snapshot)
-  })
-
-  it('rejects a wrong PIN without revealing data', async () => {
-    const storage = new MemoryStorage()
-    const vault = createPinVault(storage, { iterations: 1000 })
-    await vault.save('Luna', '0420', snapshot)
-
-    await expect(vault.open('Luna', '9999')).rejects.toThrow(PinVaultError)
-    await expect(vault.open('Luna', '9999')).rejects.toMatchObject({ code: 'wrong-credentials' })
-  })
-
-  it('rejects an empty pseudonym or a PIN that is not 4 digits', async () => {
-    const vault = createPinVault(new MemoryStorage(), { iterations: 1000 })
-
-    await expect(vault.save(' ', '0420', snapshot)).rejects.toMatchObject({ code: 'invalid-credentials' })
-    await expect(vault.save('Luna', '42', snapshot)).rejects.toMatchObject({ code: 'invalid-credentials' })
-  })
-
-  it('reports when there is no local space to open', async () => {
-    const vault = createPinVault(new MemoryStorage(), { iterations: 1000 })
-
-    await expect(vault.open('Luna', '0420')).rejects.toThrow(PinVaultError)
-    await expect(vault.open('Luna', '0420')).rejects.toMatchObject({ code: 'not-found' })
-  })
-
-  it('removes every trace when cleared', async () => {
-    const storage = new MemoryStorage()
-    const vault = createPinVault(storage, { iterations: 1000 })
-    await vault.save('Luna', '0420', snapshot)
-
-    vault.clear()
-
-    expect(vault.exists()).toBe(false)
-    expect(storage.items.size).toBe(0)
   })
 })

@@ -11,16 +11,14 @@ import FolioSheet from '../../shared/ui/FolioSheet.vue'
 import LocaleSelect from '../../shared/ui/LocaleSelect.vue'
 import { openAccessibilityPanel } from '../accessibility/use-accessibility'
 import { useCase } from '../case/use-case'
-import LocalSpaceDialog from './LocalSpaceDialog.vue'
 
 const router = useRouter()
 const base = import.meta.env.BASE_URL
 const { t } = useI18n()
-const { state, acceptConsent, vaultActive } = useCase()
+const { state, acceptConsent } = useCase()
 
 const consent = ref(state.consentAccepted)
 const emergency = ref<InstanceType<typeof EmergencyDialog>>()
-const localSpace = ref<InstanceType<typeof LocalSpaceDialog>>()
 
 function start() {
   acceptConsent()
@@ -70,9 +68,6 @@ function start() {
 
     <nav class="welcome__links" :aria-label="t('welcome.linksLabel')">
       <RouterLink :to="{ name: 'assistant' }">{{ t('welcome.assistantLink') }}</RouterLink>
-      <button type="button" class="welcome__link-button" @click="localSpace?.open()">
-        {{ vaultActive ? t('welcome.localSpaceActive') : t('welcome.localSpaceCreate') }}
-      </button>
       <button type="button" class="welcome__link-button" @click="openAccessibilityPanel">
         {{ t('welcome.accessibilityLink') }}
       </button>
@@ -95,7 +90,6 @@ function start() {
   </aside>
 
   <EmergencyDialog ref="emergency" />
-  <LocalSpaceDialog ref="localSpace" @opened="router.push({ name: 'identify' })" />
 </template>
 
 <style scoped>

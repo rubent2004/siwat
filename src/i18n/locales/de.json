@@ -68,36 +68,13 @@
     "exitTipHold": "halten Sie die Sonne 2 Sekunden lang gedrückt oder tippen Sie sie 3-mal hintereinander an",
     "linksLabel": "Weitere Optionen",
     "assistantLink": "Schnellhilfe nutzen (Anleitung per Schaltflächen)",
-    "localSpaceActive": "Lokaler Bereich aktiv",
-    "localSpaceCreate": "Lokalen Bereich mit PIN anlegen (optional)",
     "accessibilityLink": "Optionen für Barrierefreiheit",
     "privacyTitle": "Datenschutzhinweis",
-    "privacyBody": "Ihre Antworten, Links und Screenshots bleiben nur im Speicher dieses Browsers und werden beim Schließen des Tabs gelöscht. Nichts wird auf Server hochgeladen. Wenn Sie einen lokalen Bereich anlegen, wird er mit Ihrer PIN verschlüsselt auf diesem Gerät gespeichert. Im Ergebnis können Sie alles mit „Daten von diesem Gerät löschen“ entfernen.",
+    "privacyBody": "Ihre Antworten, Links und Screenshots bleiben nur im Speicher dieses Browsers und werden beim Schließen des Tabs gelöscht. Nichts wird auf Server hochgeladen. Im Ergebnis können Sie alles mit „Daten von diesem Gerät löschen“ entfernen.",
     "creditsText": "Prototyp aus dem Nationalen Hackathon 2026, veranstaltet von ANDRYSAS, UN Women und dem Zentrum für Geschlechterstudien der UES, mit Unterstützung von eLankidetza. Er ist kein offizieller Dienst dieser Institutionen.",
     "creditsLabel": "Veranstalter und Unterstützer"
   },
-  "localSpace": {
-    "titleOpen": "Meinen lokalen Bereich öffnen",
-    "titleCreate": "Lokalen Bereich mit PIN anlegen",
-    "done": "Fertig. Ihr Fortschritt wird verschlüsselt auf diesem Gerät gespeichert. Um ihn an einem anderen Tag fortzusetzen, melden Sie sich mit demselben Pseudonym und derselben PIN an.",
-    "continue": "Weiter",
-    "createIntro": "Das ist optional. Ihr Fortschritt wird nur auf diesem Gerät verschlüsselt gespeichert. Verwenden Sie nicht Ihren echten Namen.",
-    "openIntro": "Auf diesem Gerät ist ein Bereich gespeichert. Geben Sie Ihr Pseudonym und Ihre PIN ein, um ihn zu öffnen.",
-    "pseudonym": "Pseudonym",
-    "pin": "4-stellige PIN",
-    "busy": "Wird geschützt…",
-    "submitOpen": "Meinen Bereich öffnen",
-    "submitCreate": "Meinen Bereich anlegen",
-    "replace": "Neuen anlegen (ersetzt den bisherigen)",
-    "cancel": "Abbrechen",
-    "fallbackError": "Der lokale Bereich konnte nicht geöffnet werden."
-  },
   "errors": {
-    "vault": {
-      "invalid-credentials": "Geben Sie ein Pseudonym und eine 4-stellige PIN ein.",
-      "not-found": "Auf diesem Gerät ist kein lokaler Bereich gespeichert.",
-      "wrong-credentials": "Pseudonym oder PIN ist falsch. Bitte prüfen Sie die Angaben und versuchen Sie es erneut."
-    },
     "evidence": {
       "too-many-files": "Sie können höchstens {max} Screenshots hochladen. Entfernen Sie einen, um einen weiteren hinzuzufügen.",
       "unsupported-format": "„{name}“ ist kein JPG- oder PNG-Bild. Laden Sie den originalen Screenshot in einem dieser Formate hoch."
@@ -111,7 +88,7 @@
     "otherRoleHint": "Geben Sie den Bereich an, in dem Sie aktiv sind. Höchstens {max} Zeichen.",
     "preferNot": "Keine Angabe",
     "department": "Departamento (optional)",
-    "hint": "Diese beiden Angaben dienen nur der anonymen Statistik. Sie identifizieren Sie nicht.",
+    "hint": "Diese beiden Angaben sind freiwillig und erscheinen nur in Ihrem Protokoll. Sie identifizieren Sie nicht.",
     "platforms": "Wo fand der Angriff statt?",
     "otherPlatform": "Wo? (optional)",
     "otherPlatformHint": "Geben Sie das Netzwerk, die App oder die Website an. Höchstens {max} Zeichen.",
@@ -163,10 +140,10 @@
     "spanishNote": "Das Protokoll wird auf Spanisch erstellt, damit Sie es bei salvadorianischen Behörden vorlegen können.",
     "downloaded": "Protokoll heruntergeladen. Sehen Sie in Ihrem Download-Ordner nach.",
     "error": "Das PDF konnte nicht erstellt werden. Versuchen Sie es erneut; wenn es weiterhin nicht klappt, entfernen Sie die Screenshots und laden Sie sie neu hoch.",
-    "eraseHint": "Wenn Sie fertig sind, löschen Sie alles, was SIWAT auf diesem Gerät gespeichert hat: Antworten, Links, Screenshots und lokalen Bereich.",
+    "eraseHint": "Wenn Sie fertig sind, löschen Sie alles, was SIWAT auf diesem Gerät gespeichert hat: Antworten, Links und Screenshots.",
     "clear": "Daten von diesem Gerät löschen",
     "confirmTitle": "Alles von diesem Gerät löschen?",
-    "confirmBody": "Ihre Antworten, Links, Screenshots und der lokale Bereich mit PIN werden gelöscht. Das lässt sich nicht rückgängig machen.",
+    "confirmBody": "Ihre Antworten, Links und Screenshots werden gelöscht. Das lässt sich nicht rückgängig machen.",
     "notDownloaded": "Sie haben Ihr Protokoll noch nicht heruntergeladen.",
     "keep": "Meine Daten behalten",
     "confirmClear": "Ja, alles löschen"
@@ -249,11 +226,6 @@
       "label": "Offene Sitzungen prüfen",
       "detail": "Beenden Sie Sitzungen, die Sie nicht kennen, und ändern Sie Ihr Passwort, wenn Ihnen eine verdächtig vorkommt."
     }
-  },
-  "stats": {
-    "title": "Anonyme Statistik (optional)",
-    "optIn": "Ich möchte anonyme Daten an die Beobachtungsstelle für politische Gewalt von ANDRYSAS beitragen.",
-    "preview": "Das ist alles, was geteilt würde: ohne Namen, Links, Schilderung oder Screenshots. In dieser Demo wird noch nichts gesendet."
   },
   "assistant": {
     "title": "Schnellhilfe",

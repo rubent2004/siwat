@@ -1,4 +1,4 @@
-import { computed, reactive, readonly, ref, watch } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import { resetLocale } from '../../i18n'
 import { resetAccessibility } from '../accessibility/use-accessibility'
 import { asksIntimateContent, classify } from '../diagnosis/domain/classify'
@@ -9,12 +9,10 @@ import {
   validateEvidenceFiles,
   type EvidenceRecord,
 } from '../evidence/domain/evidence'
-import { toPlainSnapshot, type CaseSnapshot } from './domain/case-snapshot'
-import { createPinVault } from './infrastructure/pin-vault'
+import type { CaseSnapshot } from './domain/case-snapshot'
 import { createSessionRepository } from './infrastructure/session-repository'
 
 const sessionRepository = createSessionRepository(sessionStorage)
-const pinVault = createPinVault(localStorage)
 
 interface CaseState extends CaseSnapshot {
   consentAccepted: boolean
@@ -30,10 +28,6 @@ const state = reactive<CaseState>(restored ? { ...restored, consentAccepted: tru
 /** Original screenshots stay in memory only (keyed by SHA-256); they are needed for the PDF. */
 const evidenceFiles = new Map<string, File>()
 
-/** Pseudonym + PIN of the optional local space, kept in memory while the tab is open. */
-let vaultCredentials: { pseudonym: string; pin: string } | null = null
-const vaultActive = ref(false)
-let vaultSaveTimer: ReturnType<typeof setTimeout> | undefined
 
 function snapshot(): CaseSnapshot {
   return { answers: state.answers, evidence: state.evidence, caseCode: state.caseCode }
@@ -44,12 +38,6 @@ watch(
   () => {
     if (!state.consentAccepted) return
     sessionRepository.save(snapshot())
-    if (vaultCredentials) {
-      clearTimeout(vaultSaveTimer)
-      const { pseudonym, pin } = vaultCredentials
-      const current = toPlainSnapshot(snapshot())
-      vaultSaveTimer = setTimeout(() => void pinVault.save(pseudonym, pin, current), 600)
-    }
   },
   { deep: true },
 )
@@ -100,30 +88,17 @@ function evidenceFile(record: EvidenceRecord): File | undefined {
   return evidenceFiles.get(record.sha256)
 }
 
-async function createLocalSpace(pseudonym: string, pin: string) {
-  await pinVault.save(pseudonym, pin, toPlainSnapshot(snapshot()))
-  vaultCredentials = { pseudonym, pin }
-  vaultActive.value = true
-}
-
-async function openLocalSpace(pseudonym: string, pin: string) {
-  const opened = await pinVault.open(pseudonym, pin)
-  Object.assign(state, opened, { consentAccepted: true })
-  vaultCredentials = { pseudonym, pin }
-  vaultActive.value = true
-}
+/** Key of the PIN-protected local space that earlier versions stored in localStorage. */
+const LEGACY_VAULT_KEY = 'siwat:vault'
 
 /**
- * «Limpiar datos de este dispositivo»: erases session, local space, in-memory files,
- * the language choice and the accessibility options.
+ * «Limpiar datos de este dispositivo»: erases the session, in-memory files,
+ * the language choice and the accessibility options, plus any local space left by an earlier version.
  */
 function clearDevice() {
-  clearTimeout(vaultSaveTimer)
   sessionRepository.clear()
-  pinVault.clear()
+  localStorage.removeItem(LEGACY_VAULT_KEY)
   evidenceFiles.clear()
-  vaultCredentials = null
-  vaultActive.value = false
   Object.assign(state, freshState())
   resetLocale()
   resetAccessibility()
@@ -135,8 +110,6 @@ export function useCase() {
     result,
     step1Complete,
     step2Complete,
-    vaultActive: readonly(vaultActive),
-    hasLocalSpace: () => pinVault.exists(),
     acceptConsent: () => {
       state.consentAccepted = true
       sessionRepository.save(snapshot())
@@ -145,8 +118,6 @@ export function useCase() {
     addEvidence,
     removeEvidence,
     evidenceFile,
-    createLocalSpace,
-    openLocalSpace,
     clearDevice,
   }
 }

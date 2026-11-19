@@ -68,36 +68,13 @@
     "exitTipHold": "press and hold the sun for 2 seconds or tap it 3 times in a row",
     "linksLabel": "Other options",
     "assistantLink": "Use the Quick Assistant (button guide)",
-    "localSpaceActive": "Local space active",
-    "localSpaceCreate": "Create a local space with a PIN (optional)",
     "accessibilityLink": "Accessibility options",
     "privacyTitle": "Privacy notice",
-    "privacyBody": "Your answers, links and screenshots are kept only in this browser's memory and are erased when you close the tab. Nothing is uploaded to servers. If you create a local space, it is stored encrypted with your PIN on this device. On the result screen you can erase everything with “Clear data from this device”.",
+    "privacyBody": "Your answers, links and screenshots are kept only in this browser's memory and are erased when you close the tab. Nothing is uploaded to servers. On the result screen you can erase everything with “Clear data from this device”.",
     "creditsText": "Prototype created at the 2026 National Hackathon, organised by ANDRYSAS, UN Women and the UES Centre for Gender Studies, with support from eLankidetza. It is not an official service of these institutions.",
     "creditsLabel": "Organisers and supporters"
   },
-  "localSpace": {
-    "titleOpen": "Open my local space",
-    "titleCreate": "Create a local space with a PIN",
-    "done": "Done. Your progress is stored encrypted on this device. To pick it up another day, sign in with the same pseudonym and PIN.",
-    "continue": "Continue",
-    "createIntro": "This is optional. It stores your progress encrypted on this device only. Do not use your real name.",
-    "openIntro": "There is a saved space on this device. Enter your pseudonym and PIN to open it.",
-    "pseudonym": "Pseudonym",
-    "pin": "4-digit PIN",
-    "busy": "Protecting…",
-    "submitOpen": "Open my space",
-    "submitCreate": "Create my space",
-    "replace": "Create a new one (replaces the previous one)",
-    "cancel": "Cancel",
-    "fallbackError": "The local space could not be opened."
-  },
   "errors": {
-    "vault": {
-      "invalid-credentials": "Enter a pseudonym and a 4-digit PIN.",
-      "not-found": "There is no local space saved on this device.",
-      "wrong-credentials": "Incorrect pseudonym or PIN. Check them and try again."
-    },
     "evidence": {
       "too-many-files": "You can upload up to {max} screenshots. Remove one to add another.",
       "unsupported-format": "“{name}” is not a JPG or PNG image. Upload the original screenshot in one of those formats."
@@ -111,7 +88,7 @@
     "otherRoleHint": "Write the space where you take part. Up to {max} characters.",
     "preferNot": "I prefer not to say",
     "department": "Department (Optional)",
-    "hint": "These two answers are used only for anonymous statistics. They do not identify you.",
+    "hint": "These two answers are optional and only appear in your log. They do not identify you.",
     "platforms": "Where did the attack happen?",
     "otherPlatform": "Where? (Optional)",
     "otherPlatformHint": "Write the network, app or website. Up to {max} characters.",
@@ -163,10 +140,10 @@
     "spanishNote": "The log is generated in Spanish so that you can present it to Salvadoran institutions.",
     "downloaded": "Log downloaded. Check your downloads folder.",
     "error": "The PDF could not be created. Try again; if it keeps failing, remove the screenshots and upload them again.",
-    "eraseHint": "When you are done, erase everything SIWAT stored on this device: answers, links, screenshots and local space.",
+    "eraseHint": "When you are done, erase everything SIWAT stored on this device: answers, links and screenshots.",
     "clear": "Clear data from this device",
     "confirmTitle": "Erase everything from this device?",
-    "confirmBody": "Your answers, links, screenshots and the PIN-protected local space will be erased. This cannot be undone.",
+    "confirmBody": "Your answers, links and screenshots will be erased. This cannot be undone.",
     "notDownloaded": "You have not downloaded your log yet.",
     "keep": "Keep my data",
     "confirmClear": "Yes, erase everything"
@@ -249,11 +226,6 @@
       "label": "Check your open sessions",
       "detail": "Close any you do not recognise and change your password if you see one that looks strange."
     }
-  },
-  "stats": {
-    "title": "Anonymous statistics (optional)",
-    "optIn": "I want to contribute anonymous data to the ANDRYSAS Political Violence Observatory.",
-    "preview": "This is everything that would be shared: no name, links, account of events or screenshots. In this demo it is not sent anywhere yet."
   },
   "assistant": {
     "title": "Quick assistant",

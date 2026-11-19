@@ -68,36 +68,13 @@
     "exitTipHold": "请按住太阳图标 2 秒钟，或连续点按 3 次",
     "linksLabel": "其他选项",
     "assistantLink": "使用快速助手（按钮引导）",
-    "localSpaceActive": "本地空间已启用",
-    "localSpaceCreate": "创建带 PIN 码的本地空间（可选）",
     "accessibilityLink": "无障碍选项",
     "privacyTitle": "隐私声明",
-    "privacyBody": "您的回答、链接和截图仅保存在此浏览器的内存中，关闭标签页后即被删除。任何内容都不会上传到服务器。如果您创建本地空间，它会用您的 PIN 码加密后保存在此设备上。在结果页面，您可以通过“清除此设备上的数据”删除全部内容。",
+    "privacyBody": "您的回答、链接和截图仅保存在此浏览器的内存中，关闭标签页后即被删除。任何内容都不会上传到服务器。在结果页面，您可以通过“清除此设备上的数据”删除全部内容。",
     "creditsText": "本原型诞生于 2026 年全国黑客松，由 ANDRYSAS、联合国妇女署和萨尔瓦多大学性别研究中心主办，并获得 eLankidetza 支持。本工具不是上述机构的官方服务。",
     "creditsLabel": "主办与支持机构"
   },
-  "localSpace": {
-    "titleOpen": "打开我的本地空间",
-    "titleCreate": "创建带 PIN 码的本地空间",
-    "done": "完成。您的进度已加密保存在此设备上。改天继续时，请使用相同的化名和 PIN 码进入。",
-    "continue": "继续",
-    "createIntro": "此功能为可选项。它只会把您的进度加密保存在此设备上。请勿使用真实姓名。",
-    "openIntro": "此设备上有一个已保存的空间。请输入您的化名和 PIN 码打开它。",
-    "pseudonym": "化名",
-    "pin": "4 位数字 PIN 码",
-    "busy": "正在加密保护…",
-    "submitOpen": "打开我的空间",
-    "submitCreate": "创建我的空间",
-    "replace": "新建一个（将替换原有空间）",
-    "cancel": "取消",
-    "fallbackError": "无法打开本地空间。"
-  },
   "errors": {
-    "vault": {
-      "invalid-credentials": "请输入化名和 4 位数字 PIN 码。",
-      "not-found": "此设备上没有已保存的本地空间。",
-      "wrong-credentials": "化名或 PIN 码不正确。请检查后重试。"
-    },
     "evidence": {
       "too-many-files": "最多可上传 {max} 张截图。请先删除一张再添加。",
       "unsupported-format": "“{name}”不是 JPG 或 PNG 图片。请上传这两种格式之一的原始截图。"
@@ -111,7 +88,7 @@
     "otherRoleHint": "请填写您参与的领域，最多 {max} 个字。",
     "preferNot": "不愿透露",
     "department": "省份（可选）",
-    "hint": "这两项信息仅用于匿名统计，不会识别您的身份。",
+    "hint": "这两项信息为选填，只会出现在您的证据记录中，不会识别您的身份。",
     "platforms": "侵害发生在哪里？",
     "otherPlatform": "在哪里？（可选）",
     "otherPlatformHint": "请填写网络、应用或网站的名称，最多 {max} 个字。",
@@ -163,10 +140,10 @@
     "spanishNote": "记录以西班牙语生成，以便您向萨尔瓦多的机构提交。",
     "downloaded": "记录已下载。请查看您的下载文件夹。",
     "error": "无法生成 PDF。请重试；如果问题仍然存在，请删除截图后重新上传。",
-    "eraseHint": "完成后，请删除 SIWAT 在此设备上保存的所有内容：回答、链接、截图和本地空间。",
+    "eraseHint": "完成后，请删除 SIWAT 在此设备上保存的所有内容：回答、链接和截图。",
     "clear": "清除此设备上的数据",
     "confirmTitle": "要删除此设备上的所有内容吗？",
-    "confirmBody": "您的回答、链接、截图和带 PIN 码的本地空间都将被删除，且无法撤销。",
+    "confirmBody": "您的回答、链接和截图都将被删除，且无法撤销。",
     "notDownloaded": "您还没有下载证据记录。",
     "keep": "保留我的数据",
     "confirmClear": "是，全部删除"
@@ -249,11 +226,6 @@
       "label": "检查已登录的会话",
       "detail": "退出您不认识的会话；如果发现可疑登录，请修改密码。"
     }
-  },
-  "stats": {
-    "title": "匿名统计（可选）",
-    "optIn": "我愿意向 ANDRYSAS 政治暴力观察站提供匿名数据。",
-    "preview": "以下就是会被分享的全部内容：不含姓名、链接、经过描述或截图。在此演示版中，数据尚不会发送到任何地方。"
   },
   "assistant": {
     "title": "快速助手",

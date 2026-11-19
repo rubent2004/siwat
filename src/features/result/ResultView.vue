@@ -9,7 +9,6 @@ import { useCase } from '../case/use-case'
 import { lightKey } from '../diagnosis/catalog'
 import { actionLabelKey } from './route-catalog'
 import ActionRoute from './ActionRoute.vue'
-import AnonymousStatsOptIn from './AnonymousStatsOptIn.vue'
 import BitacoraPanel from './BitacoraPanel.vue'
 
 const { t, locale } = useI18n()
@@ -64,7 +63,6 @@ onMounted(() => void announce(t('result.announce', { title: copy.value.title, bo
 
     <FolioSheet folio="06" :case-code="state.caseCode">
       <ActionRoute />
-      <AnonymousStatsOptIn class="result__stats" />
     </FolioSheet>
   </div>
 </template>
@@ -108,10 +106,6 @@ onMounted(() => void announce(t('result.announce', { title: copy.value.title, bo
   font-size: var(--text-xl);
   color: var(--tone);
   outline: none;
-}
-
-.result__stats {
-  padding-top: var(--space-3);
 }
 
 .law {

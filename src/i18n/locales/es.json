@@ -68,36 +68,13 @@
     "exitTipHold": "mantén presionado el sol 2 segundos o tócalo 3 veces seguidas",
     "linksLabel": "Otras opciones",
     "assistantLink": "Usar Asistente Rápido (Guía por botones)",
-    "localSpaceActive": "Espacio local activo",
-    "localSpaceCreate": "Crear espacio local con PIN (Opcional)",
     "accessibilityLink": "Opciones de accesibilidad",
     "privacyTitle": "Aviso de privacidad",
-    "privacyBody": "Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la pestaña. Nada se sube a servidores. Si creas un espacio local, se guarda cifrado con tu PIN en este dispositivo. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo».",
+    "privacyBody": "Tus respuestas, enlaces y capturas se guardan solo en la memoria de este navegador y se borran al cerrar la pestaña. Nada se sube a servidores. En el resultado puedes borrar todo con «Limpiar datos de este dispositivo».",
     "creditsText": "Prototipo creado en el Hackatón Nacional 2026, organizado por ANDRYSAS, ONU Mujeres y el Centro de Estudios de Género de la UES, con apoyo de eLankidetza. No es un servicio oficial de estas instituciones.",
     "creditsLabel": "Organizan y apoyan"
   },
-  "localSpace": {
-    "titleOpen": "Abrir mi espacio local",
-    "titleCreate": "Crear espacio local con PIN",
-    "done": "Listo. Tu avance se guarda cifrado en este dispositivo. Para retomarlo otro día, entra con el mismo seudónimo y PIN.",
-    "continue": "Continuar",
-    "createIntro": "Es opcional. Guarda tu avance cifrado solo en este dispositivo. No uses tu nombre real.",
-    "openIntro": "Hay un espacio guardado en este dispositivo. Escribe tu seudónimo y PIN para abrirlo.",
-    "pseudonym": "Seudónimo",
-    "pin": "PIN de 4 números",
-    "busy": "Protegiendo…",
-    "submitOpen": "Abrir mi espacio",
-    "submitCreate": "Crear mi espacio",
-    "replace": "Crear uno nuevo (reemplaza el anterior)",
-    "cancel": "Cancelar",
-    "fallbackError": "No se pudo abrir el espacio local."
-  },
   "errors": {
-    "vault": {
-      "invalid-credentials": "Escribe un seudónimo y un PIN de 4 números.",
-      "not-found": "No hay un espacio local guardado en este dispositivo.",
-      "wrong-credentials": "Seudónimo o PIN incorrectos. Revisa e intenta de nuevo."
-    },
     "evidence": {
       "too-many-files": "Puedes subir un máximo {max} capturas. Quita una para agregar otra.",
       "unsupported-format": "«{name}» no es una imagen JPG o PNG. Sube la captura original en uno de esos formatos."
@@ -111,7 +88,7 @@
     "otherRoleHint": "Escribe tu espacio de participación. Máximo {max} caracteres.",
     "preferNot": "Prefiero no decirlo",
     "department": "Departamento (Opcional)",
-    "hint": "Estos dos datos solo sirven para estadística anónima. No te identifican.",
+    "hint": "Estos dos datos son opcionales y solo aparecen en tu Bitácora. No te identifican.",
     "platforms": "¿Dónde ocurrió la agresión?",
     "otherPlatform": "¿Dónde? (Opcional)",
     "otherPlatformHint": "Escribe la red, aplicación o sitio. Máximo {max} caracteres.",
@@ -163,10 +140,10 @@
     "spanishNote": "La bitácora se genera en español para que puedas presentarla ante instituciones salvadoreñas.",
     "downloaded": "Bitácora descargada. Revisa tu carpeta de descargas.",
     "error": "No se pudo crear el PDF. Intenta de nuevo; si persiste, quita las capturas y vuelve a subirlas.",
-    "eraseHint": "Cuando termines, borra todo lo que SIWAT guardó en este dispositivo: respuestas, enlaces, capturas y espacio local.",
+    "eraseHint": "Cuando termines, borra todo lo que SIWAT guardó en este dispositivo: respuestas, enlaces y capturas.",
     "clear": "Limpiar datos de este dispositivo",
     "confirmTitle": "¿Borrar todo de este dispositivo?",
-    "confirmBody": "Se borran tus respuestas, enlaces, capturas y el espacio local con PIN. No se puede deshacer.",
+    "confirmBody": "Se borran tus respuestas, enlaces y capturas. No se puede deshacer.",
     "notDownloaded": "Aún no descargaste tu bitácora.",
     "keep": "Conservar mis datos",
     "confirmClear": "Sí, borrar todo"
@@ -249,11 +226,6 @@
       "label": "Revisa las sesiones abiertas",
       "detail": "Cierra las que no reconozcas y cambia tu contraseña si ves alguna extraña."
     }
-  },
-  "stats": {
-    "title": "Estadística anónima (opcional)",
-    "optIn": "Quiero aportar datos anónimos al Observatorio de Violencia Política de ANDRYSAS.",
-    "preview": "Esto es todo lo que se compartiría: sin nombre, enlaces, relato ni capturas. En esta demo todavía no se envía a ningún lugar."
   },
   "assistant": {
     "title": "Asistente rápido",
